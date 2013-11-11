@@ -1,0 +1,13 @@
+db.keywords.update(
+                     {count : {$gt: -1}},
+                     { $inc : { count : 1 } },
+                     { multi: true }
+                   )
+                   
+db.keywords.find({count : 10}).max( { count: 250 } )
+
+db.keywords.find({type : "c", city : "Chicago"},{count : 1 , text : 1}).sort({count : -1})
+
+db.tweets.find({id_str : {$in :  }},{text : 1})
+
+nohup python listen.py > /dev/null &

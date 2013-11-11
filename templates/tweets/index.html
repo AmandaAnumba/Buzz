@@ -1,0 +1,16 @@
+
+<html>
+</title> {{ title }} </title>
+    {% for c in cities %}
+    <p><b>{{c}}</b></p>
+    	{% for k in keywords[c] %}
+    	<p>{{k}}</p>
+    	{% endfor %}
+    {% endfor %}
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script>
+
+d3.selectAll("p").style("color", function() {
+  return "hsl(" + Math.random() * 360 + ",100%,50%)";
+});</script>
+</html>
