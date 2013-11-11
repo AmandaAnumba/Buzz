@@ -9,7 +9,7 @@ buzz = Flask(__name__)
 
 
 
-conn = Connection()
+conn = Connection('localhost', 27017)
 
 
 
