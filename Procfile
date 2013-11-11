@@ -1,1 +1,1 @@
-web: gunicorn buzz:app
+web: gunicorn hello:app
