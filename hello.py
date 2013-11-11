@@ -12,8 +12,8 @@ conn = Connection()
 
 
 
-@buzz.route('/')
-@buzz.route('/index')
+@hello.route('/')
+@hello.route('/index')
 def index():
 	cities = [c['city'] for c in conn.buzz.locations.find()]
 	kwdata = {}
