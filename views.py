@@ -1,10 +1,10 @@
-from buzz import buzz
+#from buzz import buzz
 from models import *
 from flask import render_template
 from flask import request
 from flask import Flask
 
-app = Flask(__buzz__)
+buzz = Flask(__name__)
 
 
 
