@@ -1,0 +1,5 @@
+{
+"trending": [{"y": 5.42, "key": "kaskade"}, {"y": 2.03, "key": "the raiders"}, {"y": 1.42, "key": "zendaya"}, {"y": 1.42, "key": "deadmau5"}, {"y": 1.35, "key": "eminem"}, {"y": 1.29, "key": "selena"}, {"y": 1.11, "key": "rihanna"}, {"y": 1.11, "key": "one direction"}, {"y": 0.8, "key": "miley cyrus"}, {"y": 0.8, "key": "justin bieber"}],
+"upcoming": [{"y": 0.74, "key": "lady gaga"}, {"y": 0.68, "key": "diego"}, {"y": 0.62, "key": "skye"}, {"y": 0.55, "key": "dead on"}, {"y": 0.55, "key": "the states"}, {"y": 0.49, "key": "la la"}, {"y": 0.49, "key": "close your eyes"}, {"y": 0.49, "key": "shooting star"}, {"y": 0.49, "key": "the doors"}, {"y": 0.49, "key": "cher"}],
+"verge": [{"y": 0.37, "key": "macklemore"}, {"y": 0.37, "key": "the packers"}, {"y": 0.31, "key": "tino"}, {"y": 0.31, "key": "kutless"}, {"y": 0.31, "key": "menudo"}, {"y": 0.31, "key": "size 9"}, {"y": 0.31, "key": "the steelers"}, {"y": 0.31, "key": "best coast"}, {"y": 0.31, "key": "no secrets"}, {"y": 0.31, "key": "the egg"}]
+}

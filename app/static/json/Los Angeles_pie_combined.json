@@ -1,0 +1,5 @@
+{
+"trending": [{"y": 4.68, "key": "deadmau5"}, {"y": 1.86, "key": "one direction"}, {"y": 1.78, "key": "eminem"}, {"y": 1.75, "key": "deftones"}, {"y": 1.42, "key": "kaskade"}, {"y": 1.26, "key": "skrillex"}, {"y": 0.88, "key": "the weeknd"}, {"y": 0.88, "key": "selena"}, {"y": 0.88, "key": "rihanna"}, {"y": 0.82, "key": "justin bieber"}],
+"upcoming": [{"y": 0.79, "key": "avicii"}, {"y": 0.74, "key": "lady gaga"}, {"y": 0.71, "key": "baauer"}, {"y": 0.68, "key": "cher"}, {"y": 0.63, "key": "reba"}, {"y": 0.6, "key": "lil b"}, {"y": 0.58, "key": "nine inch nails"}, {"y": 0.55, "key": "switchfoot"}, {"y": 0.55, "key": "gomez"}, {"y": 0.52, "key": "chris brown"}],
+"verge": [{"y": 0.3, "key": "big sister"}, {"y": 0.3, "key": "juicy j"}, {"y": 0.3, "key": "la la"}, {"y": 0.3, "key": "the raiders"}, {"y": 0.27, "key": "the drums"}, {"y": 0.27, "key": "diddy"}, {"y": 0.27, "key": "a.k."}, {"y": 0.27, "key": "reality check"}, {"y": 0.27, "key": "truth hurts"}, {"y": 0.27, "key": "kid cudi"}]
+}

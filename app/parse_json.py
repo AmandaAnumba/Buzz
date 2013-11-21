@@ -148,24 +148,26 @@ def main():
 	tfile = open("static/json/tids.json",'r')
 	uid_dict = json.load(tfile)
 	tweets = []
-	for c in cities:
+	'''for c in cities:
 		color = colors.pop()
 		tweets = outputall(c,top_keywords,color,tweets_dict,uid_dict,tweets)
 	makeChartValues(cities)
 	comp_tweets = open("static/json/compare_tweets.json",'w')
 	json.dump(tweets,comp_tweets)
 	comp_tweets.close()
-	tfile.close()
-	
+	tfile.close()'''
 
-
-	#trending
-	#outputpie("Chicago",top_keywords,"trending",0,10)
-	#Upcoming
-	#outputpie("Chicago",top_keywords,"upcoming",10,20)
-	#On the Verge
-	#outputpie("Chicago",top_keywords,"verge",40,50)
-	#makePieValues("Chicago")
+	for city in cities:	
+		#trending
+		outputpie(city,top_keywords,"trending",0,10)
+		#Upcoming
+		outputpie(city,top_keywords,"upcoming",10,20)
+		#On the Verge
+		outputpie(city,top_keywords,"verge",40,50)
+		makePieValues(city)
 
 if __name__ == "__main__":
 	main()
+
+
+
