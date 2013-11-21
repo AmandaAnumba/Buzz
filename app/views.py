@@ -72,7 +72,7 @@ def index():
 @buzz.route('/chicago.html')
 @crossdomain(origin='*', headers='Content-Type')
 def chicago():
-	return render_template("explore.html",
+	return render_template("chicago.html",
 		cities = cities)
 
 @buzz.route('/explore')
