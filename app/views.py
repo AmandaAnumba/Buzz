@@ -65,22 +65,15 @@ conn = Connection('localhost', 27017)
 @buzz.route('/index')
 @crossdomain(origin='*', headers='Content-Type')
 def index():
-	cities = [c['city'] for c in conn.buzz.locations.find()]
-	kwdata = {}
-	for c in cities:
-		kwdata[c] = [k['text'] for k in conn.buzz.keywords.find({"type" : "c", "city" : c}).sort("count",-1)]
-	return render_template('tweets/index.html',
-		title="buzz",
-		cities = cities,
-		keywords = kwdata)
+	return render_template('explore.html')
 
 
 @buzz.route('/chicago')
 @buzz.route('/chicago.html')
 @crossdomain(origin='*', headers='Content-Type')
 def chicago():
-	return render_template("chicago.html",
-		cities = cities)	
+	return render_template("explore.html",
+		cities = cities)
 
 @buzz.route('/explore')
 @buzz.route('/explore.html')
