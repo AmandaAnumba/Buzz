@@ -57,7 +57,7 @@ app = Flask(__name__)
 
 
 
-conn = Connection('localhost', 27017)
+#conn = Connection('localhost', 27017)
 
 
 
