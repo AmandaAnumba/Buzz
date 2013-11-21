@@ -16,6 +16,7 @@
 <script src="static/nvd3/src/models/pie.js"></script>
 <script src="static/nvd3/src/models/pieChart.js"></script>
 <script src="static/nvd3/src/utils.js"></script>
+
   </head>
 <style>
 
@@ -68,43 +69,46 @@ text {
 <h1 style="text-align: center;"> {{city}} </h1>
 <div id="body">
   <div id="lt"> 
-  <ul id="tweets" style="list-style-type: none; text-align: -webkit-match-parent; float: left;">
+  <ul id="tweets" style="list-style-type: none; text-align: -webkit-match-parent; float: right;">
   </ul>
     <div id="charts">
-<ul style="list-style-type: none; text-align: -webkit-match-parent; float: right;">
-<h2 align="left">{{Trending}}</h2>
+<ul style="list-style-type: none; text-align: -webkit-match-parent; float: left;">
+<h2 align="center">Trending</h2>
 </li>
 <li>
 <svg id="chart1" class="mypiechart" style="text-align: -webkit-match-parent; float: right;"></svg>
 </li>
 <li>
-<h2 align="left">Upcoming</h2>
+<h2 align="center">Upcoming</h2>
 </li>
 <li>
 <svg id="chart2" class="mypiechart" style="text-align: -webkit-match-parent; float: right;"></svg>
 </li>
 <li>
 </li>
-<h2 align="left">On the Verge</h2>
+<h2 align="center">On the Verge</h2>
 <li>
 <svg id="chart3" class="mypiechart" style="text-align: -webkit-match-parent; float: right;"></svg>
 </li>
 </ul>
 </div>
 </div>
- <script type="text/javascript" charset="utf-8">
+       <script type="text/javascript" charset="utf-8">
+  
 
         $.getJSON( "static/json/compare_tweets.json", function( data ) {
         var items = [];
         var tweetlist = document.getElementById("tweets");
         $.each( data, function( i, tweet ) {
-          if ( i === 15 ) {
+          if ( i === 40 ) {
           return false;
         }
           var li = document.createElement();
-          li.innerHTML = '<li style="text-align: -webkit-match-parent;" id="' + i + '">' + 
-            '<iframe border=0 frameborder=0 height=150 width=350 align = left src="https://twitframe.com/show?url=https://twitter.com/' + tweet.user_id_str + '/status/' + tweet.id_str + '"></iframe>'
-            + '</li>'
+          /*li.innerHTML = '<li style="text-align: -webkit-match-parent;" id="' + i + '">' + 
+            '<iframe border=0 frameborder=0 height=150 width=350 align = right src="https://twitframe.com/show?url=https://twitter.com/' + tweet.user_id_str + '/status/' + tweet.id_str + '"></iframe>'
+            + '</li>'*/
+            li.innerHTML='<li style="text-align: -webkit-match-parent;" id="' + i + '">' +
+            '<blockquote class="twitter-tweet" height="400" width="750" min-width="500" align="right" ><a href="https://twitter.com/twitterapi/status/' + tweet.id_str + '"</a></blockquote></li>'
             tweetlist.appendChild(li);
         });
        
@@ -151,6 +155,18 @@ nv.addGraph(function() {
 
 </script> 
 </div>  
+<script type="text/javascript">// <![CDATA[
+(function() {
+var twitterScriptTag = document.createElement('script');
+twitterScriptTag.type = 'text/javascript';
+twitterScriptTag.async = true;
+twitterScriptTag.src = 'static/widget.js';
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(twitterScriptTag, s);
+})();
+
+
+// ]]></script>
   </body>
 
 </html>

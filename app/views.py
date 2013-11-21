@@ -97,11 +97,17 @@ def explore():
 def keywords():
 	return redirect(url_for('static/json',filename='keywordtable.json'))	
 		
-@buzz.route('/compare_values')
+@buzz.route('/test')
+@buzz.route('/test.html')
 @crossdomain(origin='*', headers='Content-Type')
-def values():
-	return redirect(url_for('static/json',filename='compare_values.json'))		
+def test():
+	return render_template("test.html")	
 
+@buzz.route('/helper')
+@buzz.route('/helper.js')
+@crossdomain(origin='*', headers='Content-Type')
+def helper():
+	return redirect(url_for('static',filename='helper.js'))	
 	
 	
 	
