@@ -29,7 +29,7 @@ class Parser:
 		artists.close()
 		actors.close()
 		self.conductor()
-		#for t in self.tweets.find():
+		#for t in self.tweets.find(timeout=False):
 		#	self.parseTweet(t)
 	
 	def conductor(self):
@@ -92,7 +92,9 @@ class Parser:
 			if len(popcultlist) > 0:
 				self.tweets.insert(tweet)
 				self.updateKeywords(popcultlist,hashtags,usernames,phrases,tweet['id_str'],tweet['created_at'],city)
-	
+			#else:
+			#	self.tweets.remove({'id_str' : tid})
+				
 	def popCulture(self,tweet):
 		popcultlist = []
 		text = tweet["text"]

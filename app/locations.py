@@ -35,9 +35,13 @@ class Location_Conn:
 
 		
 if __name__ == "__main__":
-	pass
-	#locs = Location_Conn()
-	#locs.add("Chicago", [-87.96,41.644,-87.40,42.04])
+	locs = Location_Conn()
+	#westlimit=-80.468075; southlimit=25.709042; eastlimit=-80.077856; northlimit=26.050704
+	#locs.add("Miami",[-80.468075,25.709042,-80.077856,26.050704])
+	#westlimit=-87.997945; southlimit=41.624833; eastlimit=-87.385342; northlimit=42.119975
+	#locs.add("Chicago", [-87.997945,41.624833,-87.385342,42.119975])
+	#westlimit=-77.241982; southlimit=38.791645; eastlimit=-76.849655; northlimit=39.151737
+	#locs.add("Washington DC",[-77.241982,38.791645,-76.849655,39.151737])
 	#locs.add("San Francisco", [-122.75,36.8,-121.75,37.8])
 	#locs.add("New York City", [-74,40,-73,41])
 	#LA

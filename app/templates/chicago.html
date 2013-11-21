@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title> Buzz </title>
+    <link href="static/nvd3/nv.d3.css" rel="stylesheet" type="text/css">
+    <script src="static/nvd3/lib/d3.v3.js"></script>
+    <script src="static/nvd3/nv.d3.js"></script>
+    <link href = "static/style.css" rel="stylesheet" type="text/css"></link>	
+    <link rel="icon" type="static/image/ico" href="static/Images/icon.ico">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="static/wikipedia.js"></script>
+<script src="static/nvd3/src/models/legend.js"></script>
+<script src="static/nvd3/src/models/pie.js"></script>
+<script src="static/nvd3/src/models/pieChart.js"></script>
+<script src="static/nvd3/src/utils.js"></script>
+  </head>
+<style>
+
+
+
+text {
+  font: 12px sans-serif;
+}
+
+.mypiechart {
+  width: 700px;
+  height: 500px;
+  border: 2px;
+}
+</style>
+<body>
+
+
+    
+    <!-- **HEADER**  -->
+    <div id="buzztitle">
+        <img src="static/Images/title.png" />
+    </div>
+    
+    <!-- **NAVIGATION BAR** -->
+    <div id="navbar-wrapper">
+      <h1 id="navbar-header"><a href="home.html">Buzz</a></h1>
+      <div class="navbar"> 
+          <ul>
+              <li class="parent">
+                  <img src="static/Images/discover.png"/>
+                  <a href="discover.html">Discover</a>
+                      <ul>
+                          <li class="child"><a href="discover.html">New York</a></li>
+                          <li class="child"><a href="discover.html">San Francisco</a></li>
+                          <li class="child"><a href="discover.html">Chicago</a></li>
+                          <li class="child"><a href="discover.html">Los Angeles</a></li>
+                      </ul>
+              </li>
+                  
+              <li class="parent">
+                  <img src="static/Images/explore.png"/>
+                  <a href="explore.html">Explore</a>
+              </li>
+          </ul>
+      </div>
+    </div>
+    
+    <!-- **MAIN BODY** -->
+<div id="body">
+  <div id="lt"> 
+  <ul id="tweets" style="list-style-type: none; text-align: -webkit-match-parent; float: left;">
+  </ul>
+    <div id="charts">
+<ul style="list-style-type: none; text-align: -webkit-match-parent; float: right;">
+<h2 align="left">Trending</ht>
+</li>
+<li>
+<svg id="chart1" class="mypiechart" style="text-align: -webkit-match-parent; float: right;"></svg>
+</li>
+<li>
+<h2 align="left">Upcoming</ht>
+</li>
+<li>
+<svg id="chart2" class="mypiechart" style="text-align: -webkit-match-parent; float: right;"></svg>
+</li>
+<li>
+</li>
+<h2 align="left">On the Verge</ht>
+<li>
+<svg id="chart3" class="mypiechart" style="text-align: -webkit-match-parent; float: right;"></svg>
+</li>
+</ul>
+</div>
+</div>
+ <script type="text/javascript" charset="utf-8">
+  
+
+        $.getJSON( "static/json/compare_tweets.json", function( data ) {
+        var items = [];
+        var tweetlist = document.getElementById("tweets");
+        $.each( data, function( i, tweet ) {
+          if ( i === 15 ) {
+          return false;
+        }
+          var li = document.createElement();
+          li.innerHTML = '<li style="text-align: -webkit-match-parent;" id="' + i + '">' + 
+            '<iframe border=0 frameborder=0 height=150 width=350 align = left src="https://twitframe.com/show?url=https://twitter.com/' + tweet.user_id_str + '/status/' + tweet.id_str + '"></iframe>'
+            + '</li>'
+            tweetlist.appendChild(li);
+        });
+       
+
+      });
+        </script>
+    
+    <!-- PLAYGROUND -->
+    <!-- wikipedia image search display -->
+    <div id="wikipedia"></div>
+    
+ <script>
+
+d3.json("static/json/Chicago_pie_combined.json", function (data) {
+nv.addGraph(function() {
+
+
+    var chart = nv.models.pieChart()
+        .x(function(d) { return d.key })
+        .y(function(d) { return d.y })
+        .donut(true);
+
+      d3.select("#chart1")
+          .datum(data["trending"])
+        .transition().duration(1200)
+          .call(chart);
+
+      d3.select("#chart2")
+          .datum(data["upcoming"])
+        .transition().duration(1200)
+          .call(chart);
+
+      d3.select("#chart3")
+          .datum(data["verge"])
+        .transition().duration(1200)
+          .call(chart);
+          
+
+
+
+    return chart;
+});
+});
+
+</script> 
+</div>  
+  </body>
+
+</html>
+
+
+
+
+
