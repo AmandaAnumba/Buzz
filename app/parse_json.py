@@ -44,7 +44,7 @@ def outputall(city,top_keywords,color,tweets_dict,uid_dict,tweets):
 		values.append({"label" : t["text"],"value" : t["score"],"tweets" : tidlist, "id_str" : tid, "user_id_str" : uid,"score" : t["combined_score"]})
 	values = sorted(values, key=lambda k: k['score'])[::-1]
 	tweetIds = []
-	values = {"key" : city , "color" : color, "values" : values[:75]}
+	values = {"key" : city , "color" : color, "values" : values[:60]}
 	topfile = open("static/json/%s_values.json" % city,'w')
 	json.dump(values,topfile)
 	topfile.close()
@@ -157,9 +157,9 @@ def main():
 		color = colors.pop()
 		tweets = outputall(c,top_keywords,color,tweets_dict,uid_dict,tweets)
 	makeChartValues(cities)
-	comp_tweets = open("static/json/compare_tweets2.json",'w')
-	json.dump(tweets,comp_tweets)
-	comp_tweets.close()
+	#comp_tweets = open("static/json/compare_tweets2.json",'w')
+	#json.dump(tweets,comp_tweets)
+	#comp_tweets.close()
 	tfile.close()
 
 	'''for city in cities:	

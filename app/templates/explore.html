@@ -11,7 +11,6 @@
         <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 		<script src="static/wikipedia.js"></script>
-    <script src="static/json/compare_tweets2.json" type="text/javascript"></script>
 
 
 		<style>
@@ -20,6 +19,8 @@
 		  height: 5600px;
 		  width: 700px;
 		}
+
+
 
 		</style>
 	</head>
@@ -57,10 +58,11 @@
         <!-- **MAIN BODY** -->
         <div id="body">
             <h2 class="subtitle">Select Cities to Compare</h2>
-			
+
 
             <!-- **TWEETS** -->
-            <div id="rt"> 
+            <div class="rt" id="rt" style="float: right;">
+
                     
                       
                       <ul id="tweets" style="list-style-type: none; text-align: -webkit-match-parent; float: right;">
@@ -104,7 +106,7 @@
       });
 
         function addTweets(tweetlist) {
-          var count = tweetlist.length;
+          var count = Math.min(tweetlist.length,30);
           var tweets = document.getElementById("tweets");
           var ul = document.createElement("ul");
           ul.id="tweets";
@@ -143,8 +145,6 @@ nv.addGraph(function() {
       .showValues(false)
       .tooltips(true)
       .tooltipContent(function(key, y, e, graph,d) { 
-        var tweetlist = tweetdata[key][y];
-        //addTweets(tweetlist);
         return '<h3>' + key + '</h3>' +'<p>' + y + '</p>' 
       })
 
@@ -152,8 +152,10 @@ nv.addGraph(function() {
       .showControls(false);
 
 
+
   chart.yAxis
       .tickFormat(d3.format(',0f'));
+
 
   d3.select('#chart svg')
 
@@ -162,12 +164,20 @@ nv.addGraph(function() {
       .call(chart);
   nv.utils.windowResize(chart.update);
 
+
   return chart;
     },function(){
-      d3.selectAll(".nv-bar").on('click',
-          function(key, y){
-            addTweets(key.tweets);
-          });
+
+      chart.multibar.dispatch.on('elementClick', 
+        function(e) {
+          console.log(e);
+          d3.selectAll('.nv-bar')
+             .style('opacity', .5)
+           e.e.srcElement.parentElement.style.setProperty('opacity',1);
+
+          addTweets(e.point.tweets);
+        });
+
     });
 });
 
