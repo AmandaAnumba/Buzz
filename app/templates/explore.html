@@ -11,6 +11,8 @@
         <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 		<script src="static/wikipedia.js"></script>
+    <script src="static/json/compare_tweets2.json" type="text/javascript"></script>
+
 
 		<style>
 
@@ -100,14 +102,32 @@
        
 
       });
+
+        function addTweets(tweetlist) {
+          var count = tweetlist.length;
+          var tweets = document.getElementById("tweets");
+          var ul = document.createElement("ul");
+          ul.id="tweets";
+          ul.setAttribute("style","list-style-type: none; text-align: -webkit-match-parent; float: right");
+          var oldList = document.getElementById("rt");
+          for (var i=0; i < count; i++) {
+            var li = document.createElement();
+            var tid = tweetlist[i];
+            li.innerHTML='<li style="text-align: -webkit-match-parent;" id="' + tid + '">' +
+            '<blockquote class="twitter-tweet" height="400" width="750" min-width="500" align="right" ><a href="https://twitter.com/twitterapi/status/' + tid + '"</a></blockquote></li>';     
+            ul.appendChild(li);
+
+          }
+          oldList.replaceChild(ul,tweets)
+
+          twttr.widgets.load();
+        }
+
         </script>
 
 <script>
 
 
-function tooltipContent(key, y, e, graph) {
-            return '<h3>' + key + '</h3>' +'<p>' + y + '</p>' ;
-        }
 
 
   d3.json("static/json/compare_values.json", function (data) {
@@ -122,7 +142,11 @@ nv.addGraph(function() {
       .margin({top: 30, right: 20, bottom: 50, left: 175})
       .showValues(false)
       .tooltips(true)
-      .tooltipContent(function(key, y, e, graph) { return '<h3>' + key + '</h3>' +'<p>' + y + '</p>' })
+      .tooltipContent(function(key, y, e, graph,d) { 
+        var tweetlist = tweetdata[key][y];
+        //addTweets(tweetlist);
+        return '<h3>' + key + '</h3>' +'<p>' + y + '</p>' 
+      })
 
       
       .showControls(false);
@@ -139,8 +163,14 @@ nv.addGraph(function() {
   nv.utils.windowResize(chart.update);
 
   return chart;
+    },function(){
+      d3.selectAll(".nv-bar").on('click',
+          function(key, y){
+            addTweets(key.tweets);
+          });
+    });
 });
-});
+
 </script>
 
 <script type="text/javascript">// <![CDATA[

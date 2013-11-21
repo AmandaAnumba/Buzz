@@ -31,15 +31,20 @@ def outputDict(dictlist,sortfield="score",lim=None,fp=None):
 def outputall(city,top_keywords,color,tweets_dict,uid_dict,tweets):
 	'''For comparison chart'''
 	values = []
+	tweets[city] = {}
 	for t in top_keywords[city]:
 		tid = tweets_dict[city][t["text"]][0]
+		tidlist = tweets_dict[city][t["text"]]
+
 		uid = uid_dict[tid]
-		tweets.append({"id_str" : tid , "user_id_str" : uid})
+		#tweets.append({"id_str" : tid , "user_id_str" : uid})
+		tweets[city][t["text"]] = tidlist
+
 		#values.append({"label" : t["text"],"value" : t["score"],"id_str" : tid, "user_id_str" : uid})
-		values.append({"label" : t["text"],"value" : t["score"],"id_str" : tid, "user_id_str" : uid,"score" : t["combined_score"]})
+		values.append({"label" : t["text"],"value" : t["score"],"tweets" : tidlist, "id_str" : tid, "user_id_str" : uid,"score" : t["combined_score"]})
 	values = sorted(values, key=lambda k: k['score'])[::-1]
 	tweetIds = []
-	values = {"key" : city , "color" : color, "values" : values[:50]}
+	values = {"key" : city , "color" : color, "values" : values[:75]}
 	topfile = open("static/json/%s_values.json" % city,'w')
 	json.dump(values,topfile)
 	topfile.close()
@@ -147,24 +152,24 @@ def main():
 	colors = ["#FF0000","blue","gold","green"]
 	tfile = open("static/json/tids.json",'r')
 	uid_dict = json.load(tfile)
-	tweets = []
-	'''for c in cities:
+	tweets = {}
+	for c in cities:
 		color = colors.pop()
 		tweets = outputall(c,top_keywords,color,tweets_dict,uid_dict,tweets)
 	makeChartValues(cities)
-	comp_tweets = open("static/json/compare_tweets.json",'w')
+	comp_tweets = open("static/json/compare_tweets2.json",'w')
 	json.dump(tweets,comp_tweets)
 	comp_tweets.close()
-	tfile.close()'''
+	tfile.close()
 
-	for city in cities:	
+	'''for city in cities:	
 		#trending
 		outputpie(city,top_keywords,"trending",0,10)
 		#Upcoming
 		outputpie(city,top_keywords,"upcoming",10,20)
 		#On the Verge
 		outputpie(city,top_keywords,"verge",40,50)
-		makePieValues(city)
+		makePieValues(city)'''
 
 if __name__ == "__main__":
 	main()

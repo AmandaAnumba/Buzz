@@ -81,14 +81,6 @@ def discover(cityname):
 		city = cityname)
 
 
-@buzz.route('/chicago')
-@buzz.route('/chicago.html')
-@crossdomain(origin='*', headers='Content-Type')
-def chicago():
-	return render_template("chicago.html",
-		cities = cities,
-		city = "Chicago")	
-
 @buzz.route('/explore')
 @buzz.route('/explore.html')
 @crossdomain(origin='*', headers='Content-Type')
@@ -108,12 +100,6 @@ def keywords():
 def test():
 	return render_template("test.html")	
 
-@buzz.route('/helper')
-@buzz.route('/helper.js')
-@crossdomain(origin='*', headers='Content-Type')
-def helper():
-	return redirect(url_for('static',filename='helper.js'))	
-	
 	
 	
 	
