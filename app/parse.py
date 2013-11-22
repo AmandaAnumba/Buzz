@@ -28,9 +28,12 @@ class Parser:
 		#self.popculture = pickle.load(keywordsfile)
 		artists.close()
 		actors.close()
-		self.conductor()
-		#for t in self.tweets.find(timeout=False):
-		#	self.parseTweet(t)
+		if len(sys.argv) == 2 and sys.argv[1] == "-kw":
+			for t in self.tweets.find(timeout=False):
+				self.parseTweet(t,True)
+		else:
+			self.conductor()
+
 	
 	def conductor(self):
 		while True:
@@ -66,7 +69,7 @@ class Parser:
 		for e in entities:
 			print e
 			
-	def parseTweet(self,tweet):
+	def parseTweet(self,tweet,kw=False):
 		text = tweet['text']
 		#print text
 		popcultlist = self.popCulture(tweet)
@@ -84,16 +87,19 @@ class Parser:
 		tweet['city'] = city
 		tid = tweet['id_str']
 		#update cache
-		self.cache.remove({'id_str' : tid})
+		if kw == False:
+			self.cache.remove({'id_str' : tid})
 		if city:
 			hashtags = [[1,1]]
 			usernames = [[1,1]]
 			phrases = [[1,1]]
 			if len(popcultlist) > 0:
-				self.tweets.insert(tweet)
+				if kw == False:
+					self.tweets.insert(tweet)
 				self.updateKeywords(popcultlist,hashtags,usernames,phrases,tweet['id_str'],tweet['created_at'],city)
-			#else:
-			#	self.tweets.remove({'id_str' : tid})
+			else:
+				if kw == True and len(popcultlist) == 0:
+					self.tweets.remove({'id_str' : tid})
 				
 	def popCulture(self,tweet):
 		popcultlist = []

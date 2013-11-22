@@ -131,7 +131,7 @@ def main():
 	keywords_by_city = {}
 	for c in cities:
 		keywords_by_city[c] = []
-	#parseTable()
+	parseTable()
 	keywordfile = open("static/json/keywordtableout.json",'r')
 	json_list = json.load(keywordfile,encoding="utf-8")
 	keywordfile.close()
