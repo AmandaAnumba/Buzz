@@ -1,0 +1,5 @@
+{
+"trending": [{"y": 5.0, "key": "kaskade"}, {"y": 1.62, "key": "the raiders"}, {"y": 1.45, "key": "one direction"}, {"y": 1.41, "key": "zendaya"}, {"y": 1.11, "key": "eminem"}, {"y": 1.03, "key": "rihanna"}, {"y": 0.98, "key": "deadmau5"}, {"y": 0.94, "key": "selena"}, {"y": 0.81, "key": "lady gaga"}, {"y": 0.68, "key": "miley cyrus"}],
+"upcoming": [{"y": 0.68, "key": "justin bieber"}, {"y": 0.64, "key": "lil b"}, {"y": 0.6, "key": "shooting star"}, {"y": 0.56, "key": "skye"}, {"y": 0.56, "key": "borgore"}, {"y": 0.51, "key": "diego"}, {"y": 0.51, "key": "dead on"}, {"y": 0.51, "key": "close your eyes"}, {"y": 0.51, "key": "backstreet boys"}, {"y": 0.51, "key": "la la"}],
+"verge": [{"y": 0.34, "key": "diplo"}, {"y": 0.3, "key": "trife"}, {"y": 0.3, "key": "arcade fire"}, {"y": 0.3, "key": "beach house"}, {"y": 0.3, "key": "the hawks"}, {"y": 0.3, "key": "picture perfect"}, {"y": 0.3, "key": "open mic"}, {"y": 0.3, "key": "get wet"}, {"y": 0.3, "key": "bangerz"}, {"y": 0.3, "key": "chief keef"}]
+}

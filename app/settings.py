@@ -2,4 +2,6 @@ cities = [
 	"Chicago", 
 	"Los Angeles",
 	"New York City",
-	"San Francisco"]
+	"San Francisco",
+	"Miami",
+	"Washington DC"]

@@ -11,14 +11,16 @@
         <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 		<script src="static/wikipedia.js"></script>
-        <script src="static/chartjs.js"></script>
-        <script src="static/buzz.js"></script>	
+
+
 		<style>
 
 		#chart svg {
-		  height: 5600px;
-		  width: 700px;
+		  height: 9000px;
+		  width: 825px;
 		}
+
+
 
 		</style>
 	</head>
@@ -38,10 +40,12 @@
                         <img src="static/Images/discover.png"/>
                         <a href="discover.html">Discover</a>
                             <ul>
-                                <li class="child"><a href="discover.html">New York</a></li>
-                                <li class="child"><a href="discover.html">San Francisco</a></li>
-                                <li class="child"><a href="discover.html">Chicago</a></li>
-                                <li class="child"><a href="discover.html">Los Angeles</a></li>
+                                <li class="child"><a href="discover_New York City">New York</a></li>
+                                <li class="child"><a href="discover_San Francisco">San Francisco</a></li>
+                                <li class="child"><a href="discover_Chicago">Chicago</a></li>
+                                <li class="child"><a href="discover_Los Angeles">Los Angeles</a></li>
+                                <li class="child"><a href="discover_Miami">Miami</a></li>
+                                <li class="child"><a href="discover_Washington DC">Washington DC</a></li>
                             </ul>
                     </li>
                         
@@ -56,10 +60,11 @@
         <!-- **MAIN BODY** -->
         <div id="body">
             <h2 class="subtitle">Select Cities to Compare</h2>
-			
+
 
             <!-- **TWEETS** -->
-            <div id="rt"> 
+            <div class="rt" id="rt" style="float: right;">
+
                     
                       
                       <ul id="tweets" style="list-style-type: none; text-align: -webkit-match-parent; float: right;">
@@ -91,22 +96,42 @@
           return false;
         }
           var li = document.createElement();
-          li.innerHTML = '<li style="text-align: -webkit-match-parent;" id="' + i + '">' + 
+          /*li.innerHTML = '<li style="text-align: -webkit-match-parent;" id="' + i + '">' + 
             '<iframe border=0 frameborder=0 height=150 width=350 align = right src="https://twitframe.com/show?url=https://twitter.com/' + tweet.user_id_str + '/status/' + tweet.id_str + '"></iframe>'
-            + '</li>'
+            + '</li>'*/
+            li.innerHTML='<li style="text-align: -webkit-match-parent;" id="' + i + '">' +
+            '<blockquote class="twitter-tweet" height="400" width="750" min-width="500" align="right" ><a href="https://twitter.com/twitterapi/status/' + tweet.id_str + '"</a></blockquote></li>'
             tweetlist.appendChild(li);
         });
        
 
       });
+
+        function addTweets(tweetlist) {
+          var count = Math.min(tweetlist.length,30);
+          var tweets = document.getElementById("tweets");
+          var ul = document.createElement("ul");
+          ul.id="tweets";
+          ul.setAttribute("style","list-style-type: none; text-align: -webkit-match-parent; float: right");
+          var oldList = document.getElementById("rt");
+          for (var i=0; i < count; i++) {
+            var li = document.createElement();
+            var tid = tweetlist[i];
+            li.innerHTML='<li style="text-align: -webkit-match-parent;" id="' + tid + '">' +
+            '<blockquote class="twitter-tweet" height="400" width="750" min-width="500" align="right" ><a href="https://twitter.com/twitterapi/status/' + tid + '"</a></blockquote></li>';     
+            ul.appendChild(li);
+
+          }
+          oldList.replaceChild(ul,tweets)
+
+          twttr.widgets.load();
+        }
+
         </script>
 
 <script>
 
 
-function tooltipContent(key, y, e, graph) {
-            return '<h3>' + key + '</h3>' +'<p>' + y + '</p>' ;
-        }
 
 
   d3.json("static/json/compare_values.json", function (data) {
@@ -115,19 +140,24 @@ function tooltipContent(key, y, e, graph) {
 nv.addGraph(function() {
 
    chart = nv.models.multiBarHorizontalChart()
-  	  .stacked(true)
+  	  .stacked(false)
       .x(function(d) { return d.label })
       .y(function(d) { return d.value })
-      .margin({top: 30, right: 20, bottom: 50, left: 175})
+      .margin({top: 30, right: 20, bottom: 50, left: 150})
       .showValues(false)
       .tooltips(true)
-      .tooltipContent(function(key, y, e, graph) { return y })
+      .tooltipContent(function(key, y, e, graph,d) { 
+        return '<h3>' + key + '</h3>' +'<p>' + y + '</p>' 
+      })
 
       
       .showControls(false);
 
+
+
   chart.yAxis
-      .tickFormat(d3.format(',.2f'));
+      .tickFormat(d3.format(',0f'));
+
 
   d3.select('#chart svg')
 
@@ -136,10 +166,37 @@ nv.addGraph(function() {
       .call(chart);
   nv.utils.windowResize(chart.update);
 
+
   return chart;
+    },function(){
+
+      chart.multibar.dispatch.on('elementClick', 
+        function(e) {
+          console.log(e);
+          d3.selectAll('.nv-bar')
+             .style('opacity', .5)
+           e.e.srcElement.parentElement.style.setProperty('opacity',1);
+
+          addTweets(e.point.tweets);
+        });
+
+    });
 });
-});
+
 </script>
+
+<script type="text/javascript">// <![CDATA[
+(function() {
+var twitterScriptTag = document.createElement('script');
+twitterScriptTag.type = 'text/javascript';
+twitterScriptTag.async = true;
+twitterScriptTag.src = 'static/widget.js';
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(twitterScriptTag, s);
+})();
+
+
+// ]]></script>
 
     </body>
 

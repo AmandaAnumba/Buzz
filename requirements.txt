@@ -1,3 +1,4 @@
+BeautifulSoup==3.2.1
 Flask==0.10.1
 Jinja2==2.7.1
 Markdown==2.3.1
@@ -8,7 +9,9 @@ Twisted==12.2.0
 Werkzeug==0.9.4
 altgraph==0.10.1
 bdist-mpkg==0.4.4
+beautifulsoup4==4.3.2
 distribute==0.6.28
+gunicorn==18.0
 itsdangerous==0.23
 lxml==3.2.3
 macholib==1.5
@@ -22,6 +25,7 @@ pymongo==2.6.2
 pyparsing==2.0.1
 python-dateutil==1.5
 pytz==2012d
+reporter==0.1.2
 requests==2.0.0
 six==1.4.1
 stevedore==0.12

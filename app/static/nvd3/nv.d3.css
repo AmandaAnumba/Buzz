@@ -158,7 +158,8 @@ svg {
 
 
 svg text {
-  font: normal 12px Arial;
+  font: bold 14px Arial;
+  text-transform:capitalize;
 }
 
 svg .title {

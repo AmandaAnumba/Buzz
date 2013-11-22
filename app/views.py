@@ -57,30 +57,29 @@ app = Flask(__name__)
 
 
 
-conn = Connection('localhost', 27017)
+#conn = Connection('localhost', 27017)
 
 
 
 @buzz.route('/')
 @buzz.route('/index')
+@buzz.route('/index.html')
+@buzz.route('/home')
+@buzz.route('/home.html')
+@buzz.route('/discover')
+@buzz.route('/discover.html')
 @crossdomain(origin='*', headers='Content-Type')
 def index():
-	cities = [c['city'] for c in conn.buzz.locations.find()]
-	kwdata = {}
-	for c in cities:
-		kwdata[c] = [k['text'] for k in conn.buzz.keywords.find({"type" : "c", "city" : c}).sort("count",-1)]
-	return render_template('tweets/index.html',
-		title="buzz",
-		cities = cities,
-		keywords = kwdata)
+	return explore()
 
-
-@buzz.route('/chicago')
-@buzz.route('/chicago.html')
+@buzz.route('/discover_<cityname>')
+@buzz.route('/discover_<cityname>.html')
 @crossdomain(origin='*', headers='Content-Type')
-def chicago():
-	return render_template("chicago.html",
-		cities = cities)	
+def discover(cityname):
+	return render_template("cityview.html",
+		cities = cities,
+		city = cityname)
+
 
 @buzz.route('/explore')
 @buzz.route('/explore.html')
@@ -95,12 +94,12 @@ def explore():
 def keywords():
 	return redirect(url_for('static/json',filename='keywordtable.json'))	
 		
-@buzz.route('/compare_values')
+@buzz.route('/test')
+@buzz.route('/test.html')
 @crossdomain(origin='*', headers='Content-Type')
-def values():
-	return redirect(url_for('static/json',filename='compare_values.json'))		
+def test():
+	return render_template("test.html")	
 
-	
 	
 	
 	

@@ -8977,7 +8977,7 @@ nv.models.multiBarHorizontalChart = function() {
     ;
   xAxis
     .orient('left')
-    .tickPadding(5)
+    .tickPadding(25)
     .highlightZero(false)
     .showMaxMin(false)
     .tickFormat(function(d) { return d })
@@ -9171,16 +9171,24 @@ nv.models.multiBarHorizontalChart = function() {
           .selectAll('line, text')
           .style('opacity', 1)
 
+      xTicks
+          .selectAll('line')
+          .style('opacity', 0)
 
       yAxis
         .scale(y)
         .ticks( availableWidth / 100 )
-        .tickSize( -availableHeight, 0);
+        .tickSize( 0, 0);
+
+
+       
 
       g.select('.nv-y.nv-axis')
           .attr('transform', 'translate(0,' + availableHeight + ')');
       g.select('.nv-y.nv-axis').transition()
           .call(yAxis);
+
+
 
       //------------------------------------------------------------
 
