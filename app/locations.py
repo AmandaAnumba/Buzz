@@ -36,6 +36,8 @@ class Location_Conn:
 		
 if __name__ == "__main__":
 	locs = Location_Conn()
+	#westlimit=-122.475734; southlimit=47.417553; eastlimit=-122.091581; northlimit=47.824583
+	locs.add("Seattle",[-122.475734,47.417553,-122.091581,47.824583])
 	#westlimit=-80.468075; southlimit=25.709042; eastlimit=-80.077856; northlimit=26.050704
 	#locs.add("Miami",[-80.468075,25.709042,-80.077856,26.050704])
 	#westlimit=-87.997945; southlimit=41.624833; eastlimit=-87.385342; northlimit=42.119975

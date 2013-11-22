@@ -1,37 +1,133 @@
-{% extends "base.html" %}
-
-{% block content %}
-
-<div class="container">
-
-<h2>About Neighborhood Buzz</h2>   
-
-<p>Neighborhood Buzz is an experimental system that lets you find out what people in your neighborhood, and neighborhoods in cities around the country, are talking about on Twitter.  When you select a neighborhood from a city map, Neighborhood Buzz displays the main topics that people in that neighborhood are discussing &mdash; politics, sports, food, etc.  &mdash; and then lets you drill down to look at the individual tweets in those categories.</p>
- 
-<p>The system also lets you see, at a glance, how much people in different neighborhoods in a city are talking about a given topic through a "heat map" overlay on the city’s geographical map.</p>
- 
-<p>Neighborhood Buzz uses geo-located tweets as input.  Only a small fraction of tweets currently have location tags, but the number is sufficient to provide tens or hundreds of tweets per neighborhood per day.</p>
- 
-<p>The topical categorizer that the system uses is statistical &mdash; which means that even though we show only the tweets we are most confident the system is categorizing correctly, it still sometimes makes mistakes.  You can let us know when the system has incorrectly categorized a tweet, and eventually that will help us to improve the system.</p>
- 
-<p>Neighborhood Buzz was originally developed at Northwestern University Knight Lab in our joint projects class in technology and journalism, involving students and faculty from the Medill School of Journalism and the McCormick School of Engineering, Dept. of Electrical Engineering and Computer Science, at Northwestern.  It was then re-architected and further developed at the Knight Lab.</p>
- 
-<p>Initial concept: Larry Birnbaum</p>
- 
-<p>Student prototyping team: Sarah Adler, David Cooperberg, Karthic Hariharan, Basil Huang</p> 
- 
-<p>Faculty advisors: Larry Birnbaum and Jeremy Gilbert</p>
- 
-<p>Developer: Jennifer Wilson</p>
- 
-<p>Topic categorizer: Shawn O'Banion</p>
- 
-<p>Engineering Director: Joe Germuska</p>
- 
-<p>Design: Miranda Mulligan, Aaron Salmon, Rebecca Lai</p>
-
-</div>
-
-
-{% endblock %}
-
+<!DOCTYPE html>
+<html>
+  	<head>
+		<title> Buzz </title>
+		<LINK href = "static/style.css" rel="stylesheet" type="text/css"></LINK>	
+		<link rel="icon" type="image/ico" href="Images/icon.ico">
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script src="static/js/jquery-horizscroll.js"></script>
+        <script src="static/js/twitter.js"></script>
+		<script>
+			$(function(){
+				$("#page-wrap").wrapInner("<table cellspacing='30'><tr>");
+				$(".post").wrap("<td></td>");
+				$("body").mousewheel(function(event, delta) {
+					this.scrollLeft -= (delta * 30);
+					event.preventDefault();
+				});   
+			});
+        </script>		
+    </head>
+	
+	<body class="body">
+    	<!-- **HEADER** -->
+        <div id="buzztitle">
+        	<img src="static/Images/title.png" />
+        </div>
+        
+        <!-- **NAVIGATION BAR** -->
+        <div id="navbar-wrapper">
+            <h1 id="navbar-header"><a href="home.html">Buzz</a></h1>
+            <div class="navbar"> 
+                <ul>
+                    <li class="parent">
+                        <img src="static/Images/discover.png"/>
+                        <a href="discover.html">Discover</a>
+                            <ul>
+                                <li class="child"><a href="discover_New York City">New York</a></li>
+                                <li class="child"><a href="discover_San Francisco">San Francisco</a></li>
+                                <li class="child"><a href="discover_Chicago">Chicago</a></li>
+                                <li class="child"><a href="discover_Los Angeles">Los Angeles</a></li>
+                                <li class="child"><a href="discover_Miami">Miami</a></li>
+                                <li class="child"><a href="discover_Washington DC">Washington DC</a></li>
+                            </ul>
+                    </li>
+                        
+                    <li class="parent">
+                        <img src="static/Images/explore.png"/>
+                        <a href="explore.html">Explore</a>
+                    </li>
+                    <li class="parent">
+                      <img src="static/Images/about.png"/>
+                      <a href="about.html">About</a>
+                  </li>                    
+                </ul>
+            </div>
+         </div>
+      
+        <!-- **TWITTER SIDEBAR** -->
+		<script>
+				$('body').on('mouseenter', '#social-hover', function () {
+				$('#social-hover').animate({
+					right: '340px'
+				}, 250);
+				$('#social-main').animate({
+					right: '0px'
+				}, 250);
+			});
+			
+			
+			
+			$('body').on('mouseleave', '#container', function () {
+				$('#social-hover').animate({
+					right: '0px'
+				}, 250);
+				$('#social-main').animate({
+					right: '-340px'
+				}, 250);
+			});
+			
+			</script>
+			
+			<div id="container">
+				<div id="social-main">
+                	<a class="twitter-timeline" href="https://twitter.com/__nineOHnine" data-widget-id="398144428293894144">Tweets by @__nineOHnine</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </div>
+				<div id="social-hover"></div>
+			</div>
+        
+        <!-- **MAIN BODY** -->
+        
+        <!-- tables for horizontal scroll -->
+        <table style="border-spacing: 20px; bgcolor="#fff";>
+            <tr>
+                
+                <td class="homepage">
+                    <div id="welcome">
+                        <h1 class="title">Buzz</h1>
+                        <h2 class="description"> 
+                            <p> Buzz is an easy way to see what's "buzzing" in your city! Buzz 
+                            shows users what people in a particular city are currently tweeting about the most. 
+                            Simply pick a city and discover what pop culture icons are 
+                            buzzing in your neighborhood! </p>
+                            
+                            <p> Scroll sideways to learn more about Buzz or click 'Discover' 
+                            or 'Explore' to begin! </p>
+                        </h2>
+                    </div>
+                </td>
+                
+                
+                <td class="homepage">
+                   <div id="usage">
+                   		<img src="static/Images/how-to.png" />
+                   </div>
+                </td>
+                
+                
+                <td class="homepage">
+                    <div id="about">
+                    	<h1 class="title">About Buzz</h1>
+                   		<h2 class="description"> 
+                            <p> Buzz was originally developed at Northwestern University Knight Lab in our joint projects class in technology and journalism, involving students and faculty from the Medill School of Journalism and the McCormick School of Engineering, Dept. of Electrical Engineering and Computer Science, at Northwestern. It was then re-architected and further developed at the Knight Lab.</p>
+                    	</h2>
+                    </div>
+                </td>
+                
+                
+            </tr>
+        </table>       
+	</body>
+</html>

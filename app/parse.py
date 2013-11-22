@@ -37,11 +37,11 @@ class Parser:
 	
 	def conductor(self):
 		while True:
-			if self.cache.count() == 0:
+			if self.cache.count() < 2000:
 				time.sleep(60)
 			else:
 				#tweets = self.cache.find()
-				for tweet in self.cache.find(timeout=False):
+				for tweet in self.cache.find(timeout=False).limit(1000):
 					self.parseTweet(tweet)
 				#except:
 				#	continue

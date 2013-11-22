@@ -70,7 +70,13 @@ app = Flask(__name__)
 @buzz.route('/discover.html')
 @crossdomain(origin='*', headers='Content-Type')
 def index():
-	return explore()
+	return render_template("home.html")
+
+@buzz.route('/about')
+@buzz.route('/about.html')
+@crossdomain(origin='*', headers='Content-Type')
+def about():
+	return render_template("about.html")
 
 @buzz.route('/discover_<cityname>')
 @buzz.route('/discover_<cityname>.html')
@@ -88,6 +94,12 @@ def explore():
 	return render_template("explore.html",
 		cities = cities)
 	
+@buzz.route('/city')
+@buzz.route('/city.html')
+@crossdomain(origin='*', headers='Content-Type')
+def city():
+	return render_template("city.html")
+
 
 @buzz.route('/keywords')
 @crossdomain(origin='*', headers='Content-Type')
