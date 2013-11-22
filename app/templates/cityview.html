@@ -54,6 +54,8 @@ text {
                                 <li class="child"><a href="discover_San Francisco">San Francisco</a></li>
                                 <li class="child"><a href="discover_Chicago">Chicago</a></li>
                                 <li class="child"><a href="discover_Los Angeles">Los Angeles</a></li>
+                                <li class="child"><a href="discover_Miami">Miami</a></li>
+                                <li class="child"><a href="discover_Washington DC">Washington DC</a></li>
                       </ul>
               </li>
                   
@@ -114,6 +116,25 @@ text {
        
 
       });
+        function addTweets(tweetlist) {
+          var count = Math.min(tweetlist.length,30);
+          var tweets = document.getElementById("tweets");
+          var ul = document.createElement("ul");
+          ul.id="tweets";
+          ul.setAttribute("style","list-style-type: none; text-align: -webkit-match-parent; float: right");
+          var oldList = document.getElementById("rt");
+          for (var i=0; i < count; i++) {
+            var li = document.createElement();
+            var tid = tweetlist[i];
+            li.innerHTML='<li style="text-align: -webkit-match-parent;" id="' + tid + '">' +
+            '<blockquote class="twitter-tweet" height="400" width="750" min-width="500" align="right" ><a href="https://twitter.com/twitterapi/status/' + tid + '"</a></blockquote></li>';     
+            ul.appendChild(li);
+
+          }
+          oldList.replaceChild(ul,tweets)
+
+          twttr.widgets.load();
+        }        
         </script>
     
     <!-- PLAYGROUND -->
@@ -146,11 +167,15 @@ nv.addGraph(function() {
         .transition().duration(1200)
           .call(chart);
           
-
+      d3.selectAll(".nv-slice").on("click",
+          function(e) {
+            console.log(e);
+          });
 
 
     return chart;
-});
+
+    });
 });
 
 </script> 

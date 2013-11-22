@@ -28,7 +28,7 @@ def outputDict(dictlist,sortfield="score",lim=None,fp=None):
 		fp.close()
 	return outdict
 
-def outputall(city,top_keywords,color,tweets_dict,uid_dict,tweets):
+def outputall(city,top_keywords,color,tweets_dict,uid_dict,tweets,overall_keywords):
 	'''For comparison chart'''
 	values = []
 	tweets[city] = {}
@@ -45,6 +45,27 @@ def outputall(city,top_keywords,color,tweets_dict,uid_dict,tweets):
 	values = sorted(values, key=lambda k: k['score'])[::-1]
 	tweetIds = []
 	values = {"key" : city , "color" : color, "values" : values[:60]}
+	topfile = open("static/json/%s_values.json" % city,'w')
+	json.dump(values,topfile)
+	topfile.close()
+	return tweets
+
+def outputtop(city,top_keywords,color,tweets_dict,uid_dict,tweets,overall_keywords):
+	values = []
+	tweets[city] = {}
+	citykeywords = [t["text"] for t in top_keywords[city]]
+	cityvalues = {}
+	for t in top_keywords[city]:
+		if t["text"] in [k[1] for k in overall_keywords]:
+			cityvalues[t["text"]] = (t["score"],t["contrib_score"])
+	for score,keyword in overall_keywords:
+		if keyword not in citykeywords:
+			continue
+		tidlist = tweets_dict[city][keyword]
+		tweets[city][keyword] = tidlist
+		values.append({"label" : keyword,"value" : cityvalues[keyword][0],"tweets" : tidlist, "score" : score})
+	values = sorted(values, key=lambda k: k['score'])[::-1]
+	values = {"key" : city , "color" : color, "values" : values}
 	topfile = open("static/json/%s_values.json" % city,'w')
 	json.dump(values,topfile)
 	topfile.close()
@@ -88,8 +109,8 @@ def makeChartValues(cities):
 	vfile.close()
 
 def parseTable():
-	keywordfile = open("static/keywordtable.json",'r')
-	outfile = open("static/keywordtableout.json",'w')
+	keywordfile = open("static/json/keywordtable.json",'r')
+	outfile = open("static/json/keywordtableout.json",'w')
 	outfile.write('[')
 	lines = keywordfile.readlines()
 	nlines = len(lines)
@@ -133,7 +154,8 @@ def main():
 			else:
 				combined_keywords[c['text']] = 0.
 	top_keywords = {}
-	#combined_keywords = []
+	overall_keywords = []
+	comb_text = []
 	for k in keywords_by_city.keys():
 		top = []
 		city_sum = city_sums[k]
@@ -141,35 +163,43 @@ def main():
 			#percentage of tweets
 			score = 100 * (c["count"] / city_sum)
 			combined_score = 100 * (combined_keywords[c['text']] / combined_sum)
+			contrib_score = (c["count"] / (combined_sum / 500.))
 			c["score"] = round(score,2)
 			c["combined_score"] = round(combined_score,2)
+			c["contrib_score"] = contrib_score
 			top.append(c)
-			#combined_keywords.append(c)
+			if c['text'] in comb_text:
+				continue
+			else:
+				comb_text.append(c["text"])
+				overall_keywords.append((c["combined_score"],c["text"]))
 		#sort by highest score
 		top = sorted(top, key=lambda k: k['combined_score'])[::-1]
 		top_keywords[k] = top
+	overall_keywords = sorted(overall_keywords)[::-1][:75]
+
 	chart = {}
-	colors = ["#FF0000","blue","gold","green"]
+	colors = ["#FF0000","blue","gold","green","#BF00FF","#04B4AE"][::-1]
 	tfile = open("static/json/tids.json",'r')
 	uid_dict = json.load(tfile)
 	tweets = {}
 	for c in cities:
 		color = colors.pop()
-		tweets = outputall(c,top_keywords,color,tweets_dict,uid_dict,tweets)
+		tweets = outputtop(c,top_keywords,color,tweets_dict,uid_dict,tweets,overall_keywords)
 	makeChartValues(cities)
 	#comp_tweets = open("static/json/compare_tweets2.json",'w')
 	#json.dump(tweets,comp_tweets)
 	#comp_tweets.close()
 	tfile.close()
 
-	'''for city in cities:	
+	for city in cities:	
 		#trending
 		outputpie(city,top_keywords,"trending",0,10)
 		#Upcoming
 		outputpie(city,top_keywords,"upcoming",10,20)
 		#On the Verge
 		outputpie(city,top_keywords,"verge",40,50)
-		makePieValues(city)'''
+		makePieValues(city)
 
 if __name__ == "__main__":
 	main()

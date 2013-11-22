@@ -1,0 +1,5 @@
+{
+"trending": [{"y": 7.24, "key": "macklemore"}, {"y": 4.63, "key": "real live"}, {"y": 2.01, "key": "sice"}, {"y": 1.61, "key": "gotti"}, {"y": 1.41, "key": "the doors"}, {"y": 1.21, "key": "chief keef"}, {"y": 1.21, "key": "rihanna"}, {"y": 1.21, "key": "eminem"}, {"y": 1.01, "key": "holy grail"}, {"y": 0.8, "key": "collard greens"}],
+"upcoming": [{"y": 0.8, "key": "the animals"}, {"y": 0.8, "key": "phish"}, {"y": 0.8, "key": "baauer"}, {"y": 0.8, "key": "reality check"}, {"y": 0.8, "key": "skrillex"}, {"y": 0.6, "key": "mackie"}, {"y": 0.6, "key": "around the way"}, {"y": 0.6, "key": "explosions in the sky"}, {"y": 0.6, "key": "sleigh bells"}, {"y": 0.6, "key": "s club"}],
+"verge": [{"y": 0.4, "key": "red hot chili peppers"}, {"y": 0.4, "key": "sweet thing"}, {"y": 0.4, "key": "inner circle"}, {"y": 0.4, "key": "metro station"}, {"y": 0.4, "key": "mad at the world"}, {"y": 0.4, "key": "snoop lion"}, {"y": 0.4, "key": "tiana"}, {"y": 0.4, "key": "the producers"}, {"y": 0.4, "key": "lord have mercy"}, {"y": 0.4, "key": "plus one"}]
+}
