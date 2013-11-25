@@ -60,7 +60,11 @@ function newsSearch(q) {
 //*************************************************************
 function imageSearch(q3) {
 	//Build up the URL for the request
+<<<<<<< HEAD
 	var maxresults = 20;
+=======
+	var maxresults = 5;
+>>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 	var query = new String(q3);
 	var l = query.length;
 	var uri = encodeURI(query.slice(1, (l-1))).replace("%20", "+");
