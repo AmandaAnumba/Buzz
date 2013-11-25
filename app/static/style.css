@@ -565,9 +565,10 @@ body {
 	width: auto;
 }
 
-#tweets {
+#tweet-list {
 	height: auto;
 	overflow-x: auto;
+	overflow: scroll;
 	white-space: nowrap;
 	font-size: 12px;
 	border-radius: 0 0 5px 5px;
@@ -575,10 +576,11 @@ body {
 	background-color:white;
 }
 
-.result{
+.tweet-li{
 	display:inline-block;
 	padding-left: 20px;
-	width: 275px;
+	width: auto;
+	max-height: 200px;
 }
 
 .tweetTitle{

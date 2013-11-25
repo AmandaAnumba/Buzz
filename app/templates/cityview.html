@@ -127,9 +127,9 @@ text {
             kw.innerHTML += '<img src="' + keyword.image + '">';
             row.appendChild(kw);
             kw.id = i;
-
             //addPopover(i);
             $('#' + i).click(function() {
+              addTweetContent(keyword.tweets);
               var query = ($(this).text());
               newsSearch(query);
             videoSearch(query);
@@ -142,29 +142,51 @@ text {
           });
         });        
        
-       function addPopover(i) {
-        $('#' + i).popover({ title: 'Look! A bird!'});
-       }
 
-        function addTweets(tweetlist) {
+
+        function addTweetsCityView(tweetlist) {
           var count = Math.min(tweetlist.length,30);
           var tweets = document.getElementById("tweets");
           var ul = document.createElement("ul");
           ul.id="tweets";
-          ul.setAttribute("style","list-style-type: none; text-align: -webkit-match-parent; float: right");
+          ul.setAttribute("style","list-style-type: none; text-align: -webkit-match-parent;");
           var oldList = document.getElementById("rt");
           for (var i=0; i < count; i++) {
             var li = document.createElement();
             var tid = tweetlist[i];
             li.innerHTML='<li style="text-align: -webkit-match-parent;" id="' + tid + '">' +
-            '<blockquote class="twitter-tweet" height="400" width="750" min-width="500" align="right" ><a href="https://twitter.com/twitterapi/status/' + tid + '"</a></blockquote></li>';     
+            '<blockquote class="twitter-tweet" height="400" width="750" min-width="500"><a href="https://twitter.com/twitterapi/status/' + tid + '"</a></blockquote></li>';     
             ul.appendChild(li);
 
           }
           oldList.replaceChild(ul,tweets)
 
+          
+        }      
+
+        //var output = "<div class='result'><span><a href="+link+" target='_blank'><p class='newsTitle'>"+ title +"<img src='static/Images/nw.png' /></p></a></span><p class='newsSource'>"+ source +"</p></div>";
+        //document.getElementById('news').innerHTML += output;
+        function addTweetContent(tweetlist) {
+          var tweetdiv = document.getElementById('tweet-list');
+          //var hidden = tweetdiv.hidden;
+          var count = Math.min(tweetlist.length,30);
+          var newtweets = '';
+          //tweetdiv.innerHTML = ""
+          for (var i=0; i < count; i++) {
+            var tid = tweetlist[i];
+            //output = '<div class="result"><blockquote class="twitter-tweet"><a href="https://twitter.com/twitterapi/status/' + tid + '"</a></blockquote></div>';
+            output = '<div class="tweet-li" id="tweet-li"><blockquote class="twitter-tweet"><a href="https://twitter.com/twitterapi/status/' + tid + '"</a></blockquote></div>';
+            newtweets += output;
+          }
+          //tweetdiv.innerHTML = newtweets;
+          $('#tweet-list').html(newtweets);
           twttr.widgets.load();
-        }        
+          $('#tweet-list')[0].hidden = '"true"';
+          $('#tweet-list')[0].hidden = '"false"';
+
+          //tweetdiv.hidden = hidden;
+          //tweetdiv.setAttribute("hidden","false");
+        }
     </script>
     
     <!-- PLAYGROUND -->
@@ -186,6 +208,7 @@ text {
             <p id="l-tweets" class="label btn large primary">Recent Tweets<br> <br> </p>
             <div id="videos" hidden="true"></div>
             <div id="news" hidden="true"></div>
+            <div id="tweet-list" hidden="true"></div>
       </div>
 
 <script>
@@ -194,10 +217,17 @@ text {
 
 $('#l-vid').click(function() {
   $('#videos')[0].hidden ^= true;
+  $('#tweet-list')[0].hidden = true;
   $('#news')[0].hidden = true;
 })
 $('#l-news').click(function() {
   $('#news')[0].hidden ^= true;
+  $('#tweet-list')[0].hidden = true;
+  $('#videos')[0].hidden = true;
+})
+$('#l-tweets').click(function() {
+  $('#tweet-list')[0].hidden ^= true;
+  $('#news')[0].hidden = true;
   $('#videos')[0].hidden = true;
 })
 $('#wrapper').click(function() {
@@ -226,7 +256,7 @@ $('#wrapper').click(function() {
 var twitterScriptTag = document.createElement('script');
 twitterScriptTag.type = 'text/javascript';
 twitterScriptTag.async = true;
-twitterScriptTag.src = 'static/widget.js';
+twitterScriptTag.src = 'static/widgetcityview.js';
 var s = document.getElementsByTagName('script')[0];
 s.parentNode.insertBefore(twitterScriptTag, s);
 })();

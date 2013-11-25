@@ -115,12 +115,13 @@ def outputbar(city,top_keywords,fp,lim1,lim2):
 	json.dump(values,barfile)
 	barfile.close()	
 
-def outputcity(city,top_keywords,fp,lim1,lim2,image_dict):
+def outputcity(city,top_keywords,fp,lim1,lim2,image_dict,tweets_dict):
 	values = []
 	top = sorted(top_keywords[city], key=lambda k: k['score'])[::-1][lim1:lim2]
 	for t in top:
+		tids = tweets_dict[city][t["text"]]
 		image = grab_image(t["text"].replace(" ","%20"),image_dict)
-		values.append({"label" : t["text"],"value" : t["score"],"image" : image})
+		values.append({"label" : t["text"],"value" : t["score"],"image" : image,"tweets" : tids})
 	#values = sorted(values, key=lambda k: k['value'])[::-1][lim1:lim2]
 	outfile = open("static/json/%s_media_values.json" % city,'w')
 	json.dump(values,outfile)
@@ -239,13 +240,14 @@ def main():
 	image_dictfile = open("image_dict.pickled",'r')
 	image_dict = pickle.load(image_dictfile)
 	image_dictfile.close()
+
 	for city in cities:	
 		#trending
 		#outputbar(city,top_keywords,"trending",0,10)
 		#Upcoming
 		#outputbar(city,top_keywords,"upcoming",10,20)
 		#On the Verge
-		outputcity(city,top_keywords,"verge",0,60,image_dict)
+		outputcity(city,top_keywords,"verge",0,60,image_dict,tweets_dict)
 		print city
 		#makePieValues(city)
 	image_dictfile = open("image_dict.pickled",'w')
