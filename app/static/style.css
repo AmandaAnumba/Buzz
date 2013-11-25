@@ -481,6 +481,10 @@ body {
 }
 
 /******* news *****/
+#l-news {
+	width: auto;
+	height: auto;
+}
 #news {
 	height: auto;
 	overflow-x: auto;
@@ -513,7 +517,8 @@ body {
 
 .newsTitle {
 	font-size:14px;
-	margin:0;
+	border-radius: 15px 15px 15px 15px;
+	margin:0px;
 	word-wrap:break-word;
 	overflow: hidden;
 }
@@ -614,7 +619,7 @@ body {
 	margin: 0;
 	padding: 0;
 	width: auto;
-	background-image: url('Images/bg.png');
+	background-image: url('static/Images/bg.png');
 	font-family:"Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 }
 

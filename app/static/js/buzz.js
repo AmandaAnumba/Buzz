@@ -45,7 +45,7 @@ function newsSearch(q) {
 //				console.log(title);
 //				console.log(source);
 //				console.log(link);
-				var output = "<div class='result'><span><a href="+link+" target='_blank'><p class='newsTitle'>"+ title +"<img src='Images/nw.png' /></p></a></span><p class='newsSource'>"+ source +"</p></div>";
+				var output = "<div class='result'><span><a href="+link+" target='_blank'><p class='newsTitle'>"+ title +"<img src='static/Images/nw.png' /></p></a></span><p class='newsSource'>"+ source +"</p></div>";
 				document.getElementById('news').innerHTML += output;
 			}
     	}

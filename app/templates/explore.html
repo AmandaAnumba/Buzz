@@ -62,11 +62,11 @@
 
 
             <!-- **TWEETS** -->
-            <div class="rt" id="rt" style="float: right;">
+            <div class="rt" id="rt" style="float: right!important;">
 
                     
                       
-                      <ul id="tweets" style="list-style-type: none; text-align: -webkit-match-parent; float: right;">
+                      <ul id="tweets-list" style="list-style-type: none; text-align: -webkit-match-parent!important; float: right!important;">
                       	
                       	
                       </ul>
@@ -89,7 +89,7 @@
 
         $.getJSON( "static/json/compare_tweets.json", function( data ) {
         var items = [];
-        var tweetlist = document.getElementById("tweets");
+        var tweetlist = document.getElementById("tweets-list");
         $.each( data, function( i, tweet ) {
           if ( i === 40 ) {
           return false;
@@ -108,9 +108,9 @@
 
         function addTweets(tweetlist) {
           var count = Math.min(tweetlist.length,30);
-          var tweets = document.getElementById("tweets");
+          var tweets = document.getElementById("tweets-list");
           var ul = document.createElement("ul");
-          ul.id="tweets";
+          ul.id="tweets-list";
           ul.setAttribute("style","list-style-type: none; text-align: -webkit-match-parent; float: right");
           var oldList = document.getElementById("rt");
           for (var i=0; i < count; i++) {
