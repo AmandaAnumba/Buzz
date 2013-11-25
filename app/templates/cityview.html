@@ -5,16 +5,20 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title> Buzz </title>
     <link href="static/nvd3/nv.d3.css" rel="stylesheet" type="text/css">
+    <link href="static/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="static/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
+
     <script src="static/nvd3/lib/d3.v3.js"></script>
     <script src="static/nvd3/nv.d3.js"></script>
     <link href = "static/style.css" rel="stylesheet" type="text/css"></link>	
     <link rel="icon" type="static/image/ico" href="static/Images/icon.ico">
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="static/wikipedia.js"></script>
-<script src="static/nvd3/src/models/legend.js"></script>
-<script src="static/nvd3/src/models/pie.js"></script>
-<script src="static/nvd3/src/models/pieChart.js"></script>
+    <script src="static/js/twitter.js"></script>
+    <script src="static/js/buzz.js"></script>
+
+    <script src="static/bootstrap/js/bootstrap.js"></script>
+
 <script src="static/nvd3/src/utils.js"></script>
 
   </head>
@@ -63,6 +67,10 @@ text {
                   <img src="static/Images/explore.png"/>
                   <a href="explore.html">Explore</a>
               </li>
+             <li class="parent">
+                <img src="static/Images/about.png"/>
+                <a href="about.html">About</a>
+            </li>   
           </ul>
       </div>
     </div>
@@ -70,35 +78,19 @@ text {
     <!-- **MAIN BODY** -->
 <h1 style="text-align: center;"> {{city}} </h1>
 <div id="body">
-  <div id="lt"> 
+<!---   <div id="lt"> 
   <ul id="tweets" style="list-style-type: none; text-align: -webkit-match-parent; float: right;">
   </ul>
-    <div id="charts">
-<ul style="list-style-type: none; text-align: -webkit-match-parent; float: left;">
-<h2 align="center">Trending</h2>
-</li>
-<li>
-<svg id="chart1" class="mypiechart" style="text-align: -webkit-match-parent; float: right;"></svg>
-</li>
-<li>
-<h2 align="center">Upcoming</h2>
-</li>
-<li>
-<svg id="chart2" class="mypiechart" style="text-align: -webkit-match-parent; float: right;"></svg>
-</li>
-<li>
-</li>
-<h2 align="center">On the Verge</h2>
-<li>
-<svg id="chart3" class="mypiechart" style="text-align: -webkit-match-parent; float: right;"></svg>
-</li>
-</ul>
-</div>
+</div> -->
+
+ <!-- **KEYWORDS**  --> 
+<div id="keywords">      
+
 </div>
        <script type="text/javascript" charset="utf-8">
   
 
-        $.getJSON( "static/json/compare_tweets.json", function( data ) {
+        /*$.getJSON( "static/json/compare_tweets.json", function( data ) {
         var items = [];
         var tweetlist = document.getElementById("tweets");
         $.each( data, function( i, tweet ) {
@@ -106,86 +98,191 @@ text {
           return false;
         }
           var li = document.createElement();
-          /*li.innerHTML = '<li style="text-align: -webkit-match-parent;" id="' + i + '">' + 
-            '<iframe border=0 frameborder=0 height=150 width=350 align = right src="https://twitframe.com/show?url=https://twitter.com/' + tweet.user_id_str + '/status/' + tweet.id_str + '"></iframe>'
-            + '</li>'*/
+
             li.innerHTML='<li style="text-align: -webkit-match-parent;" id="' + i + '">' +
             '<blockquote class="twitter-tweet" height="400" width="750" min-width="500" align="right" ><a href="https://twitter.com/twitterapi/status/' + tweet.id_str + '"</a></blockquote></li>'
             tweetlist.appendChild(li);
-        });
+          });
+        });  */
+
+        /*var media = new Array();
+        
+        media[0] = '<div id="images" hidden="true"></div>';
+        media[1] = '<div id="tweet-list" hidden="true"></div>';
+        media[2] = '<div id="news" hidden="true"></div>';
+        media[3] = '<div id="videos" hidden="true"></div>';*/
+
+        $.getJSON( "static/json/{{city}}_media_values.json", function( data ) {
+          var items = [];
+          var container = document.getElementById("keywords");
+          $.each( data, function( i, keyword ) {
+            if ( i === 60) {
+            return false;
+          }
+            if (i % 6 === 0) {
+              var row = document.createElement("div");
+              row.className = "row-fluid";
+              container.appendChild(row);
+            }
+            var row = container.lastChild;
+            var kw = document.createElement("div");
+            kw.className = "span2 btn large primary";
+            kw.id = i;
+            //kw.innerHTML('data-content="Its so simple to create a tooltop for my website!"');
+            kw.innerHTML = '<h3>' + keyword.label + '</h3>';
+            kw.innerHTML += '<img src="' + keyword.image + '">';
+            row.appendChild(kw);
+            kw.id = i;
+            //addPopover(i);
+            $('#' + i).click(function() {
+              addTweetContent(keyword.tweets);
+              var query = ($(this).text());
+              imageSearch(query);
+              newsSearch(query);
+              videoSearch(query);
+              console.log($(this));
+            });
+            //wikisearch(keyword.label);
+            //console.log(img_kw);
+            //kw.innerHTML += img_kw;
+            //kw.innerHTML += '<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Tamia_2010.jpg/29px-Tamia_2010.jpg"/>';
+            //row.appendChild(kw);
+          });
+        });        
        
 
-      });
-        function addTweets(tweetlist) {
+
+        function addTweetsCityView(tweetlist) {
           var count = Math.min(tweetlist.length,30);
           var tweets = document.getElementById("tweets");
           var ul = document.createElement("ul");
           ul.id="tweets";
-          ul.setAttribute("style","list-style-type: none; text-align: -webkit-match-parent; float: right");
+          ul.setAttribute("style","list-style-type: none; text-align: -webkit-match-parent;");
           var oldList = document.getElementById("rt");
           for (var i=0; i < count; i++) {
             var li = document.createElement();
             var tid = tweetlist[i];
             li.innerHTML='<li style="text-align: -webkit-match-parent;" id="' + tid + '">' +
-            '<blockquote class="twitter-tweet" height="400" width="750" min-width="500" align="right" ><a href="https://twitter.com/twitterapi/status/' + tid + '"</a></blockquote></li>';     
+            '<blockquote class="twitter-tweet" height="400" width="750" min-width="500"><a href="https://twitter.com/twitterapi/status/' + tid + '"</a></blockquote></li>';     
             ul.appendChild(li);
 
           }
           oldList.replaceChild(ul,tweets)
 
+          
+        }      
+
+        //var output = "<div class='result'><span><a href="+link+" target='_blank'><p class='newsTitle'>"+ title +"<img src='static/Images/nw.png' /></p></a></span><p class='newsSource'>"+ source +"</p></div>";
+        //document.getElementById('news').innerHTML += output;
+        function addTweetContent(tweetlist) {
+          var tweetdiv = document.getElementById('tweet-list');
+          var hidden = tweetdiv.hidden;
+          //var hidden = tweetdiv.hidden;
+          var count = Math.min(tweetlist.length,30);
+          var newtweets = '<div id="tweet-list" hidden='+ hidden + '>';
+          //tweetdiv.innerHTML = ""
+          for (var i=0; i < count; i++) {
+            var tid = tweetlist[i];
+            //output = '<div class="result"><blockquote class="twitter-tweet"><a href="https://twitter.com/twitterapi/status/' + tid + '"</a></blockquote></div>';
+            output = '<div class="tweet-li" id="tweet-li"><blockquote class="twitter-tweet"><a href="https://twitter.com/twitterapi/status/' + tid + '"</a></blockquote></div>';
+            newtweets += output;
+          }
+          //tweetdiv.innerHTML = newtweets;
+          newtweets += "</div>";
+         // $('#tweet-list').html(newtweets);
+          $('#tweet-list').replaceWith(newtweets);
           twttr.widgets.load();
-        }        
-        </script>
+         // $('#tweet-list')[0].hidden = '"true"';
+          //$('#tweet-list')[0].hidden = '"false"';
+
+          //tweetdiv.hidden = hidden;
+          //tweetdiv.setAttribute("hidden","false");
+        }
+    </script>
     
     <!-- PLAYGROUND -->
     <!-- wikipedia image search display -->
-    <div id="wikipedia"></div>
+    <!--- <div id="wikipedia"></div> -->
     
- <script>
 
-d3.json("static/json/{{city}}_pie_combined.json", function (data) {
-nv.addGraph(function() {
-
-
-    var chart = nv.models.pieChart()
-        .x(function(d) { return d.key })
-        .y(function(d) { return d.y })
-        .donut(true);
-
-      d3.select("#chart1")
-          .datum(data["trending"])
-        .transition().duration(1200)
-          .call(chart);
-
-      d3.select("#chart2")
-          .datum(data["upcoming"])
-        .transition().duration(1200)
-          .call(chart);
-
-      d3.select("#chart3")
-          .datum(data["verge"])
-        .transition().duration(1200)
-          .call(chart);
-          
-      d3.selectAll(".nv-slice").on("click",
-          function(e) {
-            console.log(e);
-          });
-
-
-    return chart;
-
-    });
-});
-
-</script> 
 </div>  
+
+        <div id="wrapper" align=center style="position: fixed; bottom: 0; width: 100%; float: center;">
+            <!--- <p id="l-news" class="label">Recent News</p>
+            <div id="news"></div> -->
+            
+            <!--<p id="l-img" class="label">Images</p>
+            <div id="images"></div>-->
+            
+            <p id="l-vid" class="label btn large primary">YouTube Videos<br> <br> </p>
+            <p id="l-news" class="label btn large primary">Recent News<br> <br> </p>
+            <p id="l-tweets" class="label btn large primary">Recent Tweets<br> <br> </p>
+            <p id="l-img" class="label btn large primary">Images<br> <br> </p>
+            <div id="images" hidden="true"></div>
+            <div id="videos" hidden="true"></div>
+            <div id="news" hidden="true"></div>
+            <div id="tweet-list" hidden="true"></div>
+      </div>
+
+<script>
+var media = new Array();
+media[0] = '<div id="videos" hidden="true"></div>';
+media[1] = '<div id="news" hidden="true"></div>';
+media[2] = '<div id="tweet-list" hidden="true"></div>';
+media[3] = '<div id="images" hidden="true"></div>';
+
+
+$('#l-img').click(function() {
+  $('#images')[0].hidden ^= true;
+  $('#videos')[0].hidden = true;
+  $('#tweet-list')[0].hidden = true;
+  $('#news')[0].hidden = true;
+})
+$('#l-vid').click(function() {
+  $('#videos')[0].hidden ^= true;
+  $('#tweet-list')[0].hidden = true;
+  $('#news')[0].hidden = true;
+  $('#images')[0].hidden = true;
+})
+$('#l-news').click(function() {
+  $('#news')[0].hidden ^= true;
+  $('#tweet-list')[0].hidden = true;
+  $('#videos')[0].hidden = true;
+  $('#images')[0].hidden = true;
+})
+$('#l-tweets').click(function() {
+  $('#tweet-list')[0].hidden ^= true;
+  $('#news')[0].hidden = true;
+  $('#videos')[0].hidden = true;
+  $('#images')[0].hidden = true;
+})
+$('#wrapper').click(function() {
+  var it = $(this).data('it') || 1;
+  switch ( it ) {
+    case 1 :
+      $(this).parent().animate({down:'0px'}, {queue:false, duration: 500});
+      break;
+    case 2 :
+      $(this).parent().animate({down:'-290px'}, {queue: false, duration: 500});
+      break;
+  }
+  it++;
+  if(it > 2) it = 1;
+  $(this).data('it', it);
+})
+
+
+
+</script>
+
+
+
 <script type="text/javascript">// <![CDATA[
 (function() {
 var twitterScriptTag = document.createElement('script');
 twitterScriptTag.type = 'text/javascript';
 twitterScriptTag.async = true;
-twitterScriptTag.src = 'static/widget.js';
+twitterScriptTag.src = 'static/widgetcityview.js';
 var s = document.getElementsByTagName('script')[0];
 s.parentNode.insertBefore(twitterScriptTag, s);
 })();

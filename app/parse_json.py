@@ -1,6 +1,8 @@
 import json
 from settings import cities
 from pymongo import *
+import urllib2
+import cPickle as pickle
 
 def pull_tweets():
 	conn = Connection()
@@ -13,6 +15,27 @@ def pull_tweets():
 	json.dump(tdict,tfile)
 	tfile.close()
 	return tdict
+
+def grab_image(term,image_dict):
+	if term in image_dict.keys():
+		return image_dict[term]
+	url = 'http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=5b2e6d61f807cd8991fb7c59164637e8&text=%s&sort=relevance&safe_search=1&content_type=1&media=photos&per_page=1&format=json&nojsoncallback=1' % term
+	req = urllib2.Request(url,None,{'user-agent':'northwestern/knightlab'})
+	opener = urllib2.build_opener()
+	try:
+		content = opener.open(req)
+	except:
+		return ""
+	data = json.loads(str(content.read()),"utf-8")
+	photo = data["photos"]["photo"]
+	url = ""
+	if photo != []:
+		photo = photo[0]
+		url += 'http://farm%d.staticflickr.com/%s/%s_%s.jpg' % (photo["farm"],photo["server"],photo["id"],photo["secret"])
+	image_dict[term] = url
+
+	return url
+
 
 def outputDict(dictlist,sortfield="score",lim=None,fp=None):
 	values = []
@@ -81,6 +104,29 @@ def outputpie(city,top_keywords,fp,lim1,lim2):
 	json.dump(values,piefile)
 	piefile.close()
 
+def outputbar(city,top_keywords,fp,lim1,lim2):
+	'''for city view bar chart'''
+	values = []
+	for t in top_keywords[city]:
+		values.append({"label" : t["text"],"value" : t["score"]})
+	values = sorted(values, key=lambda k: k['value'])[::-1][lim1:lim2]
+	values = [{"key": fp, "values": values}]
+	barfile = open("static/json/%s_%s_values.json" % (city,fp),'w')
+	json.dump(values,barfile)
+	barfile.close()	
+
+def outputcity(city,top_keywords,fp,lim1,lim2,image_dict,tweets_dict):
+	values = []
+	top = sorted(top_keywords[city], key=lambda k: k['score'])[::-1][lim1:lim2]
+	for t in top:
+		tids = tweets_dict[city][t["text"]]
+		image = grab_image(t["text"].replace(" ","%20"),image_dict)
+		values.append({"label" : t["text"],"value" : t["score"],"image" : image,"tweets" : tids})
+	#values = sorted(values, key=lambda k: k['value'])[::-1][lim1:lim2]
+	outfile = open("static/json/%s_media_values.json" % city,'w')
+	json.dump(values,outfile)
+	outfile.close()		
+
 def makePieValues(city):
 	vfile = open("static/json/%s_pie_combined.json" % city,'w')
 	vfile.write("{\n")
@@ -131,7 +177,7 @@ def main():
 	keywords_by_city = {}
 	for c in cities:
 		keywords_by_city[c] = []
-	#parseTable()
+	parseTable()
 	keywordfile = open("static/json/keywordtableout.json",'r')
 	json_list = json.load(keywordfile,encoding="utf-8")
 	keywordfile.close()
@@ -191,15 +237,22 @@ def main():
 	#json.dump(tweets,comp_tweets)
 	#comp_tweets.close()
 	tfile.close()
+	image_dictfile = open("image_dict.pickled",'r')
+	image_dict = pickle.load(image_dictfile)
+	image_dictfile.close()
 
 	for city in cities:	
 		#trending
-		outputpie(city,top_keywords,"trending",0,10)
+		#outputbar(city,top_keywords,"trending",0,10)
 		#Upcoming
-		outputpie(city,top_keywords,"upcoming",10,20)
+		#outputbar(city,top_keywords,"upcoming",10,20)
 		#On the Verge
-		outputpie(city,top_keywords,"verge",40,50)
-		makePieValues(city)
+		outputcity(city,top_keywords,"verge",0,60,image_dict,tweets_dict)
+		print city
+		#makePieValues(city)
+	image_dictfile = open("image_dict.pickled",'w')
+	pickle.dump(image_dict,image_dictfile)
+	image_dictfile.close()
 
 if __name__ == "__main__":
 	main()

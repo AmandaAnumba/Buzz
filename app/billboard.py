@@ -7,9 +7,16 @@ from nltk.corpus import wordnet
 word_file = open("wordsEn.txt",'r')
 english_words = set(word.strip().lower() for word in word_file)
 word_file.close()
-skipfile = open("skip.pickled",'r')
-skip = pickle.load(skipfile)
+
+#false positive keywords are removed
+skipfile = open("skip.txt",'r')
+skip = []
+for line in skipfile:
+	toskip = re.search('["].*["]',line)
+	if toskip:
+		skip.append(toskip.group()[1:-1])
 skipfile.close()
+
 
 artists = []
 letter = 97

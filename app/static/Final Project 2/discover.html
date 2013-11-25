@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+		<title> Buzz </title>
+		<link href = "style.css" rel="stylesheet" type="text/css"></link>	
+		<link rel="icon" type="image/ico" href="Images/icon.ico">
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script src="JS/wikipedia.js"></script>
+        <script src="JS/chartjs.js"></script>	
+        <script src="JS/buzz.js"></script>
+	</head>
+	
+	<body class="body"> 
+        <!-- **HEADER**  -->
+        <div id="buzztitle">
+        	<img src="Images/title.png" />
+        </div>
+        
+        <!-- **NAVIGATION BAR** -->
+        <div id="navbar-wrapper">
+          <h1 id="navbar-header"><a href="home.html">Buzz</a></h1>
+          <div class="navbar"> 
+              <ul>
+                  <li class="parent">
+                      <img src="Images/discover.png"/>
+                      <a href="discover.html">Discover</a>
+                          <ul>
+                              <li class="child"><a href="city.html">Chicago</a></li>
+                              <li class="child"><a href="city.html">Los Angeles</a></li>
+                              <li class="child"><a href="city.html">Miami</a></li>
+                              <li class="child"><a href="city.html">New York</a></li>
+                              <li class="child"><a href="city.html">San Francisco</a></li>
+                          </ul>
+                  </li>
+                      
+                  <li class="parent">
+                      <img src="Images/explore.png"/>
+                      <a href="explore.html">Explore</a>
+                  </li>
+                  <li class="parent">
+                      <img src="Images/about.png"/>
+                      <a href="about.html">About</a>
+                  </li>
+              </ul>
+          </div>
+      	</div>
+        
+        <div id="maincontent">
+        <!-- **MAIN BODY** -->
+        <!-- search bar = hidden -->
+        <!--<form id="searchbar">
+            <input id="input" type="text" size="21" maxlength="120"></input><input id="submit" type="button" class="button" onClick="wikisearch()"></input>
+        </form>-->
+
+        <!-- wikipedia image search display 
+        <div id="wikipedia"></div>-->
+        
+        <!-- main content -->
+        <!--<div id="listCities">
+            <h2 class="subtitle">Pick a City</h2>
+            <ul>
+                <li class="city"><a href="city.html" onClick="function()" id="Chicago">Chicago</a></li>
+                <li class="city"><a href="city.html" onClick="function()" id="Los Angeles">Los Angeles</a></li>
+                <li class="city"><a href="city.html" onClick="function()" id="Miami">Miami</a></li>
+                <li class="city"><a href="city.html" onClick="function()" id="New York">New York</a></li>
+                <li class="city"><a href="city.html" onClick="function()" id="San Francisco">San Francisco</a></li>
+            </ul>
+        </div>-->
+          
+        <div id="trending">
+          <h2 class="subtitle">See What's Trending!</h2>
+          
+          <div id="Chicago"> </div>
+          
+
+          <!--<canvas id="canvas" height="320" width="320"></canvas>
+            <script>
+                var doughnutData = [
+                    {value : 30, color:"#F7464A"},
+                    {value : 50, color : "#46BFBD"},
+                    {value : 100, color : "#FDB45C"},
+                    {value : 40, color : "#949FB1"},
+                    {value : 120, color : "#4D5360"}
+                  ];
+
+                var myDoughnut = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(doughnutData);
+            </script>-->
+        </div>
+         
+           
+    	</div>
+	</body>
+</html>
