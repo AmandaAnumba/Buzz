@@ -180,7 +180,7 @@ body {
 }
 
 #main-img {
-	background: url(static/Images/bglines2.png);
+	background: url(Images/bglines2.png);
 	width: 100%;
 	height: 375px;
 }
@@ -268,7 +268,7 @@ body {
 }
 
 #footer {
-	background: url(static/Images/foot.png);
+	background: url(Images/foot.png);
 	height: 30px;
 	width: 100%;
 	text-align: right;
@@ -335,7 +335,7 @@ body {
 	margin: 0;
 	padding: 0;
 	width: auto;
-	background-image: url('static/Images/bg.png');
+	background-image: url('Images/bg.png');
 }
 
 #maincontent {
@@ -387,7 +387,7 @@ body {
 	margin: 0;
 	padding: 0;
 	width: auto;
-	background-image: url('static/Images/bg.png');
+	background-image: url('Images/bg.png');
 	font-family:"Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 }
 
@@ -558,7 +558,7 @@ body {
 	margin: 0;
 	padding: 0;
 	width: auto;
-	background-image: url('static/Images/bg.png');
+	background-image: url('Images/bg.png');
 	font-family:"Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 }
 
