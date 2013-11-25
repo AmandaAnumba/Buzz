@@ -41,6 +41,9 @@ body {
 	color: #11CFF5;
 }
 
+.navbar {
+	margin: 0;
+}
 .navbar ul {  
 	list-style: none;
 	display: block;
