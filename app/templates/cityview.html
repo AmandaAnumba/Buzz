@@ -1,45 +1,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-  
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
     <title> Buzz </title>
+    
     <link href="static/nvd3/nv.d3.css" rel="stylesheet" type="text/css">
     <link href="static/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="static/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
-
+    <link href = "static/style.css" rel="stylesheet" type="text/css"></link>  
+    <link rel="icon" type="static/image/ico" href="static/Images/icon.ico">
+    
     <script src="static/nvd3/lib/d3.v3.js"></script>
     <script src="static/nvd3/nv.d3.js"></script>
-    <link href = "static/style.css" rel="stylesheet" type="text/css"></link>	
-    <link rel="icon" type="static/image/ico" href="static/Images/icon.ico">
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="static/js/twitter.js"></script>
     <script src="static/js/buzz.js"></script>
-
     <script src="static/bootstrap/js/bootstrap.js"></script>
-
-<script src="static/nvd3/src/utils.js"></script>
-
+    <script src="static/nvd3/src/utils.js"></script>
   </head>
-<style>
+  
+  <style>
+    text {
+      font: 12px sans-serif;
+    }
 
+    .mypiechart {
+      width: 700px;
+      height: 500px;
+      border: 2px;
+    }
+  </style>
 
-
-text {
-  font: 12px sans-serif;
-}
-
-.mypiechart {
-  width: 700px;
-  height: 500px;
-  border: 2px;
-}
-</style>
-<body>
-
-
-    
+  <body>
     <!-- **HEADER**  -->
     <div id="buzztitle">
         <img src="static/Images/title.png" />
@@ -50,24 +44,23 @@ text {
       <h1 id="navbar-header"><a href="home.html">Buzz</a></h1>
       <div class="navbar"> 
           <ul>
-              <li class="parent">
-                  <img src="static/Images/discover.png"/>
-                  <a href="discover.html">Discover</a>
-                      <ul>
-                                <li class="child"><a href="discover_New York City">New York</a></li>
-                                <li class="child"><a href="discover_San Francisco">San Francisco</a></li>
-                                <li class="child"><a href="discover_Chicago">Chicago</a></li>
-                                <li class="child"><a href="discover_Los Angeles">Los Angeles</a></li>
-                                <li class="child"><a href="discover_Miami">Miami</a></li>
-                                <li class="child"><a href="discover_Washington DC">Washington DC</a></li>
-                      </ul>
-              </li>
-                  
-              <li class="parent">
-                  <img src="static/Images/explore.png"/>
-                  <a href="explore.html">Explore</a>
-              </li>
-             <li class="parent">
+            <li class="parent">
+              <img src="static/Images/discover.png"/>
+              <a href="discover.html">Discover</a>
+                <ul>
+                  <li class="child"><a href="discover_Chicago">Chicago</a></li>
+                  <li class="child"><a href="discover_Los Angeles">Los Angeles</a></li>
+                  <li class="child"><a href="discover_Miami">Miami</a></li>
+                  <li class="child"><a href="discover_New York City">New York</a></li>
+                  <li class="child"><a href="discover_San Francisco">San Francisco</a></li>
+                  <li class="child"><a href="discover_Washington DC">Washington DC</a></li>
+                </ul>
+            </li>     
+            <li class="parent">
+                <img src="static/Images/explore.png"/>
+                <a href="explore.html">Explore</a>
+            </li>
+            <li class="parent">
                 <img src="static/Images/about.png"/>
                 <a href="about.html">About</a>
             </li>   
@@ -76,17 +69,15 @@ text {
     </div>
     
     <!-- **MAIN BODY** -->
-<h1 style="text-align: center;"> {{city}} </h1>
-<div id="body">
-<!---   <div id="lt"> 
-  <ul id="tweets" style="list-style-type: none; text-align: -webkit-match-parent; float: right;">
-  </ul>
-</div> -->
+    <h1 style="text-align: center;"> {{city}} </h1>
+    <div id="body">
+      <!---   <div id="lt"> 
+        <ul id="tweets" style="list-style-type: none; text-align: -webkit-match-parent; float: right;">
+        </ul>
+      </div> -->
 
- <!-- **KEYWORDS**  --> 
-<div id="keywords">      
-
-</div>
+     <!-- **KEYWORDS**  --> 
+     <div id="keywords"></div>
        <script type="text/javascript" charset="utf-8">
   
 
@@ -189,27 +180,22 @@ text {
         }
     </script>
     
-    <!-- PLAYGROUND -->
-    <!-- wikipedia image search display -->
-    <!--- <div id="wikipedia"></div> -->
-    
+    </div>  
 
-</div>  
-
-        <div id="wrapper" style="position: fixed; bottom: 0; width: 100%;">
-            <!--- <p id="l-news" class="label">Recent News</p>
-            <div id="news"></div> -->
-            
-            <!--<p id="l-img" class="label">Images</p>
-            <div id="images"></div>-->
-            
-            <p id="l-vid" class="label btn large primary">YouTube Videos<br> <br> </p>
-            <p id="l-news" class="label btn large primary">Recent News<br> <br> </p>
-            <p id="l-tweets" class="label btn large primary">Recent Tweets<br> <br> </p>
-            <div id="videos" hidden="true"></div>
-            <div id="news" hidden="true"></div>
-            <div id="tweet-list" hidden="true"></div>
-      </div>
+    <div id="wrapper" style="position: fixed; bottom: 0; width: 100%;">
+      <!--- <p id="l-news" class="label">Recent News</p>
+      <div id="news"></div> -->
+      
+      <!--<p id="l-img" class="label">Images</p>
+      <div id="images"></div>-->
+      
+      <p id="l-vid" class="label btn large primary">YouTube Videos<br> <br> </p>
+      <p id="l-news" class="label btn large primary">Recent News<br> <br> </p>
+      <p id="l-tweets" class="label btn large primary">Recent Tweets<br> <br> </p>
+      <div id="videos" hidden="true"></div>
+      <div id="news" hidden="true"></div>
+      <div id="tweet-list" hidden="true"></div>
+  </div>
 
 <script>
 
