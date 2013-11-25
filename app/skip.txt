@@ -1136,7 +1136,10 @@ a=["abdallah",
 "get wet",
 "the cure",
 "the cookies",
-"the moments"]
+"the moments",
+"black kids",
+"the cool kids",
+"emma"]
 
 
 

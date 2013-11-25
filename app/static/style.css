@@ -482,19 +482,20 @@ body {
 
 /******* news *****/
 #news {
-	height: 175px;
-	width: 308px;
-	overflow-y: auto;
+	height: auto;
+	overflow-x: auto;
+	white-space: nowrap;
 	font-size: 12px;
 	border-radius: 0 0 5px 5px;
-	border-left: 1px #dddddd solid;
-	border-right: 1px #dddddd solid;
-	border-bottom: 1px #dddddd solid;
-	margin-bottom: 10px
+	border: 1px #dddddd solid;
+	background-color:white;
+
 }
 
 .newsresult {
-	margin-bottom: 25px;
+	display:inline-block;
+	padding-left: 20px;
+	width: 275px;
 }
 
 .newsresult a{
@@ -511,10 +512,10 @@ body {
 }
 
 .newsTitle {
-	font-size:13px;
+	font-size:14px;
 	margin:0;
-	text-decoration: none;
-	font-weight: bold;
+	word-wrap:break-word;
+	overflow: hidden;
 }
 
 .newsSource{
@@ -533,6 +534,7 @@ body {
 	font-size: 12px;
 	border-radius: 0 0 5px 5px;
 	border: 1px #dddddd solid;
+	background-color:white;
 }
 
 .result{
@@ -549,6 +551,39 @@ body {
 }
 
 .vidDesc{
+	font-size:12px;
+	margin:0;
+}
+
+/******** tweets *******/
+#l-tweets {
+	width: auto;
+}
+
+#tweets {
+	height: auto;
+	overflow-x: auto;
+	white-space: nowrap;
+	font-size: 12px;
+	border-radius: 0 0 5px 5px;
+	border: 1px #dddddd solid;
+	background-color:white;
+}
+
+.result{
+	display:inline-block;
+	padding-left: 20px;
+	width: 275px;
+}
+
+.tweetTitle{
+	font-size:14px;
+	margin:0;
+	word-wrap:break-word;
+	overflow: hidden;
+}
+
+.tweetDesc{
 	font-size:12px;
 	margin:0;
 }

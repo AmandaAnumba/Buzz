@@ -15,6 +15,9 @@
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="static/js/twitter.js"></script>
+    <script src="static/js/buzz.js"></script>
+
+    <script src="static/bootstrap/js/bootstrap.js"></script>
 
 <script src="static/nvd3/src/utils.js"></script>
 
@@ -117,21 +120,31 @@ text {
             }
             var row = container.lastChild;
             var kw = document.createElement("div");
-            kw.className = "span2";
+            kw.className = "span2 btn large primary";
             kw.id = i;
+            //kw.innerHTML('data-content="Its so simple to create a tooltop for my website!"');
             kw.innerHTML = '<h3>' + keyword.label + '</h3>';
             kw.innerHTML += '<img src="' + keyword.image + '">';
             row.appendChild(kw);
+            kw.id = i;
 
+            //addPopover(i);
+            $('#' + i).click(function() {
+              var query = ($(this).text());
+              newsSearch(query);
+            videoSearch(query);
+            });
             //wikisearch(keyword.label);
             //console.log(img_kw);
             //kw.innerHTML += img_kw;
             //kw.innerHTML += '<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Tamia_2010.jpg/29px-Tamia_2010.jpg"/>';
             //row.appendChild(kw);
-            kw.id = i;
           });
         });        
        
+       function addPopover(i) {
+        $('#' + i).popover({ title: 'Look! A bird!'});
+       }
 
         function addTweets(tweetlist) {
           var count = Math.min(tweetlist.length,30);
@@ -160,6 +173,54 @@ text {
     
 
 </div>  
+
+        <div id="wrapper" style="position: fixed; bottom: 0; width: 100%;">
+            <!--- <p id="l-news" class="label">Recent News</p>
+            <div id="news"></div> -->
+            
+            <!--<p id="l-img" class="label">Images</p>
+            <div id="images"></div>-->
+            
+            <p id="l-vid" class="label btn large primary">YouTube Videos</p>
+            <p id="l-news" class="label btn large primary">Recent News</p>
+            <p id="l-tweets" class="label btn large primary">Recent Tweets</p>
+            <div id="videos" hidden="true"></div>
+            <div id="news" hidden="true"></div>
+      </div>
+
+<script>
+
+
+
+$('#l-vid').click(function() {
+  $('#videos')[0].hidden ^= true;
+  $('#news')[0].hidden = true;
+})
+$('#l-news').click(function() {
+  $('#news')[0].hidden ^= true;
+  $('#videos')[0].hidden = true;
+})
+$('#wrapper').click(function() {
+  var it = $(this).data('it') || 1;
+  switch ( it ) {
+    case 1 :
+      $(this).parent().animate({down:'0px'}, {queue:false, duration: 500});
+      break;
+    case 2 :
+      $(this).parent().animate({down:'-290px'}, {queue: false, duration: 500});
+      break;
+  }
+  it++;
+  if(it > 2) it = 1;
+  $(this).data('it', it);
+})
+
+
+
+</script>
+
+
+
 <script type="text/javascript">// <![CDATA[
 (function() {
 var twitterScriptTag = document.createElement('script');
