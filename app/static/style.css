@@ -41,12 +41,6 @@ body {
 	color: #11CFF5;
 }
 
-<<<<<<< HEAD
-=======
-.navbar {
-	margin: 0;
-}
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 .navbar ul {  
 	list-style: none;
 	display: block;
@@ -168,7 +162,6 @@ body {
 	margin-bottom: 5px;
 }
 
-<<<<<<< HEAD
 /*********************** SEARCH BAR **********************/
 /*********************************************************/
 /*********************************************************/
@@ -219,8 +212,6 @@ body {
 	/*background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
 	background: -moz-linear-gradient(top,  #0095cc,  #00678e);*/
 }
-=======
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 
 /********************** HOME PAGE ************************/
 /*********************************************************/
@@ -338,7 +329,6 @@ body {
 #foot{
 	padding-right: 3%;
 }
-<<<<<<< HEAD
 /*#twitter-sidebar {
 	z-index: 2;
 	float: right;
@@ -352,15 +342,12 @@ body {
 	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
 	box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
 }*/
-=======
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 
 
 /********************** ABOUT PAGE ***********************/
 /*********************************************************/
 /*********************************************************/
 /*********************************************************/
-<<<<<<< HEAD
 #keyword {
 	height:10%;
 	width:10%;
@@ -371,9 +358,6 @@ body {
 
 
 /****/
-=======
-
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 #buzztitle {
 	z-index: 1;
 	margin-left: 35%;	
@@ -423,11 +407,7 @@ body {
 	margin: 0;
 	padding: 0;
 	width: auto;
-<<<<<<< HEAD
 	background-image: url('static/Images/bg.png');
-=======
-	background-image: url('Images/bg.png');
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 }
 
 #maincontent {
@@ -479,11 +459,7 @@ body {
 	margin: 0;
 	padding: 0;
 	width: auto;
-<<<<<<< HEAD
 	background-image: url('static/Images/bg.png');
-=======
-	background-image: url('Images/bg.png');
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 	font-family:"Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 }
 
@@ -515,7 +491,6 @@ body {
 
 /******* news *****/
 #l-news {
-<<<<<<< HEAD
 	width: 15%;
 	height: 15%;
 	font-size:18px;
@@ -524,36 +499,20 @@ body {
 	height: 250px;
 	overflow-x: auto;
 	overflow: scroll;
-=======
-	width: auto;
-	height: auto;
-}
-
-#news {
-	height: auto;
-	overflow-x: auto;
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 	white-space: nowrap;
 	font-size: 12px;
 	border-radius: 0 0 5px 5px;
 	border: 1px #dddddd solid;
 	background-color:white;
-<<<<<<< HEAD
 
-=======
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 }
 
 .newsresult {
 	display:inline-block;
 	padding-left: 20px;
-<<<<<<< HEAD
 	width: auto;
 	max-height: 250px;
 	height: 250px;
-=======
-	width: 275px;
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 }
 
 .newsresult a{
@@ -583,13 +542,9 @@ body {
 }
 /******** videos *******/
 #l-vid {
-<<<<<<< HEAD
 	width: 15%;
 	height: 15%;
 	font-size:18px;
-=======
-	width: auto;
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 }
 
 #videos {
@@ -622,13 +577,9 @@ body {
 
 /******** tweets *******/
 #l-tweets {
-<<<<<<< HEAD
 	width: 15%;
 	height: 15%;
 	font-size:18px;
-=======
-	width: auto;
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 }
 
 #tweet-list {
@@ -646,11 +597,7 @@ body {
 	display:inline-block;
 	padding-left: 20px;
 	width: auto;
-<<<<<<< HEAD
 	max-height: 250px;
-=======
-	max-height: 200px;
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 }
 
 .tweetTitle{
@@ -667,7 +614,6 @@ body {
 
 /****** images ******/
 #images{
-<<<<<<< HEAD
 	height: auto;
 	overflow-x: auto;
 	overflow: scroll;
@@ -683,26 +629,13 @@ body {
 	height: 15%;
 	font-size:18px;
 
-=======
-	max-height: 300px;
-	overflow-x: auto;
-	white-space: nowrap;
-}
-
-#l-img{
-	width: 300px;
-	float: right;
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 }
 
 .imgresult {
 	height: auto;
 	display:inline-block;
-<<<<<<< HEAD
 	max-height: 250px;
 	max-width: 150px;
-=======
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 }
 
 /********************** EXPLORE PAGE *********************/
@@ -714,11 +647,7 @@ body {
 	margin: 0;
 	padding: 0;
 	width: auto;
-<<<<<<< HEAD
 	background-image: url('static/Images/bg.png');
-=======
-	background-image: url('Images/bg.png');
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 	font-family:"Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 }
 
@@ -738,7 +667,6 @@ body {
 .subtitle {
 	text-align: center;
 	padding: 2%;
-<<<<<<< HEAD
 }
 
 
@@ -866,6 +794,4 @@ label#ml {
 	margin-right: 11%;
 	color: black;
 	box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-=======
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 }

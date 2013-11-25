@@ -1,6 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<<<<<<< HEAD
   
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -13,26 +12,10 @@
     <script src="static/nvd3/nv.d3.js"></script>
     <link href = "static/style.css" rel="stylesheet" type="text/css"></link>	
     <link rel="icon" type="static/image/ico" href="static/Images/icon.ico">
-=======
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title> Buzz </title>
-    
-    <link href="static/nvd3/nv.d3.css" rel="stylesheet" type="text/css">
-    <link href="static/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="static/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
-    <link href = "static/style.css" rel="stylesheet" type="text/css"></link>  
-    <link rel="icon" type="static/image/ico" href="static/Images/icon.ico">
-    
-    <script src="static/nvd3/lib/d3.v3.js"></script>
-    <script src="static/nvd3/nv.d3.js"></script>
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="static/js/twitter.js"></script>
     <script src="static/js/buzz.js"></script>
-<<<<<<< HEAD
 
     <script src="static/bootstrap/js/bootstrap.js"></script>
 
@@ -57,25 +40,6 @@ text {
 
 
     
-=======
-    <script src="static/bootstrap/js/bootstrap.js"></script>
-    <script src="static/nvd3/src/utils.js"></script>
-  </head>
-  
-  <style>
-    text {
-      font: 12px sans-serif;
-    }
-
-    .mypiechart {
-      width: 700px;
-      height: 500px;
-      border: 2px;
-    }
-  </style>
-
-  <body>
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
     <!-- **HEADER**  -->
     <div id="buzztitle">
         <img src="static/Images/title.png" />
@@ -86,7 +50,6 @@ text {
       <h1 id="navbar-header"><a href="home.html">Buzz</a></h1>
       <div class="navbar"> 
           <ul>
-<<<<<<< HEAD
               <li class="parent">
                   <img src="static/Images/discover.png"/>
                   <a href="discover.html">Discover</a>
@@ -105,25 +68,6 @@ text {
                   <a href="explore.html">Explore</a>
               </li>
              <li class="parent">
-=======
-            <li class="parent">
-              <img src="static/Images/discover.png"/>
-              <a href="discover.html">Discover</a>
-                <ul>
-                  <li class="child"><a href="discover_Chicago">Chicago</a></li>
-                  <li class="child"><a href="discover_Los Angeles">Los Angeles</a></li>
-                  <li class="child"><a href="discover_Miami">Miami</a></li>
-                  <li class="child"><a href="discover_New York City">New York</a></li>
-                  <li class="child"><a href="discover_San Francisco">San Francisco</a></li>
-                  <li class="child"><a href="discover_Washington DC">Washington DC</a></li>
-                </ul>
-            </li>     
-            <li class="parent">
-                <img src="static/Images/explore.png"/>
-                <a href="explore.html">Explore</a>
-            </li>
-            <li class="parent">
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
                 <img src="static/Images/about.png"/>
                 <a href="about.html">About</a>
             </li>   
@@ -132,7 +76,6 @@ text {
     </div>
     
     <!-- **MAIN BODY** -->
-<<<<<<< HEAD
 <h1 style="text-align: center;"> {{city}} </h1>
 <div id="body">
 <!---   <div id="lt"> 
@@ -144,17 +87,6 @@ text {
 <div id="keywords">      
 
 </div>
-=======
-    <h1 style="text-align: center;"> {{city}} </h1>
-    <div id="body">
-      <!---   <div id="lt"> 
-        <ul id="tweets" style="list-style-type: none; text-align: -webkit-match-parent; float: right;">
-        </ul>
-      </div> -->
-
-     <!-- **KEYWORDS**  --> 
-     <div id="keywords"></div>
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
        <script type="text/javascript" charset="utf-8">
   
 
@@ -173,15 +105,12 @@ text {
           });
         });  */
 
-<<<<<<< HEAD
         /*var media = new Array();
         
         media[0] = '<div id="images" hidden="true"></div>';
         media[1] = '<div id="tweet-list" hidden="true"></div>';
         media[2] = '<div id="news" hidden="true"></div>';
         media[3] = '<div id="videos" hidden="true"></div>';*/
-=======
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 
         $.getJSON( "static/json/{{city}}_media_values.json", function( data ) {
           var items = [];
@@ -208,15 +137,10 @@ text {
             $('#' + i).click(function() {
               addTweetContent(keyword.tweets);
               var query = ($(this).text());
-<<<<<<< HEAD
               imageSearch(query);
               newsSearch(query);
               videoSearch(query);
               console.log($(this));
-=======
-              newsSearch(query);
-            videoSearch(query);
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
             });
             //wikisearch(keyword.label);
             //console.log(img_kw);
@@ -252,16 +176,10 @@ text {
         //document.getElementById('news').innerHTML += output;
         function addTweetContent(tweetlist) {
           var tweetdiv = document.getElementById('tweet-list');
-<<<<<<< HEAD
           var hidden = tweetdiv.hidden;
           //var hidden = tweetdiv.hidden;
           var count = Math.min(tweetlist.length,30);
           var newtweets = '<div id="tweet-list" hidden='+ hidden + '>';
-=======
-          //var hidden = tweetdiv.hidden;
-          var count = Math.min(tweetlist.length,30);
-          var newtweets = '';
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
           //tweetdiv.innerHTML = ""
           for (var i=0; i < count; i++) {
             var tid = tweetlist[i];
@@ -270,26 +188,18 @@ text {
             newtweets += output;
           }
           //tweetdiv.innerHTML = newtweets;
-<<<<<<< HEAD
           newtweets += "</div>";
          // $('#tweet-list').html(newtweets);
           $('#tweet-list').replaceWith(newtweets);
           twttr.widgets.load();
          // $('#tweet-list')[0].hidden = '"true"';
           //$('#tweet-list')[0].hidden = '"false"';
-=======
-          $('#tweet-list').html(newtweets);
-          twttr.widgets.load();
-          $('#tweet-list')[0].hidden = '"true"';
-          $('#tweet-list')[0].hidden = '"false"';
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 
           //tweetdiv.hidden = hidden;
           //tweetdiv.setAttribute("hidden","false");
         }
     </script>
     
-<<<<<<< HEAD
     <!-- PLAYGROUND -->
     <!-- wikipedia image search display -->
     <!--- <div id="wikipedia"></div> -->
@@ -328,55 +238,23 @@ $('#l-img').click(function() {
   $('#tweet-list')[0].hidden = true;
   $('#news')[0].hidden = true;
 })
-=======
-    </div>  
-
-    <div id="wrapper" style="position: fixed; bottom: 0; width: 100%;">
-      <!--- <p id="l-news" class="label">Recent News</p>
-      <div id="news"></div> -->
-      
-      <!--<p id="l-img" class="label">Images</p>
-      <div id="images"></div>-->
-      
-      <p id="l-vid" class="label btn large primary">YouTube Videos<br> <br> </p>
-      <p id="l-news" class="label btn large primary">Recent News<br> <br> </p>
-      <p id="l-tweets" class="label btn large primary">Recent Tweets<br> <br> </p>
-      <div id="videos" hidden="true"></div>
-      <div id="news" hidden="true"></div>
-      <div id="tweet-list" hidden="true"></div>
-  </div>
-
-<script>
-
-
-
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 $('#l-vid').click(function() {
   $('#videos')[0].hidden ^= true;
   $('#tweet-list')[0].hidden = true;
   $('#news')[0].hidden = true;
-<<<<<<< HEAD
   $('#images')[0].hidden = true;
-=======
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 })
 $('#l-news').click(function() {
   $('#news')[0].hidden ^= true;
   $('#tweet-list')[0].hidden = true;
   $('#videos')[0].hidden = true;
-<<<<<<< HEAD
   $('#images')[0].hidden = true;
-=======
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 })
 $('#l-tweets').click(function() {
   $('#tweet-list')[0].hidden ^= true;
   $('#news')[0].hidden = true;
   $('#videos')[0].hidden = true;
-<<<<<<< HEAD
   $('#images')[0].hidden = true;
-=======
->>>>>>> 1db823dcb382d6b5ec147f71945e17cca8384870
 })
 $('#wrapper').click(function() {
   var it = $(this).data('it') || 1;
