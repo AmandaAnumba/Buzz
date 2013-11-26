@@ -42,10 +42,11 @@ function newsSearch(q) {
 				var title = data.d.results[i].Title;
 				var source = data.d.results[i].Source;
 				var link = data.d.results[i].Url;
+				var snip = data.d.results[i].Snippet;
 //				console.log(title);
 //				console.log(source);
 //				console.log(link);
-				var output = "<div class='result'><span><a href="+link+" target='_blank'><p class='newsTitle'>"+ title +"<img src='static/Images/nw.png' /></p></a></span><p class='newsSource'>"+ source +"</p></div>";
+				var output = "<div class='result'><span><a href="+link+" target='_blank'><p class='newsTitle'>"+ title +"<img src='static/Images/nw.png' /></p></a></span><p class='newsSource'>"+ source +"</p><p class='newsSnippet'>"+ snip +"</p></div>";
 				document.getElementById('news').innerHTML += output;
 			}
     	}

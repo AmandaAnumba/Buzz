@@ -270,7 +270,7 @@ body {
 	margin-right: 23%;
 }
 
-#footer {
+footer {
 	background: url(Images/foot.png);
 	height: 30px;
 	width: 100%;
@@ -283,25 +283,17 @@ body {
 	padding-right: 3%;
 }
 
-/*#twitter-sidebar {
-	z-index: 2;
-	float: right;
-	width: 300px; 
-	height: auto;
-	padding: 2px;
-	font-size: 14px;
-	border: 8px solid transparent;
-	background-clip: padding-box;
-	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
-	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
-	box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
-}*/
 
 
 /********************** ABOUT PAGE ***********************/
 /*********************************************************/
 /*********************************************************/
 /*********************************************************/
+
+#about-body {
+	background-image: url('Images/bg.png');
+
+}
 
 #buzztitle {
 	z-index: 1;
@@ -336,6 +328,7 @@ body {
 
 #usage {
 	width: 500px;
+	padding-left: 25px;
 }
 
 #about {
@@ -375,13 +368,13 @@ body {
 /* Label for related media links section*/
 .l-label {
 	display: inline-block;
-	font-size: 12px;
+	font-size: 14px;
 	background-color: #313131;
 	color: #f5f5f5;
 	border-radius: 5px 5px 0 0;
 	padding: 0;
 	margin: 0;
-	width: 100px;
+	width: 130px;
 }
 
 .l-label:hover {
