@@ -115,7 +115,7 @@ body {
 /*********************************************************/
 /*********************************************************/
 
-#social-main{
+/*#social-main{
     position: fixed;
     top: 150px;
     right: -340px;
@@ -163,7 +163,7 @@ body {
 	margin-left: 6px;
 	margin-right: 6px;
 	margin-bottom: 5px;
-}
+}*/
 
 
 /********************** HOME PAGE ************************/
@@ -271,7 +271,9 @@ body {
 }
 
 footer {
+	z-index: 4;
 	background: url(Images/foot.png);
+	bottom: 0;
 	height: 30px;
 	width: 100%;
 	text-align: right;
@@ -279,7 +281,7 @@ footer {
 	font-size: 12px;
 }
 
-#foot{
+#foot {
 	padding-right: 3%;
 }
 
