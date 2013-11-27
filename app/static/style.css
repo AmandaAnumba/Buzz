@@ -375,10 +375,6 @@ footer {
 	font-family:"Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 }
 
-.ref {
-	float: right;
-}
-
 #keyword {
 	height:10%;
 	width:10%;
@@ -563,6 +559,30 @@ footer {
 	position: absolute;
 }
 
+.ref {
+	float: right;
+	margin-right: 4%;
+}
+
+#descrption {
+	margin-bottom: 3%;
+}
+
+.b-title {
+	color: black;
+	font-size: 25pt;
+	text-align: center;
+}
+
+#description p {
+	font-size: 13px;
+	font-weight: normal;
+	text-align: center;
+	margin:0;
+	padding:0;
+}
+
+
 /*content*/
 
 #rt {
@@ -574,6 +594,6 @@ footer {
 	text-align: -webkit-match-parent!important; 
 	float: right!important;
 	height: 1000px;
-	width: 350px;
+	width: 405px;
 	overflow-y: scroll;
 }
