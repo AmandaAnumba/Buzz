@@ -42,7 +42,7 @@ function newsSearch(q) {
 				var title = data.d.results[i].Title;
 				var source = data.d.results[i].Source;
 				var link = data.d.results[i].Url;
-				var snip = data.d.results[i].Description.toString;
+				var snip = data.d.results[i].Description;
 //				console.log(title);
 //				console.log(source);
 //				console.log(link);
