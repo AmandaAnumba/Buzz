@@ -9,7 +9,7 @@ body {
 }
 
 a {
-	color: #00aced;
+	color: #63B3FF;
 }
 
 /**************** Vertical Navigation Bar ****************/
@@ -40,7 +40,7 @@ a {
 }
 
 #navbar-header a:hover {
-	color: #00aced;
+	color: #63B3FF;
 }
 
 .navbar {
@@ -74,7 +74,7 @@ a {
 
 .navbar ul li:hover {
 	background-color: #292929;
-	border-right:3px solid #00aced;
+	border-right:3px solid #63B3FF;
 }
 
 .navbar li {
