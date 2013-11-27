@@ -7486,7 +7486,7 @@ nv.models.linePlusBarWithFocusChart = function() {
 
   chart.color = function(_) {
     if (!arguments.length) return color;
-    color = nv.utils.getColor(_);
+    color = ["#f7fbff","#deebf7","#c6dbef","#9ecae1","#6baed6","#4292c6","#2171b5","#084594"];
     legend.color(color);
     return chart;
   };
@@ -8528,8 +8528,8 @@ nv.models.multiBarHorizontal = function() {
     , getX = function(d) { return d.x }
     , getY = function(d) { return d.y }
     , forceY = [0] // 0 is forced by default.. this makes sense for the majority of bar graphs... user can always do chart.forceY([]) to remove
-    , color =["#f7fbff","#deebf7","#c6dbef","#9ecae1","#6baed6","#4292c6","#2171b5","#08519c","#08306b"]
-    , barColor = ["#f7fbff","#deebf7","#c6dbef","#9ecae1","#6baed6","#4292c6","#2171b5","#08519c","#08306b"] // adding the ability to set the color for each rather than the whole group
+    , color = nv.utils.defaultColor()
+    , barColor = null // adding the ability to set the color for each rather than the whole group
     , disabled // used in conjunction with barColor to communicate from multiBarHorizontalChart what series are disabled
     , stacked = false
     , showValues = false
