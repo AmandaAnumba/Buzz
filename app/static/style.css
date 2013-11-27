@@ -184,10 +184,6 @@ body {
 	-webkit-box-shadow: 0 0 5px #aaa;	
 }
 
-.white-header img {
-	margin-right: 4%;
-}
-
 /*divider with title, description, and links */
 .main-divider {
 	background: url(Images/bglines2.png);
@@ -203,11 +199,13 @@ body {
 	margin:0;
 	padding-top: 8%;
 	text-shadow: 1px 1px 3px #696969;
+	color: white;
 }
 
 .home-title, #tag-links {
 	margin:0;
 	padding-left: 8%;
+	color: white;
 }
 
 .tagline {
@@ -217,11 +215,11 @@ body {
 
 #a, #b, #c {
 	text-decoration: none;	
-	background: black;
-	padding: 5px;
+	background: #226699;
+	padding: 7px;
 	border-radius: 5px;
 	border: d;
-	color:#CCC;
+	color: white;
 	margin-right: 4px;
 }
 
@@ -232,7 +230,7 @@ body {
 
 /* body */
 #home-body-wrapper {
-	padding-top: 75px;
+	padding-top: 20px;
 	background: white;
 	width: 100%;
 	height: 350px;
@@ -242,7 +240,7 @@ body {
 	text-decoration: none;
 	font-size: 25px;
 	float: left;
-	margin-left: 32%;
+	margin-left: 29%;
 	color: black;		
 }
 
@@ -250,24 +248,24 @@ body {
 	text-decoration: none;
 	float: right;	
 	font-size: 25px;
-	margin-right: 35%;
+	margin-right: 38%;
 	color: black;
 }
 
 #disc {	
 	float: left;
-	margin-left: 27%;
+	margin-left: 24%;
 }
 
 #exp {
 	float: right;
-	margin-right: 23%;
+	margin-right: 20%;
 }
 
 /* footer */
 footer {
 	z-index: 4;
-	background-image: url(Images/bg2.png);
+	background-image: url(Images/bg.png);
 	bottom: 0;
 	height: 30px;
 	width: 100%;
@@ -288,13 +286,13 @@ footer {
 /*********************************************************/
 
 #about-body {
-	background-image: url(Images/bg2.png);
+	background-image: url(Images/bg.png);
 }
 
 #a-divider {
 	background: url(Images/bglines.png);
 	width: 100%;
-	height: 200px;
+	height: 250px;
 	box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 	-moz-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
@@ -337,7 +335,7 @@ tr {
 }
 
 .description {
-	font-size: 12px;
+	font-size: 13px;
 	text-align:center;
 	padding: 3%;
 }
