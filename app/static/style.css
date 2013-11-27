@@ -171,8 +171,9 @@ body {
 /*********************************************************/
 /*********************************************************/
 
+/* header */
 #white-header {
-	background: white;
+	background: #1C140D;
 	min-height: 45px;
 	position: relative;
 	z-index: 500;
@@ -185,6 +186,7 @@ body {
 	background-position: right;
 }
 
+/*divider with title, description, and links */
 #main-img {
 	background: url(Images/bglines.png);
 	width: 100%;
@@ -198,7 +200,7 @@ body {
 	text-shadow: 1px 1px 3px #696969;
 }
 
-.home-title {
+.home-title, #tag-links {
 	margin:0;
 	padding-left: 8%;
 }
@@ -211,7 +213,7 @@ body {
 
 #a, #b, #c {
 	text-decoration: none;	
-	background: #CBE86B;
+	background: #F3F315;
 	padding: 5px;
 	border-radius: 5px;
 	color: black;
@@ -283,17 +285,19 @@ body {
 
 footer {
 	z-index: 4;
-	background-color: #F2E9E1;
+	background-color: #1C140D;
 	bottom: 0;
 	height: 30px;
 	width: 100%;
 	text-align: right;
 	position: absolute;
 	font-size: 12px;
+	color: white;
 }
 
 #foot {
 	padding-right: 3%;
+	color: white;
 }
 
 
