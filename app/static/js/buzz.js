@@ -119,7 +119,7 @@ function handleRequest2(request) {
 }
 
 function build(videoId) {
-	var url = "<iframe id='ytplayer' type='text/html' width='275px' height='180px'";
+	var url = "<iframe id='ytplayer' type='text/html' width='315px' height='200px'";
 	url += "src='http://www.youtube.com/embed/"+videoId+"?showinfo=0&controls=0' frameborder='0'/>";
 	return url;
 } 
