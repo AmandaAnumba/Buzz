@@ -172,21 +172,21 @@ body {
 
 /* header */
 .white-header {
+	z-index: 500;
 	background: white;
 	min-height: 50px;
-	z-index: 500;
+	width: 100%;
 	background-image: url(Images/logo.png);
 	background-repeat: none;
 	background-position: right;
 	box-shadow: 0 0 5px #aaa;
 	-moz-box-shadow: 0 0 5px #aaa;
-	-webkit-box-shadow: 0 0 5px #aaa;
-	width: 100%;
+	-webkit-box-shadow: 0 0 5px #aaa;	
 }
 
 /*divider with title, description, and links */
 .main-divider {
-	background: url(Images/bglines3.png);
+	background: url(Images/bglines4.png);
 	width: 100%;
 	height: 375px;
 	box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
@@ -237,7 +237,8 @@ body {
 #disc-title {
 	text-decoration: none;
 	font-size: 25px;
-	margin-left: 39%;
+	float: left;
+	margin-left: 32%;
 	color: black;		
 }
 
@@ -245,17 +246,18 @@ body {
 	text-decoration: none;
 	float: right;	
 	font-size: 25px;
-	margin-right: 41%;
+	margin-right: 35%;
 	color: black;
 }
 
 #disc {	
-	margin-left: 23%;
+	float: left;
+	margin-left: 27%;
 }
 
 #exp {
 	float: right;
-	margin-right: 21%;
+	margin-right: 23%;
 }
 
 /* footer */
@@ -289,9 +291,9 @@ footer {
 	background: url(Images/bglines.png);
 	width: 100%;
 	height: 200px;
-	-webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
-	-moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
-	box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 
 #about-buzz {
