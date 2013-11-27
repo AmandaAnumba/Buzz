@@ -432,9 +432,8 @@ footer {
 	margin:0;
 }
 
-.newsSnippet{
+.newsSnippet {
 	width: 270px;
-	overflow: break;
 	word-wrap: break-word;
 }
 
