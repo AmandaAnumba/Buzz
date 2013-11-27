@@ -335,22 +335,16 @@ footer {
 	margin: 0 auto;
 }
 
-#use1 {
+#use1, #use2 {
 	width: 100%;
 	left:0;
 	display: inline-block;
-
+	margin-bottom: 4%;
 }
 
 #use1 img {
 	float: left;
 	margin-left: 250px;
-}
-
-#use2 {
-	width: 100%;
-	left:0;
-	display: inline-block;
 }
 
 #use2 img {
@@ -359,15 +353,19 @@ footer {
 }
 
 #about {
-	color: black;
-	font-size: 25pt;
 	width: 50%;
 	margin: 0 auto;
 	background-image:url(Images/bg.png);
 	text-align: center;	
 }
 
-#about p {
+#h1-title {
+	color: black;
+	font-size: 25pt;
+}
+
+#p-about {
+	font-size: 12px;
 	text-align: center;
 }
 
