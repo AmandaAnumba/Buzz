@@ -70,7 +70,7 @@ body {
 
 .navbar ul li:hover {
 	background-color: #292929;
-	border-right:3px solid #11CFF5;
+	border-right:3px solid #226699;
 }
 
 .navbar li {
@@ -227,6 +227,7 @@ body {
 	color: black;
 }
 
+
 /* body */
 #home-body-wrapper {
 	padding-top: 20px;
@@ -312,7 +313,12 @@ footer {
 }
 
 .page-wrapper {
+	padding-top: 3%;
 	background: white;
+	width: 100%;
+	box-shadow: 0 0 5px #aaa;
+	-moz-box-shadow: 0 0 5px #aaa;
+	-webkit-box-shadow: 0 0 5px #aaa;
 }
 
 .title {
@@ -333,6 +339,7 @@ footer {
 	display: block;
 	overflow: auto;
 	margin: 0 auto;
+	margin-left: 1%;
 }
 
 #use1, #use2 {

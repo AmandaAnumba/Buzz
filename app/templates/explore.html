@@ -65,7 +65,7 @@
         <h2 class="b-title">Select Cities to Compare</h2>
         <p>Select which cities you would like to compare and the chart below, which displays the overall </p>
         <p>tweets for a pop culture icon in the database for each city, will automatically update.</p>
-        <p>Click the bars to display the related tweets </p>
+        <p>Click the bars to display the related tweets. </p>
       </div>
 
       <!-- **TWEETS** -->
@@ -98,10 +98,8 @@
           li.innerHTML='<li style="text-align: -webkit-match-parent;" id="' + i + '">' +
           '<blockquote class="twitter-tweet" height=auto width="300" align="right" ><a href="https://twitter.com/twitterapi/status/' + tweet.id_str + '"</a></blockquote></li>'
           tweetlist.appendChild(li);
+        });
       });
-     
-
-    });
 
       function addTweets(tweetlist) {
         var count = Math.min(tweetlist.length,30);
@@ -138,6 +136,7 @@
           .y(function(d) { return d.value })
           .margin({top: 30, right: 20, bottom: 50, left: 150})
           .showValues(false)
+          .color(["#f7fbff","#deebf7","#c6dbef","#9ecae1","#6baed6","#4292c6","#2171b5","#08519c","#08306b"])
           .tooltips(true)
           .tooltipContent(function(key, y, e, graph,d) { 
             return '<h3>' + key + '</h3>' +'<p>' + y + '</p>' 
