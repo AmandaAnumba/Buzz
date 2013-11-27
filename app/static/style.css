@@ -180,6 +180,9 @@ body {
 	-moz-box-shadow: 0 0 5px #aaa;
 	-webkit-box-shadow: 0 0 5px #aaa;
 	width: 100%;
+	background-image:url(Images/logo.html);
+	background-repeat: none;
+	background-position: right;
 }
 
 #main-img {
@@ -195,9 +198,15 @@ body {
 	text-shadow: 1px 1px 3px #696969;
 }
 
-.tagline {
+.home-title {
 	margin:0;
 	padding-left: 8%;
+}
+
+.tagline {
+	margin:0;
+	display: inline;
+	width: 100px;
 }
 
 #a, #b, #c {
@@ -206,8 +215,8 @@ body {
 	padding: 5px;
 	border-radius: 5px;
 	color: black;
-	display: inline;
 	margin-right: 10px;
+	width: 100px;
 }
 
 #a:hover, #b:hover, #c:hover {
@@ -284,7 +293,7 @@ footer {
 }
 
 #foot {
-	padding: 0 0 3% 3%;
+	padding-right: 3%;
 }
 
 
