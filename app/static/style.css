@@ -311,43 +311,47 @@ footer {
 	margin:0;
 }
 
-table {
-	width: 80%;
-	margin-right: 10%;
-	margin-left: 10%;
-	border-spacing: 0;
-	border-collapse: collapse
-}
-
-tr {
-	vertical-align: top;
-}
-
-.homepage {
+.page-wrapper {
 	background: white;
 }
 
 .title {
-	text-align:center;
 	color: black;
 	font-size: 25pt;
+	text-align: left;
 }
 
 .description {
 	font-size: 13px;
-	text-align:center;
 	padding: 3%;
 	font-weight: normal;
+	text-align: left;
 }
 
 #usage {
-	width: 500px;
-	padding-left: 25px;
+	display: block;
+	overflow: auto;
+	margin: 0 auto;
 }
 
-#about {
-	width: 500px;	
+#use1 {
+	width: 100%;
+	left:0
+	display: inline-block;
+
 }
+
+#use1 img {
+	float: left;
+	margin-left: 250px;
+}
+
+
+#about {
+	width: 50%;
+	margin: 0 auto;	
+}
+
 
 
 /********************* DISCOVER PAGE *********************/
@@ -369,6 +373,10 @@ tr {
 	background: none;
 	/*background-image: url('Images/bg.png');*/
 	font-family:"Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+}
+
+.ref {
+	float: right;
 }
 
 #keyword {
@@ -413,8 +421,7 @@ tr {
 	display:inline-block;
 	padding-left: 20px;
 	width: auto;
-	max-heig
-	ht: 250px;
+	max-height: 250px;
 	height: 250px;
 }
 
@@ -566,7 +573,7 @@ tr {
 	list-style-type: none;
 	text-align: -webkit-match-parent!important; 
 	float: right!important;
-	height: 800px;
-	width: auto;
+	height: 1000px;
+	width: 350px;
 	overflow-y: scroll;
 }
