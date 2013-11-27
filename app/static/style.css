@@ -174,15 +174,11 @@ body {
 .white-header {
 	background: white;
 	min-height: 45px;
-	position: relative;
 	z-index: 500;
 	box-shadow: 0 0 5px #aaa;
 	-moz-box-shadow: 0 0 5px #aaa;
 	-webkit-box-shadow: 0 0 5px #aaa;
 	width: 100%;
-	background-image:url(Images/logo.png);
-	background-repeat: none;
-	background-position: right;
 }
 
 /*divider with title, description, and links */
@@ -190,9 +186,6 @@ body {
 	background: url(Images/bglines.png);
 	width: 100%;
 	height: 375px;
-	-webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
-	-moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
-	box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
 }
 
 #buzz {
@@ -210,21 +203,20 @@ body {
 .tagline {
 	margin:0;
 	display: inline;
-	width: 100px;
 }
 
 #a, #b, #c {
 	text-decoration: none;	
-	background: #F3F315;
+	background: black;
 	padding: 5px;
 	border-radius: 5px;
-	color: black;
+	color:#CCC;
 	margin-right: 10px;
-	width: 100px;
 }
 
 #a:hover, #b:hover, #c:hover {
 	font-style: italic; 
+	background: #F3F315;
 }
 
 /* body */
@@ -234,7 +226,9 @@ body {
 	width: 100%;
 	height: 300px;
 	border-radius: 5px;
-
+	-webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
 }
 
 #disc-title {
@@ -253,12 +247,12 @@ body {
 }
 
 #disc {	
-	margin-left: 31%;
+	margin-left: 29%;
 }
 
 #exp {
 	float: right;
-	margin-right: 29%;
+	margin-right: 27%;
 }
 
 /* footer */
@@ -284,27 +278,28 @@ footer {
 /*********************************************************/
 /*********************************************************/
 
+#about-body {
+	background-image: url(Images/bg2.png);
+}
+
 #a-divider {
 	background: url(Images/bglines.png);
 	width: 100%;
-	height: 175px;
+	height: 200px;
 	-webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
 	-moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
 	box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
 }
 
-#about-body {
-	background-image: url('Images/bg2.png');
-}
-
 #about-buzz {
+	padding-top: 30px;
 	font-size: 60px;
 	text-align: center;
 	margin:0;
 	text-shadow: 1px 1px 3px #696969;
 }
 
-.home-title, #tag-links {
+.about-title {
 	text-align: center;
 	margin:0;
 }
@@ -327,12 +322,6 @@ footer {
 	font-size: 12px;
 	text-align:center;
 	padding: 3%;
-}
-
-#welcome {
-	padding-top: 40%;
-	width: 375px;
-	height: 400px;
 }
 
 #usage {
