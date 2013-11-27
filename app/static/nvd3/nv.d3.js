@@ -1727,7 +1727,7 @@ nv.models.historicalBar = function() {
 
   chart.color = function(_) {
     if (!arguments.length) return color;
-    color = nv.utils.getColor(_);
+    color = nv.utils.getColor(["#f7fbff","#deebf7","#c6dbef","#9ecae1","#6baed6","#4292c6","#2171b5","#084594"]);
     return chart;
   };
 
@@ -7486,7 +7486,7 @@ nv.models.linePlusBarWithFocusChart = function() {
 
   chart.color = function(_) {
     if (!arguments.length) return color;
-    color = ["#f7fbff","#deebf7","#c6dbef","#9ecae1","#6baed6","#4292c6","#2171b5","#084594"];
+    color = nv.utils.getColor(_);
     legend.color(color);
     return chart;
   };
