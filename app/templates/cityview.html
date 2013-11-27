@@ -10,13 +10,12 @@
     <link href="static/nvd3/nv.d3.css" rel="stylesheet" type="text/css">
     <link href="static/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="static/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
-    <link href = "static/style.css" rel="stylesheet" type="text/css"></link>  
+    <link href="static/style.css" rel="stylesheet" type="text/css"></link>  
     
     <script src="static/nvd3/lib/d3.v3.js"></script>
     <script src="static/nvd3/nv.d3.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="static/js/twitter.js"></script>
     <script src="static/js/buzz.js"></script>
     <script src="static/bootstrap/js/bootstrap.js"></script>
     <script src="static/nvd3/src/utils.js"></script>
@@ -35,10 +34,6 @@
   </style>
 
   <body>
-    <!-- **HEADER**  -->
-    <div id="buzztitle">
-        <img src="static/Images/title.png" />
-    </div>
     
     <!-- **NAVIGATION BAR** -->
     <div id="navbar-wrapper">
@@ -72,8 +67,14 @@
       </div>
     </div>
     
+    <!-- **HEADER** -->
+    <div class="white-header">
+      <p class="ref"> {{city}} </p>
+    </div>
+
     <!-- **MAIN BODY** -->
-    <h1 style="text-align: center;"> {{city}} </h1>
+    <h1 id="c-title"> {{city}} </h1>
+    
     <div class="body">
         <!---   <div id="lt"> 
           <ul id="tweets" style="list-style-type: none; text-align: -webkit-match-parent; float: right;">
@@ -99,122 +100,120 @@
     </div>
 
 
-        <!-- JAVASCRIPT -->
-        <script type="text/javascript" charset="utf-8">
-    
+    <!-- JAVASCRIPT -->
+    <script type="text/javascript" charset="utf-8">
+      /*$.getJSON( "static/json/compare_tweets.json", function( data ) {
+      var items = [];
+      var tweetlist = document.getElementById("tweets");
+      $.each( data, function( i, tweet ) {
+        if ( i === 40 ) {
+        return false;
+      }
+        var li = document.createElement();
 
-          /*$.getJSON( "static/json/compare_tweets.json", function( data ) {
-          var items = [];
-          var tweetlist = document.getElementById("tweets");
-          $.each( data, function( i, tweet ) {
-            if ( i === 40 ) {
-            return false;
+          li.innerHTML='<li style="text-align: -webkit-match-parent;" id="' + i + '">' +
+          '<blockquote class="twitter-tweet" height="400" width="750" min-width="500" align="right" ><a href="https://twitter.com/twitterapi/status/' + tweet.id_str + '"</a></blockquote></li>'
+          tweetlist.appendChild(li);
+        });
+      });  */
+
+      /*var media = new Array();
+      
+      media[0] = '<div id="images" hidden="true"></div>';
+      media[1] = '<div id="tweet-list" hidden="true"></div>';
+      media[2] = '<div id="news" hidden="true"></div>';
+      media[3] = '<div id="videos" hidden="true"></div>';*/
+
+      $.getJSON( "static/json/{{city}}_media_values.json", function( data ) {
+        var items = [];
+        var container = document.getElementById("keywords");
+        $.each( data, function( i, keyword ) {
+          if ( i === 60) {
+          return false;
+        }
+          if (i % 6 === 0) {
+            var row = document.createElement("div");
+            row.className = "row-fluid";
+            container.appendChild(row);
           }
-            var li = document.createElement();
-
-              li.innerHTML='<li style="text-align: -webkit-match-parent;" id="' + i + '">' +
-              '<blockquote class="twitter-tweet" height="400" width="750" min-width="500" align="right" ><a href="https://twitter.com/twitterapi/status/' + tweet.id_str + '"</a></blockquote></li>'
-              tweetlist.appendChild(li);
-            });
-          });  */
-
-          /*var media = new Array();
-          
-          media[0] = '<div id="images" hidden="true"></div>';
-          media[1] = '<div id="tweet-list" hidden="true"></div>';
-          media[2] = '<div id="news" hidden="true"></div>';
-          media[3] = '<div id="videos" hidden="true"></div>';*/
-
-          $.getJSON( "static/json/{{city}}_media_values.json", function( data ) {
-            var items = [];
-            var container = document.getElementById("keywords");
-            $.each( data, function( i, keyword ) {
-              if ( i === 60) {
-              return false;
-            }
-              if (i % 6 === 0) {
-                var row = document.createElement("div");
-                row.className = "row-fluid";
-                container.appendChild(row);
-              }
-              var row = container.lastChild;
-              var kw = document.createElement("div");
-              kw.className = "span2 btn large primary";
-              kw.id = i;
-              //kw.innerHTML('data-content="Its so simple to create a tooltop for my website!"');
-              kw.innerHTML = '<h3>' + keyword.label + '</h3>';
-              kw.innerHTML += '<img src="' + keyword.image + '">';
-              row.appendChild(kw);
-              kw.id = i;
-              //addPopover(i);
-              $('#' + i).click(function() {
-                addTweetContent(keyword.tweets);
-                var query = ($(this).text());
-                imageSearch(query);
-                newsSearch(query);
-                videoSearch(query);
-                console.log($(this));
-              });
-              //wikisearch(keyword.label);
-              //console.log(img_kw);
-              //kw.innerHTML += img_kw;
-              //kw.innerHTML += '<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Tamia_2010.jpg/29px-Tamia_2010.jpg"/>';
-              //row.appendChild(kw);
-            });
-          });        
-         
+          var row = container.lastChild;
+          var kw = document.createElement("div");
+          kw.className = "span2 btn large primary";
+          kw.id = i;
+          //kw.innerHTML('data-content="Its so simple to create a tooltop for my website!"');
+          kw.innerHTML = '<h3>' + keyword.label + '</h3>';
+          kw.innerHTML += '<img src="' + keyword.image + '">';
+          row.appendChild(kw);
+          kw.id = i;
+          //addPopover(i);
+          $('#' + i).click(function() {
+            addTweetContent(keyword.tweets);
+            var query = ($(this).text());
+            imageSearch(query);
+            newsSearch(query);
+            videoSearch(query);
+            console.log($(this));
+          });
+          //wikisearch(keyword.label);
+          //console.log(img_kw);
+          //kw.innerHTML += img_kw;
+          //kw.innerHTML += '<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Tamia_2010.jpg/29px-Tamia_2010.jpg"/>';
+          //row.appendChild(kw);
+        });
+      });        
+     
 
 
-          function addTweetsCityView(tweetlist) {
-            var count = Math.min(tweetlist.length,30);
-            var tweets = document.getElementById("tweets");
-            var ul = document.createElement("ul");
-            ul.id="tweets";
-            ul.setAttribute("style","list-style-type: none; text-align: -webkit-match-parent;");
-            var oldList = document.getElementById("rt");
-            for (var i=0; i < count; i++) {
-              var li = document.createElement();
-              var tid = tweetlist[i];
-              li.innerHTML='<li style="text-align: -webkit-match-parent;" id="' + tid + '">' +
-              '<blockquote class="twitter-tweet" height="400" width="750" min-width="500"><a href="https://twitter.com/twitterapi/status/' + tid + '"</a></blockquote></li>';     
-              ul.appendChild(li);
+      function addTweetsCityView(tweetlist) {
+        var count = Math.min(tweetlist.length,30);
+        var tweets = document.getElementById("tweets");
+        var ul = document.createElement("ul");
+        ul.id="tweets";
+        ul.setAttribute("style","list-style-type: none; text-align: -webkit-match-parent;");
+        var oldList = document.getElementById("rt");
+        for (var i=0; i < count; i++) {
+          var li = document.createElement();
+          var tid = tweetlist[i];
+          li.innerHTML='<li style="text-align: -webkit-match-parent;" id="' + tid + '">' +
+          '<blockquote class="twitter-tweet" height="400" width="750" min-width="500"><a href="https://twitter.com/twitterapi/status/' + tid + '"</a></blockquote></li>';     
+          ul.appendChild(li);
 
-            }
-            oldList.replaceChild(ul,tweets)
+        }
+        oldList.replaceChild(ul,tweets)
 
-            
-          }      
+        
+      }      
 
-          //var output = "<div class='result'><span><a href="+link+" target='_blank'><p class='newsTitle'>"+ title +"<img src='static/Images/nw.png' /></p></a></span><p class='newsSource'>"+ source +"</p></div>";
-          //document.getElementById('news').innerHTML += output;
-          function addTweetContent(tweetlist) {
-            var tweetdiv = document.getElementById('tweet-list');
-            var hidden = tweetdiv.hidden;
-            //var hidden = tweetdiv.hidden;
-            var count = Math.min(tweetlist.length,30);
-            var newtweets = '<div id="tweet-list" hidden='+ hidden + '>';
-            //tweetdiv.innerHTML = ""
-            for (var i=0; i < count; i++) {
-              var tid = tweetlist[i];
-              //output = '<div class="result"><blockquote class="twitter-tweet"><a href="https://twitter.com/twitterapi/status/' + tid + '"</a></blockquote></div>';
-              output = '<div class="tweet-li" id="tweet-li"><blockquote class="twitter-tweet"><a href="https://twitter.com/twitterapi/status/' + tid + '"</a></blockquote></div>';
-              newtweets += output;
-            }
-            //tweetdiv.innerHTML = newtweets;
-            newtweets += "</div>";
-           // $('#tweet-list').html(newtweets);
-            $('#tweet-list').replaceWith(newtweets);
-            twttr.widgets.load();
-           // $('#tweet-list')[0].hidden = '"true"';
-            //$('#tweet-list')[0].hidden = '"false"';
+      //var output = "<div class='result'><span><a href="+link+" target='_blank'><p class='newsTitle'>"+ title +"<img src='static/Images/nw.png' /></p></a></span><p class='newsSource'>"+ source +"</p></div>";
+      //document.getElementById('news').innerHTML += output;
+      function addTweetContent(tweetlist) {
+        var tweetdiv = document.getElementById('tweet-list');
+        var hidden = tweetdiv.hidden;
+        //var hidden = tweetdiv.hidden;
+        var count = Math.min(tweetlist.length,30);
+        var newtweets = '<div id="tweet-list" hidden='+ hidden + '>';
+        //tweetdiv.innerHTML = ""
+        for (var i=0; i < count; i++) {
+          var tid = tweetlist[i];
+          //output = '<div class="result"><blockquote class="twitter-tweet"><a href="https://twitter.com/twitterapi/status/' + tid + '"</a></blockquote></div>';
+          output = '<div class="tweet-li" id="tweet-li"><blockquote class="twitter-tweet"><a href="https://twitter.com/twitterapi/status/' + tid + '"</a></blockquote></div>';
+          newtweets += output;
+        }
+        //tweetdiv.innerHTML = newtweets;
+        newtweets += "</div>";
+       // $('#tweet-list').html(newtweets);
+        $('#tweet-list').replaceWith(newtweets);
+        twttr.widgets.load();
+       // $('#tweet-list')[0].hidden = '"true"';
+        //$('#tweet-list')[0].hidden = '"false"';
 
-            //tweetdiv.hidden = hidden;
-            //tweetdiv.setAttribute("hidden","false");
-          }
-      </script>
-    
+        //tweetdiv.hidden = hidden;
+        //tweetdiv.setAttribute("hidden","false");
+      }
+    </script>
 
-      <script>
+
+    <script>
       var media = new Array();
       media[0] = '<div id="videos" hidden="true"></div>';
       media[1] = '<div id="news" hidden="true"></div>';
@@ -262,6 +261,7 @@
       })
       </script>
 
+
       <script type="text/javascript">// <![CDATA[
       (function() {
       var twitterScriptTag = document.createElement('script');
@@ -273,6 +273,8 @@
       })();
 
 
-      // ]]></script>
+      // ]]>
+    </script>
+
   </body>
 </html>

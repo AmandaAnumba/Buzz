@@ -321,9 +321,10 @@ footer {
 	text-align: left;
 }
 
-.description {
+.text {
 	font-size: 13px;
-	padding: 3%;
+	margin:0;
+	padding:0;
 	font-weight: normal;
 	text-align: left;
 }
@@ -336,7 +337,7 @@ footer {
 
 #use1 {
 	width: 100%;
-	left:0
+	left:0;
 	display: inline-block;
 
 }
@@ -346,8 +347,20 @@ footer {
 	margin-left: 250px;
 }
 
+#use2 {
+	width: 100%;
+	left:0;
+	display: inline-block;
+}
+
+#use2 img {
+	float: left;
+	margin-left: 139px;
+}
 
 #about {
+	color: black;
+	font-size: 25pt;
 	width: 50%;
 	margin: 0 auto;
 	background-image:url(Images/bg.png);
@@ -357,19 +370,6 @@ footer {
 #about p {
 	text-align: center;
 }
-
-#use2 {
-	width: 100%;
-	left:0
-	display: inline-block;
-
-}
-
-#use2 img {
-	float: left;
-	margin-left: 250px;
-}
-
 
 /********************* DISCOVER PAGE *********************/
 /*********************************************************/
@@ -388,8 +388,13 @@ footer {
 	padding: 0;
 	width: auto;
 	background: none;
-	/*background-image: url('Images/bg.png');*/
+	background-image: url(Images/bg.png);
 	font-family:"Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+}
+
+#c-title {
+	text-align: center;
+	font-size: 25px;
 }
 
 #keyword {
@@ -549,6 +554,7 @@ footer {
 	max-height: 250px;
 	max-width: 150px;
 }
+
 
 /********************** EXPLORE PAGE *********************/
 /*********************************************************/
