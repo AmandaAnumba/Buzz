@@ -66,8 +66,6 @@ app = Flask(__name__)
 @buzz.route('/index.html')
 @buzz.route('/home')
 @buzz.route('/home.html')
-#@buzz.route('/discover')
-#@buzz.route('/discover.html')
 @crossdomain(origin='*', headers='Content-Type')
 def index():
 	return render_template("home.html")
