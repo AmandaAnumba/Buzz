@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <html>
 	<head>
-  		<meta charset="utf-8">
+  	<meta charset="utf-8">
 		<title> Buzz </title>
 		<link href="static/nvd3/nv.d3.css" rel="stylesheet" type="text/css">
-		<script src="static/nvd3/lib/d3.v3.js"></script>
-		<script src="static/nvd3/nv.d3.js"></script>
 		<link href = "static/style.css" rel="stylesheet" type="text/css"></link>	
 		<link rel="icon" type="image/ico" href="static/Images/icon.ico">
-        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    
+    <script src="static/nvd3/lib/d3.v3.js"></script>
+    <script src="static/nvd3/nv.d3.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
 		<style>
 		  #chart svg {
-			height: 9000px;
-			width: 825px;
+			   height: 9000px;
+			   width: 825px;
 		  }
 		</style>
-		
 	</head>
 	
-	<body> 
+	<body class="body"> 
     <!-- **HEADER**  -->
-    <div id="buzztitle">
-    	<img src="static/Images/title.png" />
-    </div>
+    <div class="white-header"></div>
     
     <!-- **NAVIGATION BAR** -->
     <div id="navbar-wrapper">
@@ -63,8 +61,8 @@
       <h2 class="subtitle">Select Cities to Compare</h2>
 
       <!-- **TWEETS** -->
-      <div class="rt" id="rt" style="float: right!important;">
-          <ul id="tweets" style="list-style-type: none; text-align: -webkit-match-parent!important; float: right!important;"></ul>        
+      <div class="rt" id="rt">
+          <ul id="tweets"></ul>        
       </div>
             
             
@@ -73,120 +71,118 @@
 			</div>
               
     </div>
-	
-       <script type="text/javascript" charset="utf-8">
-  
 
-        $.getJSON( "static/json/compare_tweets.json", function( data ) {
-        var items = [];
-        var tweetlist = document.getElementById("tweets");
-        $.each( data, function( i, tweet ) {
-          if ( i === 40 ) {
-          return false;
-        }
-          var li = document.createElement();
-          /*li.innerHTML = '<li style="text-align: -webkit-match-parent;" id="' + i + '">' + 
-            '<iframe border=0 frameborder=0 height=150 width=350 align = right src="https://twitframe.com/show?url=https://twitter.com/' + tweet.user_id_str + '/status/' + tweet.id_str + '"></iframe>'
-            + '</li>'*/
-            li.innerHTML='<li style="text-align: -webkit-match-parent;" id="' + i + '">' +
-            '<blockquote class="twitter-tweet" height="400" width="750" min-width="500" align="right" ><a href="https://twitter.com/twitterapi/status/' + tweet.id_str + '"</a></blockquote></li>'
-            tweetlist.appendChild(li);
-        });
-       
+    <!-- Javascript functions -->
+     <script type="text/javascript" charset="utf-8">
 
+
+      $.getJSON( "static/json/compare_tweets.json", function( data ) {
+      var items = [];
+      var tweetlist = document.getElementById("tweets");
+      $.each( data, function( i, tweet ) {
+        if ( i === 40 ) {
+        return false;
+      }
+        var li = document.createElement();
+        /*li.innerHTML = '<li style="text-align: -webkit-match-parent;" id="' + i + '">' + 
+          '<iframe border=0 frameborder=0 height=150 width=350 align = right src="https://twitframe.com/show?url=https://twitter.com/' + tweet.user_id_str + '/status/' + tweet.id_str + '"></iframe>'
+          + '</li>'*/
+          li.innerHTML='<li style="text-align: -webkit-match-parent;" id="' + i + '">' +
+          '<blockquote class="twitter-tweet" height=auto width="350" align="right" ><a href="https://twitter.com/twitterapi/status/' + tweet.id_str + '"</a></blockquote></li>'
+          tweetlist.appendChild(li);
       });
-
-        function addTweets(tweetlist) {
-          var count = Math.min(tweetlist.length,30);
-          var tweets = document.getElementById("tweets");
-          var ul = document.createElement("ul");
-          ul.id="tweets";
-          ul.setAttribute("style","list-style-type: none; text-align: -webkit-match-parent; float: right");
-          var oldList = document.getElementById("rt");
-          for (var i=0; i < count; i++) {
-            var li = document.createElement();
-            var tid = tweetlist[i];
-            li.innerHTML='<li style="text-align: -webkit-match-parent;" id="' + tid + '">' +
-            '<blockquote class="twitter-tweet" height="400" width="750" min-width="500" align="right" ><a href="https://twitter.com/twitterapi/status/' + tid + '"</a></blockquote></li>';     
-            ul.appendChild(li);
-
-          }
-          oldList.replaceChild(ul,tweets)
-
-          twttr.widgets.load();
-        }
-
-        </script>
-
-<script>
-
-
-
-
-  d3.json("static/json/compare_values.json", function (data) {
-         
-   
-nv.addGraph(function() {
-
-   chart = nv.models.multiBarHorizontalChart()
-  	  .stacked(false)
-      .x(function(d) { return d.label })
-      .y(function(d) { return d.value })
-      .margin({top: 30, right: 20, bottom: 50, left: 150})
-      .showValues(false)
-      .tooltips(true)
-      .tooltipContent(function(key, y, e, graph,d) { 
-        return '<h3>' + key + '</h3>' +'<p>' + y + '</p>' 
-      })
-
-      
-      .showControls(false);
-
-
-
-  chart.yAxis
-      .tickFormat(d3.format(',0f'));
-
-
-  d3.select('#chart svg')
-
-      .datum(data)
-    .transition().duration(500)
-      .call(chart);
-  nv.utils.windowResize(chart.update);
-
-
-  return chart;
-    },function(){
-
-      chart.multibar.dispatch.on('elementClick', 
-        function(e) {
-          console.log(e);
-          d3.selectAll('.nv-bar')
-             .style('opacity', .5)
-           e.e.srcElement.parentElement.style.setProperty('opacity',1);
-
-          addTweets(e.point.tweets);
-        });
+     
 
     });
-});
 
-</script>
+      function addTweets(tweetlist) {
+        var count = Math.min(tweetlist.length,30);
+        var tweets = document.getElementById("tweets");
+        var ul = document.createElement("ul");
+        ul.id="tweets";
+        ul.setAttribute("style","list-style-type: none; text-align: -webkit-match-parent; float: right");
+        var oldList = document.getElementById("rt");
+        for (var i=0; i < count; i++) {
+          var li = document.createElement();
+          var tid = tweetlist[i];
+          li.innerHTML='<li style="text-align: -webkit-match-parent;" id="' + tid + '">' +
+          '<blockquote class="twitter-tweet" height=auto width="350" align="right" ><a href="https://twitter.com/twitterapi/status/' + tid + '"</a></blockquote></li>';     
+          ul.appendChild(li);
 
-<script type="text/javascript">// <![CDATA[
-(function() {
-var twitterScriptTag = document.createElement('script');
-twitterScriptTag.type = 'text/javascript';
-twitterScriptTag.async = true;
-twitterScriptTag.src = 'static/widget.js';
-var s = document.getElementsByTagName('script')[0];
-s.parentNode.insertBefore(twitterScriptTag, s);
-})();
+        }
+        oldList.replaceChild(ul,tweets)
+
+        twttr.widgets.load();
+      }
+
+      </script>
+    
+
+    <script>
+      d3.json("static/json/compare_values.json", function (data) {
+             
+       
+    nv.addGraph(function() {
+
+       chart = nv.models.multiBarHorizontalChart()
+      	  .stacked(false)
+          .x(function(d) { return d.label })
+          .y(function(d) { return d.value })
+          .margin({top: 30, right: 20, bottom: 50, left: 150})
+          .showValues(false)
+          .tooltips(true)
+          .tooltipContent(function(key, y, e, graph,d) { 
+            return '<h3>' + key + '</h3>' +'<p>' + y + '</p>' 
+          })
+
+          
+          .showControls(false);
 
 
-// ]]></script>
+
+      chart.yAxis
+          .tickFormat(d3.format(',0f'));
+
+
+      d3.select('#chart svg')
+
+          .datum(data)
+        .transition().duration(500)
+          .call(chart);
+      nv.utils.windowResize(chart.update);
+
+
+      return chart;
+        },function(){
+
+          chart.multibar.dispatch.on('elementClick', 
+            function(e) {
+              console.log(e);
+              d3.selectAll('.nv-bar')
+                 .style('opacity', .5)
+               e.e.srcElement.parentElement.style.setProperty('opacity',1);
+
+              addTweets(e.point.tweets);
+            });
+
+        });
+    });
+
+    </script>
+    
+
+    <script type="text/javascript">// <![CDATA[
+    (function() {
+    var twitterScriptTag = document.createElement('script');
+    twitterScriptTag.type = 'text/javascript';
+    twitterScriptTag.async = true;
+    twitterScriptTag.src = 'static/widget.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(twitterScriptTag, s);
+    })();
+
+
+    // ]]></script>
 
     </body>
-
 </html>
