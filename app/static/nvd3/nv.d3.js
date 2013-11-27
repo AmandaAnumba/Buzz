@@ -917,7 +917,7 @@ nv.utils.getColor = function(color) {
 
 // Default color chooser uses the index of an object as before.
 nv.utils.defaultColor = function() {
-    var colors = d3.scale.category20().range();
+    var colors = d3.scale.category20b().range();
     return function(d, i) { return d.color || colors[i % colors.length] };
 }
 
@@ -8953,7 +8953,7 @@ nv.models.multiBarHorizontalChart = function() {
   var margin = {top: 30, right: 20, bottom: 50, left: 60}
     , width = null
     , height = null
-    , color = nv.utils.getColor(["#f7fbff","#deebf7","#c6dbef","#9ecae1","#6baed6","#4292c6","#2171b5","#084594"])
+    , color = nv.utils.defaultColor()
     , showControls = true
     , showLegend = true
     , stacked = false
