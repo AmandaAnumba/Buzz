@@ -432,6 +432,12 @@ footer {
 	margin:0;
 }
 
+.newsSnippet{
+	width: 270px;
+	overflow: break;
+	word-wrap: break-word;
+}
+
 /******** videos *******/
 #videos {
 	height: auto;
