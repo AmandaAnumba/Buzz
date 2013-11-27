@@ -186,6 +186,9 @@ body {
 	background: url(Images/bglines.png);
 	width: 100%;
 	height: 375px;
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 
 #buzz {
@@ -193,6 +196,7 @@ body {
 	margin:0;
 	padding-top: 8%;
 	text-shadow: 1px 1px 3px #696969;
+
 }
 
 .home-title, #tag-links {
@@ -211,12 +215,12 @@ body {
 	padding: 5px;
 	border-radius: 5px;
 	color:#CCC;
-	margin-right: 10px;
+	margin-right: 7px;
 }
 
-#a:hover, #b:hover, #c:hover {
-	font-style: italic; 
+#a:hover, #b:hover, #c:hover { 
 	background: #F3F315;
+	color: black;
 }
 
 /* body */
@@ -226,9 +230,6 @@ body {
 	width: 100%;
 	height: 300px;
 	border-radius: 5px;
-	-webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
-	-moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
-	box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
 }
 
 #disc-title {
@@ -247,18 +248,18 @@ body {
 }
 
 #disc {	
-	margin-left: 29%;
+	margin-left: 26%;
 }
 
 #exp {
 	float: right;
-	margin-right: 27%;
+	margin-right: 23%;
 }
 
 /* footer */
 footer {
 	z-index: 4;
-	background-color: #F2E9E1;
+	background-image: url(Images/bg2.png);
 	bottom: 0;
 	height: 30px;
 	width: 100%;
