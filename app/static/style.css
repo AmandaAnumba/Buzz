@@ -14,8 +14,7 @@ body {
 /*********************************************************/
 
 #navbar-wrapper {
-	z-index: 100;
-	margin-top: -95px;	
+	z-index: 100;	
 	width: 130px;
 	position: fixed;
 	border-radius: 3px;
@@ -181,7 +180,7 @@ body {
 	-moz-box-shadow: 0 0 5px #aaa;
 	-webkit-box-shadow: 0 0 5px #aaa;
 	width: 100%;
-	background-image:url(Images/logo.html);
+	background-image:url(Images/logo.png);
 	background-repeat: none;
 	background-position: right;
 }
@@ -284,6 +283,15 @@ footer {
 /*********************************************************/
 /*********************************************************/
 /*********************************************************/
+
+#a-divider {
+	background: url(Images/bglines.png);
+	width: 100%;
+	height: 175px;
+	-webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
+}
 
 #about-body {
 	background-image: url('Images/bg2.png');
