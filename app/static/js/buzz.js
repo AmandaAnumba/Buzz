@@ -20,7 +20,7 @@ var key = "boX7CdYBW+zsr99xjmIB9Dt4W7vhViJu65816FiBPjg";
 
 function newsSearch(q) {
 	//Build up the URL for the request
-	var maxresults = 10;
+	var maxresults = 15;
 	var query = new String(q);
 	var l = query.length;
 	var uri = encodeURI(query.slice(1, (l-1))).replace("%20", "+");
