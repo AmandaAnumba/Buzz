@@ -386,6 +386,219 @@ footer {
 /*********************************************************/
 /*********************************************************/
 
+#body-discover{
+	margin: 0;
+	padding: 0;
+	width: auto;
+	background-color: white;
+	font-family:"Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+	overflow-y: hidden;
+}
+
+/***** horiztonal content and boxes *****/
+#horiz-content {
+	background-color: white;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+
+/* introduction box */
+#welcome {
+	background-color: black;
+	color: white;
+	height: 100%;
+	width: 20%;
+	position: absolute;
+}
+
+.title1 {
+	margin-top: 65%;
+	font-size: 35pt;
+	text-align: center;
+}
+
+.text1 {
+	font-size: 16px;
+	font-weight: normal;
+	text-align: center;
+	margin:0;
+	padding:0;
+}
+
+
+/* city blocks */
+/*setup*/
+#cities {
+	width: 100%;
+	height: 100%;
+}
+
+.box {
+	list-style-type: none;
+	width: 35%;
+	height: 49.75%;
+	position: absolute;
+}
+
+.wrapper {
+	width: 100%;
+	height: 100%;
+	position: absolute;	
+}
+
+.tag-disc {
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	font-size: 13px;
+	text-align: left;
+	margin-left: 1%;
+	width: 73px;
+	text-transform: uppercase;
+}
+
+.title2 {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-size: 30px;
+	color: white;
+	text-shadow: 1px 1px 3px #1D1D1D;
+}
+
+.c-main {
+	height: 100%;
+	width: 100%;
+	margin-top: 50%;
+	-webkit-transition: margin 0.5s ease-out; 
+	-moz-transition: margin 0.5s ease-out; 
+	-o-transition: margin 0.5s ease-out; 
+}
+
+#l-cities li:hover .text-onhover {
+	opacity: 1;
+	transition: ease-in;
+	
+}
+
+#l-cities li:hover .c-main {
+	margin-top: 2%;
+	
+}
+
+.text-onhover {
+	opacity: 0;
+	color: white;
+	-webkit-transition: opacity .3s;
+	-moz-transition: opacity .3s;
+	transition: opacity .3s;
+}
+
+.c-link {
+	text-align: center;
+	text-decoration: none;
+}
+
+
+/*individual boxes*/
+#chicago, #miami, #sf, #la, #ny, #wdc {
+	background-size: cover; 
+	background-position: 50%;
+}
+
+#chicago {
+	background-image: url(Images/chicago.jpg);
+	left: 20.2%;
+	top:0;	
+}
+
+#miami {
+	background-image: url(Images/miami.jpg);
+	left: 20.2%;
+	top: 50.25%;	
+}
+
+#la {
+	background-image: url(Images/la.jpg);
+	left: 55.45%;
+	top:0;	
+}
+
+#ny {
+	background-image: url(Images/ny.jpg);
+	left: 55.45%;
+	top: 50.25%;	
+}
+
+#sf {
+	background-image: url(Images/sf.jpg);
+	left: 90.7%;
+	top: 0;		
+}
+
+#wdc {
+	background-image: url(Images/wdc.jpg);	
+	left: 90.7%;
+	top: 50.25%;	
+}
+
+
+/*histogram*/
+.histogram {
+	width: 100%;
+	height: 100%;
+}
+
+.terms {
+	list-style: none;	
+	margin: 0;
+	padding: 0;
+	margin-left: 8px;
+	margin-right: 8px;
+	display: list-item;
+}
+
+.terms li {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.inner {
+	margin: 0 0 0 50px;
+}
+
+.count {
+	background-color: #EEEEEE;
+	width: 28px;
+	border-radius: 3px;
+	padding: 2px;	
+	text-align: right;
+	color: #666666;
+	float: left;
+}
+
+.text2 {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-size: 13px;
+	color: white;
+	float: left;
+	text-shadow: 0px 0px 1px #363636;
+	margin-left: 5px;
+	padding: 4px;
+}
+
+.bar {
+	height: 27px;
+	background: #63B3FF;
+	opacity: 0.9;
+	float: left;
+	margin-left: -13px;
+}
 
 
 /********************** CITIES PAGE **********************/
