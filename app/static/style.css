@@ -1,6 +1,6 @@
 @font-face { 
-	font-family: 'Gill Sans'; 
-	src: url('Fonts/Gill Sans.ttf'); 
+	font-family:"Gill Sans", "Gill Sans MT", Calibri, sans-serif; 
+	src: url('Fonts/GillSans.ttf'); 
 }
 
 body {
@@ -549,7 +549,7 @@ footer {
 .twitter-tweet {
 	max-width: 100%;
 	width: 350px;
-	height: auto;
+	max-height: 250px;
 }
 
 /****** images ******/
