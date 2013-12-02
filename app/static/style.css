@@ -208,7 +208,8 @@ a {
 
 #buzzlogo {
 	float: right;
-
+	margin-top: -26%;
+	margin-left: 15%;
 }
 
 .home-title, #tag-links {
