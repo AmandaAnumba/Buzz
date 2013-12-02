@@ -206,6 +206,11 @@ a {
 	color: white;
 }
 
+#buzzlogo {
+	float: right;
+
+}
+
 .home-title, #tag-links {
 	margin:0;
 	padding-left: 8%;
