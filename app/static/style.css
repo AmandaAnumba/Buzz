@@ -231,6 +231,11 @@ a {
 	color: black;
 }
 
+#buzzlogo {
+	float: right;
+	margin-top: -24%;
+	margin-right: 15%;
+}
 
 /* body */
 #home-body-wrapper {
