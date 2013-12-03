@@ -1,231 +1,201 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Buzz </title>
-        <link href = "style.css" rel="stylesheet" type="text/css"></link> 
-        <link rel="icon" type="image/ico" href="Images/icon.ico">
+    <title> Buzz </title>
+    <link href = "style.css" rel="stylesheet" type="text/css"></link> 
+    <link rel="icon" type="image/ico" href="Images/icon.ico">
         <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>  
-        <script src="static/js/buzz.js"></script>
-        <script src="static/js/histogram.js"></script>
-        <script src="static/js/jquery-horizscroll.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>  
+        <script src="JS/buzz.js"></script>
+        <script src="JS/histogram.js"></script>
+        <script src="JS/jquery-horizscroll.js"></script>
         <script>
-            $(function(){
-              $("#body-discover").mousewheel(function(event, delta) {
-                this.scrollLeft -= (delta * 30);
-                event.preventDefault();
-              });   
-            });
+      $(function(){
+        $("#body-discover").mousewheel(function(event, delta) {
+          this.scrollLeft -= (delta * 30);
+          event.preventDefault();
+        });   
+      });
         </script>
-    </head>
+  </head>
   
-    <body id="body-discover"> 
+  <body id="body-discover"> 
                 
         <!-- **NAVIGATION BAR** -->
         <div id="navbar-wrapper">
             <h1 id="navbar-header"><a href="home.html">Buzz</a></h1>
             <div class="navbar"> 
               <ul>
-                <li class="parent">
-                  <img src="static/Images/discover.png"/>
-                  <a href="discover.html">Discover</a>
-                    <ul>
-                      <li class="child"><a href="discover_Chicago">Chicago</a></li>
-                      <li class="child"><a href="discover_Los Angeles">Los Angeles</a></li>
-                      <li class="child"><a href="discover_Miami">Miami</a></li>
-                      <li class="child"><a href="discover_New York City">New York</a></li>
-                      <li class="child"><a href="discover_San Francisco">San Francisco</a></li>
-                      <li class="child"><a href="discover_Washington DC">Washington DC</a></li>
-                    </ul>
-                </li>
+                  <li class="parent">
+                      <img src="Images/discover.png"/>
+                      <a href="discover.html">Discover</a>
+                          <ul>
+                            <li class="child"><a href="discover_Chicago">Chicago</a></li>
+                            <li class="child"><a href="discover_Los Angeles">Los Angeles</a></li>
+                            <li class="child"><a href="discover_Miami">Miami</a></li>
+                            <li class="child"><a href="discover_New York City">New York</a></li>
+                            <li class="child"><a href="discover_San Francisco">San Francisco</a></li>
+                            <li class="child"><a href="discover_Washington DC">Washington DC</a></li>
+                          </ul>
+                  </li>
                       
-                <li class="parent">
-                    <img src="static/Images/explore.png"/>
-                    <a href="explore.html">Explore</a>
-                </li>
-                
-                <li class="parent">
-                  <img src="static/Images/about.png"/>
-                  <a href="about.html">About</a>
-                </li>
+                  <li class="parent">
+                      <img src="Images/explore.png"/>
+                      <a href="explore.html">Explore</a>
+                  </li>
+                  
+                  <li class="parent">
+                    <img src="Images/about.png"/>
+                    <a href="about.html">About</a>
+                  </li>
             
               </ul>
             </div>
-        </div>
-            
+         </div>
+        
+        <!-- **HEADER**  
+        <div class="white-header">
+          <p class="ref">Discover</p>
+        </div>-->
+        
         <!-- **MAIN CONTENT** -->
         <div id="content-wrapper">
           <div id="horiz-content">
-            <div id="welcome">
-              <h1 class="title1"> Discover </h1>
-              <p class="text1"> See what's going on in each individual city. 
-              Hover over each section for quick facts and then click the 
-              section to view more. </p>
-            </div>
+              <div id="welcome">
+                    <h1 class="title1"> Discover </h1>
+                    <p class="text1"> See what's going on in each individual city. 
+                    Hover over each section for some quick facts and then click the 
+                    section to view more. </p>
+              </div>
               
-            <div id="cities">
-              <ul id="l-cities">
-                  
-                <!-- first box, Chicago -->
-                <li class="box" id="chicago">
-                  <div class="wrapper">
-                    <div class="c-main" id="info">
-                      <p class="tag-disc"> Discover </p>
-                      <p class="title2" id="city"> Chicago </p>
+                <div id="cities">
+                  <ul id="l-cities">
+                      
+                        <!-- first box, Chicago -->
+                        <li class="box" id="chicago">
+                          <div class="wrapper" id="c1">
+                                <div class="c-main" >
+                                    <p class="tag-disc"> Discover </p>
+                                    <p class="title2" id="city"> Chicago </p>
+                                    
+                                    <div class="text-onhover">
+                                      <p class="title2"> Top 5 Icons </p>
+                                        <div class="histogram" id="histchart">
+                                             <!-- display the top 5 trending topics --> 
+                                             <ul class="terms"></ul>
+                                        </div>
+                                        <a href="discover_Chicago" class="c-link">View More</a> 
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                         
-                      <div class="text-onhover">
-                        <p class="title2"> Top 5 Icons </p>
-                          <div class="histogram" id="histchart">
-                              
-                              <!--display the top 5 trending topics -->
-                              <ul class="terms">
-                                  <li>
-                                      <span class="pre">
-                                        <div class="count">87</div>
-                                      </span>
-                                      <div class="inner">
-                                        <div class="bar" style="width: 85%">
-                                            <p class="text2">Rihanna</p>
-                                          </div>
-                                        <br>
-                                      </div>
-                                  </li>
-                                  
-                                  <li>
-                                      <span class="pre">
-                                          <div class="count">59</div>
-                                      </span>
-                                      <div class="inner">
-                                        <div class="bar" style="width: 63%">
-                                            <p class="text2">Eminem</p>
-                                          </div>
-                                        <br>
-                                      </div>
-                                  </li>
-                                  
-                                  <li>
-                                      <span class="pre">
-                                          <div class="count">30</div>
-                                      </span>
-                                      <div class="inner">
-                                        <div class="bar" style="width: 57%">
-                                            <p class="text2">Macklemore</p>
-                                          </div>
-                                          <br>
-                                      </div>
-                                  </li>
-                                  
-                                  <li>
-                                      <span class="pre">
-                                          <div class="count">28</div>
-                                      </span>
-                                      <div class="inner">
-                                        <div class="bar" style="width: 33%">
-                                            <p class="text2">The Packers</p>
-                                          </div>
-                                          <br>
-                                      </div>
-                                  </li>
-                                  
-                                  <li>
-                                      <span class="pre">
-                                          <div class="count">17</div>
-                                      </span>
-                                      <div class="inner">
-                                        <div class="bar" style="width: 13%">
-                                            <p class="text2">Mamma Mia!</p>
-                                          </div>
-                                          <br>
-                                      </div>
-                                  </li>
-                              </ul>
-                          </div>
-                          <a href="discover_Chicago" class="c-link">View More</a> 
-                        </div>
-                      </div>
-                  </div>
-                </li>
+
+                        <!-- second box, Miami -->
+                        <li class="box" id="miami">
+                            <div class="wrapper" id="c2">
+                              <div class="c-main">
+                                  <p class="tag-disc"> Discover </p>
+                                    <p class="title2" id="city"> Miami </p>
+                                    
+                                    <div class="text-onhover">
+                                        <p class="title2"> Top 5 Icons </p>
+                                        <div class="histogram" id="histchart">
+                                            <!-- display the top 5 trending topics -->
+                                            <ul class="terms"></ul>
+                                        </div>
+                                        <a href="discover_Miami" class="c-link">View More</a>
+                                  </div>
+                                </div>
+                            </div>
+                        </li>
                         
-                <!-- second box, Miami -->
-                <li class="box" id="miami">
-                  <div class="c-main">
-                      <p class="tag-disc"> Discover </p>
-                        <p class="title2" id="city"> Miami </p>
+
+                        <!-- third box, L.A. -->
+                        <li class="box" id="la">
+                            <div class="wrapper" id="c3">
+                              <div class="c-main">
+                                  <p class="tag-disc"> Discover </p>
+                                    <p class="title2" id="city"> Los Angeles </p>
+                                    
+                                    <div class="text-onhover">
+                                        <p class="title2"> Top 5 Icons </p>
+                                        <div class="histogram" id="histchart">
+                                            <!-- display the top 5 trending topics -->
+                                            <ul class="terms"></li>
+                                             </ul>
+                                        </div> 
+                                        <a href="discover_Los Angeles" class="c-link">View More</a> 
+                                  </div>
+                                </div>
+                            </div>
+                        </li>
                         
-                        <div class="text-onhover">
-                            <p class="text2"> blah blah blah blah blah blah blah blah 
-                            blah blahblah blah blah blah blah blah blah blah blah blah
-                            blah blah blah blah blah blah blah blah blah blah
-                            blah blah blah blah blah blah blah blah blah blah </p>
-                            <a href="discover_Miami" class="c-link">View More</a>
-                      </div>
-                    </div>
-                </li>
+
+                        <!-- fourth box, New York -->
+                        <li class="box" id="ny">
+                          <div class="wrapper" id="c4">
+                                <div class="c-main">
+                                  <p class="tag-disc"> Discover </p>
+                                    <p class="title2" id="city"> New York </p>
+                                    
+                                    <div class="text-onhover">
+                                        <p class="title2"> Top 5 Icons </p>
+                                        <div class="histogram" id="histchart">
+                                            <!-- display the top 5 trending topics -->
+                                            <ul class="terms"></ul>
+                                        </div>
+                                        <a href="discover_New York City" class="c-link">View More</a>
+                                  </div>
+                                </div>
+                            </div>
+                        </li>
                         
-                <!-- third box, L.A. -->
-                <li class="box" id="la">
-                  <div class="c-main">
-                      <p class="tag-disc"> Discover </p>
-                        <p class="title2" id="city"> Los Angeles </p>
+
+                        <!-- fifth box, San Francisco -->
+                        <li class="box" id="sf">
+                            <div class="wrapper" id="c5">
+                              <div class="c-main">
+                                  <p class="tag-disc"> Discover </p>
+                                    <p class="title2" id="city"> San Francisco </p>
+                                    
+                                    <div class="text-onhover">
+                                        <p class="title2"> Top 5 Icons </p>
+                                        <div class="histogram" id="histchart">
+                                            <!-- display the top 5 trending topics -->
+                                            <ul class="terms"></ul>
+                                        </div>
+                                        <a href="discover_San Francisco" class="c-link">View More</a> 
+                                  </div>
+                                </div>
+                            </div>
+                        </li>
                         
-                        <div class="text-onhover">
-                            
-                            <a href="discover_Los Angeles" class="c-link">View More</a> 
-                      </div>
-                    </div>
-                </li>
-                
-                <!-- fourth box, New York -->
-                <li class="box" id="ny">
-                  <div class="c-main">
-                      <p class="tag-disc"> Discover </p>
-                        <p class="title2" id="city"> New York </p>
+
+                        <!-- sixth box, Washington DC -->
+                        <li class="box" id="wdc">
+                            <div class="wrapper"  id="c6">
+                              <div class="c-main">
+                                  <p class="tag-disc"> Discover </p>
+                                    <p class="title2" id="city"> Washington DC </p>
+                                    
+                                    <div class="text-onhover">
+                                        <p class="title2"> Top 5 Icons </p>
+                                        <div class="histogram" id="histchart">
+                                            <!-- display the top 5 trending topics -->
+                                            <ul class="terms"></ul>
+                                        </div>
+                                        <a href="discover_Washington DC" class="c-link">View More</a>
+                                  </div>
+                                </div>
+                            </div>
+                        </li>
                         
-                        <div class="text-onhover">
-                            <p class="text2"> blah blah blah blah blah blah blah blah 
-                            blah blahblah blah blah blah blah blah blah blah blah blah
-                            blah blah blah blah blah blah blah blah blah blah
-                            blah blah blah blah blah blah blah blah blah blah </p>
-                            <a href="discover_New York City" class="c-link">View More</a>
-                      </div>
-                    </div>
-                </li>
-                
-                <!-- fifth box, San Francisco -->
-                <li class="box" id="sf">
-                  <div class="c-main">
-                      <p class="tag-disc"> Discover </p>
-                        <p class="title2" id="city"> San Francisco </p>
-                        
-                        <div class="text-onhover">
-                            <p class="text2"> blah blah blah blah blah blah blah blah 
-                            blah blahblah blah blah blah blah blah blah blah blah blah
-                            blah blah blah blah blah blah blah blah blah blah
-                            blah blah blah blah blah blah blah blah blah blah </p>
-                            <a href="discover_San Francisco" class="c-link">View More</a> 
-                      </div>
-                    </div>
-                </li>
-                
-                <!-- sixth box, Washington DC -->
-                <li class="box" id="wdc">
-                  <div class="c-main">
-                      <p class="tag-disc"> Discover </p>
-                        <p class="title2" id="city"> Washington DC </p>
-                        
-                        <div class="text-onhover">
-                            <p class="text2"> blah blah blah blah blah blah blah blah 
-                            blah blahblah blah blah blah blah blah blah blah blah blah
-                            blah blah blah blah blah blah blah blah blah blah
-                            blah blah blah blah blah blah blah blah blah blah </p>
-                            <a href="discover_Washington DC" class="c-link">View More</a>
-                      </div>
-                    </div>
-                </li>
-              </ul>
+                    </ul>
+                </div>
             </div>
-          </div>
-        </div> 
-    
+          
+        </div>
+        
   </body>
 </html>
