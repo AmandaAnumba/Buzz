@@ -19,7 +19,7 @@ def pull_tweets():
 def grab_image(term,image_dict):
 	if term in image_dict.keys():
 		return image_dict[term]
-	url = 'http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=5b2e6d61f807cd8991fb7c59164637e8&text=%s&sort=relevance&safe_search=1&content_type=1&media=photos&per_page=1&format=json&nojsoncallback=1' % term
+	url = 'http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=a55eed5b651f75da97567fb80935fd15&text=%s&sort=relevance&safe_search=1&content_type=1&media=photos&per_page=1&format=json&nojsoncallback=1' % term
 	req = urllib2.Request(url,None,{'user-agent':'northwestern/knightlab'})
 	opener = urllib2.build_opener()
 	try:
@@ -78,6 +78,7 @@ def outputtop(city,top_keywords,color,tweets_dict,uid_dict,tweets,overall_keywor
 	tweets[city] = {}
 	citykeywords = [t["text"] for t in top_keywords[city]]
 	cityvalues = {}
+
 	for t in top_keywords[city]:
 		if t["text"] in [k[1] for k in overall_keywords]:
 			cityvalues[t["text"]] = (t["score"],t["contrib_score"])
@@ -115,9 +116,15 @@ def outputbar(city,top_keywords,fp,lim1,lim2):
 	json.dump(values,barfile)
 	barfile.close()	
 
-def outputcity(city,top_keywords,fp,lim1,lim2,image_dict,tweets_dict):
+def outputcity(city,top_keywords,fp,lim1,lim2,image_dict,tweets_dict,overall_keywords):
 	values = []
 	top = sorted(top_keywords[city], key=lambda k: k['score'])[::-1][lim1:lim2]
+	overall = [k[1] for k in overall_keywords]
+	top = []
+	for t in top_keywords[city]:
+		if t['text'] not in overall:
+			top.append(t)
+	top = sorted(top, key=lambda k: k['score'])[::-1][:(lim2-lim1)]
 	for t in top:
 		tids = tweets_dict[city][t["text"]]
 		image = grab_image(t["text"].replace(" ","%20"),image_dict)
@@ -171,8 +178,14 @@ def parseTable():
 	keywordfile.close()
 	outfile.close()
 
+def killImageDicts():
+	a = open("image_dict.pickled",'w')
+	pickle.dump({},a)
+	a.close()
+
 
 def main():
+	killImageDicts()
 	pull_tweets()
 	keywords_by_city = {}
 	for c in cities:
@@ -247,7 +260,7 @@ def main():
 		#Upcoming
 		#outputbar(city,top_keywords,"upcoming",10,20)
 		#On the Verge
-		outputcity(city,top_keywords,"verge",0,60,image_dict,tweets_dict)
+		outputcity(city,top_keywords,"verge",0,60,image_dict,tweets_dict,overall_keywords)
 		print city
 		#makePieValues(city)
 	image_dictfile = open("image_dict.pickled",'w')
