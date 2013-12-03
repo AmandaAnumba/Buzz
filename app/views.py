@@ -89,7 +89,7 @@ def cityview(cityname):
 @buzz.route('/discover.html')
 def discover():
 	return render_template("discover.html",
-		cities = cities)		
+		cities=map(json.dumps, cities))		
 
 @buzz.route('/explore')
 @buzz.route('/explore.html')
