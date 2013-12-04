@@ -24,11 +24,11 @@ $(function() {
     		val = 20 + valadd;
     		key = keyword.label;
     		$('.terms' + city.replace(/ /g,"_")).append("<span class='pre'><div class='count'>"+(i + 1)+"</div></span><div class='bar'" + city.replace(/ /g,"_") + " style='width:"+val+"%'><p class='text2'>" + key + "</p></div><br/><br/>");
-    		$("<br/>").insertAfter('.bar' + city.replace(/ /g,"_"));
+    		
     	}
 
       });
-	
+	$("<br/>").insertAfter('.bar' + city.replace(/ /g,"_"));
 });
 });
 });
