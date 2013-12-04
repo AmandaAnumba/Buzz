@@ -5,16 +5,11 @@ $(function() {
 	citieslist.forEach(function(city) {
 
 		$.getJSON( "static/json/" + city + "_media_values.json", function( data ) {
-
-			$('#terms' + city).append("<li><div class='inner'><span class='pre'>");
 			
 			$.each( data, function( i, keyword ) {
-				//console.log(keyword)
+		        
 		        if ( i === 5 ) {
 			        $('#terms' + city.replace(/ /g,"_")).append("</div></li>");
-			        
-			        //console.log($('#terms' + city.replace(/ /g,"_")))
-			       // $("<br/>").insertAfter('.bar' + city);
 			        return false;
 		    	}
 		    	
@@ -22,7 +17,7 @@ $(function() {
 		    		valadd = keyword.value * 20;
 		    		val = 20 + valadd;
 		    		key = keyword.label;
-		    		$('#terms' + city.replace(/ /g,"_")).append("<span class='pre'><div class='count'>"+(i + 1)+"</div></span><div class='bar'" + city.replace(/ /g,"_") + " style='width:"+val+"%'><p class='text2'>" + key + "</p></div><br/><br/>");
+		    		$('#terms' + city.replace(/ /g,"_")).append("<li><div class='inner'><span class='pre'><span class='pre'><div class='count'>"+(i + 1)+"</div></span><div class='bar'" + city.replace(/ /g,"_") + " style='width:"+val+"%'><p class='text2'>" + key + "</p></div>");
 		    	}
 		    });
 			
