@@ -17,7 +17,7 @@ $(function() {
 		    		valadd = keyword.value * 20;
 		    		val = 20 + valadd;
 		    		key = keyword.label;
-		    		$('#terms' + city.replace(/ /g,"_")).append("<li><div class='inner'><span class='pre'><div class='count'>"+(i + 1)+"</div></span><div class='bar' style='width:"+val+"%'><p class='text2'>" + key + "</p></div><br/>");
+		    		$('#terms' + city.replace(/ /g,"_")).append("<li><div class='inner'><span class='pre'><div class='count'>"+Math.round(val)+"</div></span><div class='bar' style='width:"+val+"%'><p class='text2'>" + key + "</p></div>");
 		    	}
 		    });
 		});

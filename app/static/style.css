@@ -233,7 +233,7 @@ a {
 
 #buzzlogo {
 	float: right;
-	margin-top: -24%;
+	margin-top: -22%;
 	margin-right: 15%;
 }
 
@@ -485,13 +485,11 @@ footer {
 
 #l-cities li:hover .text-onhover {
 	opacity: 1;
-	transition: ease-in;
-	
+	transition: ease-in;	
 }
 
 #l-cities li:hover .c-main {
 	margin-top: 2%;
-	
 }
 
 #l-cities li:hover .tag-disc {
@@ -605,8 +603,8 @@ footer {
 	height: 27px;
 	background: #63B3FF;
 	opacity: 0.9;
-	float: left;
-	margin-left: 5px;
+	margin-left: 7.9%;
+	margin-bottom: 2%;
 }
 
 /********************** CITIES PAGE **********************/
