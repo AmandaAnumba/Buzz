@@ -17,11 +17,11 @@ $(function() {
 		    		valadd = keyword.value * 20;
 		    		val = 20 + valadd;
 		    		key = keyword.label;
-		    		$('#terms' + city.replace(/ /g,"_")).append("<li><div class='inner'><span class='pre'><span class='pre'><div class='count'>"+(i + 1)+"</div></span><div class='bar'" + city.replace(/ /g,"_") + " style='width:"+val+"%'><p class='text2'>" + key + "</p></div>");
+		    		$('#terms' + city.replace(/ /g,"_")).append("<li><div class='inner'><span class='pre'><div class='count'>"+(i + 1)+"</div></span><div class='bar' style='width:"+val+"%'><p class='text2'>" + key + "</p></div>");
 		    	}
 		    });
 			
-			$("<br/>").insertAfter('.bar' + city.replace(/ /g,"_"));
+			$("<br/>").insertAfter('.bar');
 		});
 	});
 });
