@@ -9,7 +9,7 @@ $(function() {
 	$.getJSON( "static/json/" + city + "_media_values.json", function( data ) {
 		//console.log(data)
 	//var sampledata = {};
-	$('.terms' + city).append("<li><div class='inner'><span class='pre'>");
+	$('#terms' + city).append("<li><div class='inner'><span class='pre'>");
 	$.each( data, function( i, keyword ) {
 		//console.log(keyword)
         if ( i === 5 ) {
