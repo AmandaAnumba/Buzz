@@ -561,7 +561,7 @@ footer {
 	height: 100%;
 }
 
-.terms {
+#termsWashington_DC, #termsSan_Francisco, #termsNew_York_City, #termsLos_Angeles, #termsMiami, #termsChicago {
 	list-style: none;	
 	margin: 0;
 	padding: 0;
