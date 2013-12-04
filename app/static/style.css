@@ -846,14 +846,16 @@ footer {
 /*content*/
 
 #rt {
-	float: right!important;
+	float: right;
+	position: fixed;
+	margin-left: 60.5%;
 }
 
 #tweets {
 	list-style-type: none;
 	text-align: -webkit-match-parent!important; 
 	float: right!important;
-	height: 1000px;
+	height: 380px;
 	width: 405px;
 	overflow-y: scroll;
 }
