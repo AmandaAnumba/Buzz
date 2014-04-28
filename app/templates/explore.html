@@ -29,35 +29,34 @@
 	
 	<body class="body-explore"> 
     
-    <!-- **NAVIGATION BAR** -->
-        <div id="navbar-wrapper">
-            <h1 id="navbar-header"><a href="home.html">Buzz</a></h1>
-            <div class="navbar"> 
-              <ul>
-                  <li class="parent">
-                      <a href="discover.html"><span><i class="fa fa-search"></i>Discover</span></a>
-                          <ul>
-                            <li class="child"><a href="discover_Chicago">Chicago</a></li>
-                            <li class="child"><a href="discover_Los Angeles">Los Angeles</a></li>
-                            <li class="child"><a href="discover_Miami">Miami</a></li>
-                            <li class="child"><a href="discover_New York City">New York</a></li>
-                            <li class="child"><a href="discover_San Francisco">San Francisco</a></li>
-                            <li class="child"><a href="discover_Washington DC">Washington DC</a></li>
-                        </ul>
-                  </li>
-                      
-                  <li class="parent">
-                      <img src="static/Images/explore.png"/>
-                      <a href="explore.html">Explore</a>
-                  </li>
-                  
-                  <li class="parent">
-                    <a href="about.html"><span><i class="fa fa-align-left"></i>About</span></a>
-                  </li>
-            
-              </ul>
-            </div>
-         </div>
+      <!-- **NAVIGATION BAR** -->
+      <div id="navbar-wrapper">
+          <h1 id="navbar-header"><a href="home.html">Buzz</a></h1>
+          <div class="navbar"> 
+            <ul>
+                <li class="parent">
+                    <a href="discover.html"><span><i class="fa fa-search fa-fw"></i> Discover</span></a>
+                        <ul>
+                          <li class="child"><a href="discover_Chicago">Chicago</a></li>
+                          <li class="child"><a href="discover_Los Angeles">Los Angeles</a></li>
+                          <li class="child"><a href="discover_Miami">Miami</a></li>
+                          <li class="child"><a href="discover_New York City">New York</a></li>
+                          <li class="child"><a href="discover_San Francisco">San Francisco</a></li>
+                          <li class="child"><a href="discover_Washington DC">Washington DC</a></li>
+                      </ul>
+                </li>
+                    
+                <li class="parent">
+                    <a href="explore.html"><span><i class="fa fa-link fa-fw"></i> Explore</span></a>
+                </li>
+                
+                <li class="parent">
+                  <a href="about.html"><span><i class="fa fa-align-left fa-fw"></i> About</span></a>
+                </li>
+          
+            </ul>
+          </div>
+       </div>
     
     <!-- **HEADER**  -->
     <div class="white-header">
@@ -97,11 +96,8 @@
         return false;
       }
         var li = document.createElement();
-        /*li.innerHTML = '<li style="text-align: -webkit-match-parent;" id="' + i + '">' + 
-          '<iframe border=0 frameborder=0 height=150 width=350 align = right src="https://twitframe.com/show?url=https://twitter.com/' + tweet.user_id_str + '/status/' + tweet.id_str + '"></iframe>'
-          + '</li>'*/
           li.innerHTML='<li style="text-align: -webkit-match-parent;" id="' + i + '">' +
-          '<blockquote class="twitter-tweet" height=auto width="300" align="right" ><a href="https://twitter.com/twitterapi/status/' + tweet.id_str + '"</a></blockquote></li>'
+          '<blockquote class="twitter-tweet" height=auto width="300" align="right" ><a href="https://twitter.com/twitterapi/status/' + tweet.id_str + '"</a></blockquote></li>';
           tweetlist.appendChild(li);
         });
       });
@@ -126,74 +122,69 @@
         twttr.widgets.load();
       }
 
-      </script>
-    
 
-    <script>
-      d3.json("static/json/compare_values.json", function (data) {
-             
-       
-    nv.addGraph(function() {
+        d3.json("static/json/compare_values.json", function (data) {
+                   
+        nv.addGraph(function() {
 
-       chart = nv.models.multiBarHorizontalChart()
-      	  .stacked(false)
-          .x(function(d) { return d.label })
-          .y(function(d) { return d.value })
-          .margin({top: 30, right: 20, bottom: 50, left: 150})
-          .showValues(false) 
-          .tooltips(true)
-          .tooltipContent(function(key, y, e, graph,d) { 
-            return '<h3>' + key + '</h3>' +'<p>' + y + '</p>' 
-          })
+           chart = nv.models.multiBarHorizontalChart()
+          	  .stacked(false)
+              .x(function(d) { return d.label })
+              .y(function(d) { return d.value })
+              .margin({top: 30, right: 20, bottom: 50, left: 150})
+              .showValues(false) 
+              .tooltips(true)
+              .tooltipContent(function(key, y, e, graph,d) { 
+                return '<h3>' + key + '</h3>' +'<p>' + y + '</p>' 
+              })
 
-          
-          .showControls(false);
+              
+              .showControls(false);
 
 
 
-      chart.yAxis
-          .tickFormat(d3.format(',0f'));
+          chart.yAxis
+              .tickFormat(d3.format(',0f'));
 
 
-      d3.select('#chart svg')
+          d3.select('#chart svg')
 
-          .datum(data)
-        .transition().duration(500)
-          .call(chart);
-      nv.utils.windowResize(chart.update);
+              .datum(data)
+            .transition().duration(500)
+              .call(chart);
+          nv.utils.windowResize(chart.update);
 
 
-      return chart;
-        },function(){
+          return chart;
+            },function(){
 
-          chart.multibar.dispatch.on('elementClick', 
-            function(e) {
-              console.log(e);
-              d3.selectAll('.nv-bar')
-                 .style('opacity', .5)
-               e.e.srcElement.parentElement.style.setProperty('opacity',1);
+              chart.multibar.dispatch.on('elementClick', 
+                function(e) {
+                  console.log(e);
+                  d3.selectAll('.nv-bar')
+                     .style('opacity', .5)
+                   e.e.srcElement.parentElement.style.setProperty('opacity',1);
 
-              addTweets(e.point.tweets);
+                  addTweets(e.point.tweets);
+                });
+
             });
-
         });
-    });
+
+        // <![CDATA[
+        (function() {
+        var twitterScriptTag = document.createElement('script');
+        twitterScriptTag.type = 'text/javascript';
+        twitterScriptTag.async = true;
+        twitterScriptTag.src = 'static/js/widget.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(twitterScriptTag, s);
+        })();
+
+
+        // ]]>
 
     </script>
-    
-
-    <script type="text/javascript">// <![CDATA[
-    (function() {
-    var twitterScriptTag = document.createElement('script');
-    twitterScriptTag.type = 'text/javascript';
-    twitterScriptTag.async = true;
-    twitterScriptTag.src = 'static/js/widget.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(twitterScriptTag, s);
-    })();
-
-
-    // ]]></script>
 
     </body>
 </html>

@@ -4,852 +4,836 @@
 
 body {
 	margin: auto;
-	font-family: 'Open Sans', sans-serif;
 }
 
 a {
 	color: #63B3FF;
 }
 
-/**************** Vertical Navigation Bar ****************/
-/*********************************************************/
-/*********************************************************/
-/*********************************************************/
-
-#navbar-wrapper {
-	z-index: 100;	
-	width: 130px;
-	position: fixed;
-	border-radius: 3px;
-	display: block;
-	background-color: #313131;
-	box-shadow:0 2px 5px rgba(0,0,0,0.5);
-}
-
-#navbar-header {
-	font-size: 11pt;
-	text-align:center;
-	margin: 12%;
-}
-
-#navbar-header a, #navbar-header a:visited {
-	text-decoration: none;
-	color: white;
-}
-
-#navbar-header a:hover {
-	color: #63B3FF;
-}
-
-.navbar {
-	margin:0;
-}
-
-.navbar ul {  
-	list-style: none;
-	display: block;
-	padding: 0;
-	margin: 0;
-	font-size:13px;
-	width: 130px;
-}
-
-.navbar ul:after {
-	content: "";
-	clear: both; 
-}
-
-.parent {
-	border-top: 1px solid #3C3C3C;
-	padding: 7px;
-}
-
-.child{
-	border-top: 1px solid #3C3C3C;
-	padding: 7px;
-}
-
-.navbar ul li:hover {
-	background-color: #292929;
-	border-right:3px solid #63B3FF;
-}
-
-.navbar li {
-	position: relative;
-}
-
-.navbar ul li:hover a {
-	color: #fff;
-}
-	
-.navbar ul li a { 
-	text-decoration: none;
-	color:#CCC;
-}	
-
-.navbar ul ul {
-	background-color: #313131;
-	display: none;
-	position: absolute; 
-	top: 0;
-	width: 100%;
-	left: 100%;
-}
-
-.navbar ul li:hover > ul {
-	display: block;
-}
-
-.navbar ul ul li { 
-	border-top: 1px solid #3C3C3C;
-}
-
-.navbar ul ul li a {
-	text-decoration: none;
-	color:#CCC;
-}	
-
-
-/******************** TWITTER SIDEBAR ********************/
-/*********************************************************/
-/*********************************************************/
-/*********************************************************/
-
-/*#social-main{
-    position: fixed;
-    top: 150px;
-    right: -340px;
-    width: 340px;
-    height: 340px;
-    background: white;
-    z-index: 100;
-	border-radius: 4px;
-}
-
-#social-hover{
-    position: fixed;
-    top: 150px;
-    right: 0px;
-    width: 50px;
-    height: 50px;
-    background: #11CFF5;
-    z-index: 100;
-	background-image: url('Images/twitter.png');
-	background-position: center;
-	background-repeat: no-repeat;
-}
-	
-#twitter {
-	width: 300px;
-	height: 400px;
-	overflow: scroll;
-	font-family: century gothic, sans-serif;
-	font-size: 14px;
-	text-transform: uppercase;
-	margin-left: 16%;
-}
-
-.tweet {
-	margin-left: 6px;
-	margin-top: 5px;
-	background: url(Images/black.png);
-	font-family: century gothic, sans-serif;
-	font-size: 14px;
-	text-transform: uppercase;
-}
-
-.xtra {
-	text-decoration: strong;
-	margin-left: 6px;
-	margin-right: 6px;
-	margin-bottom: 5px;
-}*/
-
-
-/********************** HOME PAGE ************************/
-/*********************************************************/
-/*********************************************************/
-/*********************************************************/
-
-/* header */
-.white-header {
-	z-index: 500;
-	background: white;
-	min-height: 45px;
-	width: 100%;
-	background-image: url(../Images/logo.png);
-	background-repeat: no-repeat;
-	background-position: right;
-	box-shadow: 0 0 5px #aaa;
-	-moz-box-shadow: 0 0 5px #aaa;
-	-webkit-box-shadow: 0 0 5px #aaa;	
-}
-
-/*divider with title, description, and links */
-.main-divider {
-	background: url(../Images/bglines2.png);
-	width: 100%;
-	height: 400px;
-	box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-	-moz-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-}
-
-#buzz {
-	font-size: 70px;
-	margin:0;
-	padding-top: 7%;
-	text-shadow: 1px 1px 3px #696969;
-	color: white;
-}
-
-.home-title, #tag-links {
-	margin:0;
-	padding-left: 8%;
-	color: white;
-}
-
-.tagline {
-	margin:0;
-	display: inline;
-}
-
-#a, #b, #c {
-	text-decoration: none;	
-	background: #226699;
-	padding: 7px;
-	border-radius: 5px;
-	color: white;
-	margin-right: 4px;
-}
-
-#a:hover, #b:hover, #c:hover { 
-	background: #FFFF9D;
-	color: black;
-}
-
-#buzzlogo {
-	float: right;
-	margin-top: -22%;
-	margin-right: 15%;
-}
-
-/* body */
-#home-body-wrapper {
-	padding-top: 20px;
-	background: white;
-	width: 100%;
-	height: 400px;
-}
-
-#disc-title {
-	text-decoration: none;
-	font-size: 25px;
-	float: left;
-	margin-left: 29%;
-	color: black;		
-}
-
-#exp-title {
-	text-decoration: none;
-	float: right;	
-	font-size: 25px;
-	margin-right: 38%;
-	color: black;
-}
-
-#disc {	
-	float: left;
-	margin-left: 24%;
-}
-
-#exp {
-	float: right;
-	margin-right: 26%;
-}
-
-/* footer */
-footer {
-	z-index: 4;
-	background-image: url(../Images/bg.png);
-	bottom: 0;
-	height: 30px;
-	width: 100%;
-	text-align: right;
-	position: fixed;
-	font-size: 12px;
-}
-
-#foot {
-	padding-right: 3%;
-}
-
-
-
-/********************** ABOUT PAGE ***********************/
-/*********************************************************/
-/*********************************************************/
-/*********************************************************/
-
-#about-body {
-	background-image: url(../Images/bg.png);
-}
-
-#a-divider {
-	background: url(../Images/bglines.png);
-	width: 100%;
-	height: 250px;
-	box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-	-moz-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-	padding: 3% 0 2% 0;
-}
-
-#about-buzz {
-	padding-top: 30px;
-	font-size: 60px;
-	text-align: center;
-	margin:0;
-	text-shadow: 1px 1px 3px #696969;
-}
-
-.about-title {
-	text-align: center;
-	margin:0;
-}
-
-.page-wrapper {
-	padding-top: 3%;
-	background: white;
-	width: 100%;
-	box-shadow: 0 0 5px #aaa;
-	-moz-box-shadow: 0 0 5px #aaa;
-	-webkit-box-shadow: 0 0 5px #aaa;
-}
-
-.title {
-	color: black;
-	font-size: 25pt;
-	text-align: left;
-}
-
-.text {
-	font-size: 13px;
-	margin:0;
-	padding:0;
-	font-weight: normal;
-	text-align: left;
-}
-
-#usage {
-	display: block;
-	overflow: auto;
-	margin: 0 auto;
-	margin-left: 1%;
-}
-
-#use1, #use2 {
-	width: 100%;
-	left:0;
-	display: inline-block;
-	margin-bottom: 4%;
-}
-
-#use1 img {
-	float: left;
-	margin-left: 250px;
-}
-
-#use2 img {
-	float: left;
-	margin-left: 139px;
-}
-
-#about {
-	width: 50%;
-	margin: 0 auto;
-	background-image:url(../Images/bg.png);
-	text-align: center;	
-	height: 275px;
-}
-
-#h1-title {
-	color: black;
-	font-size: 25pt;
-}
-
-#p-about {
-	font-size: 12px;
-	text-align: center;
-}
-
-/********************* DISCOVER PAGE *********************/
-/*********************************************************/
-/*********************************************************/
-/*********************************************************/
-
-#body-discover{
-	margin: 0;
-	padding: 0;
-	width: auto;
-	background-color: white;
-	overflow-y: hidden;
-}
-
-/***** horiztonal content and boxes *****/
-#horiz-content {
-	background-color: white;
-	margin: 0;
-	padding: 0;
-	height: 100%;
-	width: 100%;
-	position: absolute;
-}
-
-/* introduction box */
-#welcome {
-	background-color: black;
-	color: white;
-	height: 100%;
-	width: 20%;
-	position: absolute;
-}
-
-.title1 {
-	margin-top: 65%;
-	font-size: 35pt;
-	text-align: center;
-}
-
-.text1 {
-	font-size: 16px;
-	font-weight: normal;
-	text-align: center;
-	margin:0;
-	padding:0;
-}
-
-
-/* city blocks */
-/*setup*/
-#cities {
-	width: 100%;
-	height: 100%;
-}
-
-.box {
-	list-style-type: none;
-	width: 35%;
-	height: 49.75%;
-	position: absolute;
-}
-
-.wrapper {
-	width: 100%;
-	height: 100%;
-	position: absolute;	
-}
-
-.tag-disc {
-	background-color: black;
-	color: white;
-	font-weight: bold;
-	font-size: 13px;
-	text-align: left;
-	margin-left: 1%;
-	width: 73px;
-	text-transform: uppercase;
-}
-
-.title2 {
-	margin: 0;
-	padding: 0;
-	text-align: center;
-	font-size: 30px;
-	color: white;
-	text-shadow: 1px 1px 3px #1D1D1D;
-}
-
-.c-main {
-	height: 100%;
-	width: 100%;
-	margin-top: 50%;
-	-webkit-transition: margin 0.5s ease-out; 
-	-moz-transition: margin 0.5s ease-out; 
-	-o-transition: margin 0.5s ease-out; 
-}
-
-#l-cities li:hover .text-onhover {
-	opacity: 1;
-	transition: ease-in;	
-}
-
-#l-cities li:hover .c-main {
-	margin-top: 2%;
-}
-
-#l-cities li:hover .tag-disc {
-	background-color: #63B3FF;
-}
-
-.text-onhover {
-	opacity: 0;
-	color: white;
-	-webkit-transition: opacity .3s;
-	-moz-transition: opacity .3s;
-	transition: opacity .3s;
-}
-
-.c-link {
-	text-align: center;
-	text-decoration: none;
-}
-
-
-/*individual boxes*/
-#chicago, #miami, #sf, #la, #ny, #wdc {
-	background-size: cover; 
-	background-position: 50%;
-}
-
-#chicago {
-	background-image: url(../Images/chicago.jpg);
-	left: 20.2%;
-	top:0;	
-}
-
-#miami {
-	background-image: url(../Images/miami.jpg);
-	left: 20.2%;
-	top: 50.25%;	
-}
-
-#la {
-	background-image: url(../Images/la.jpg);
-	left: 55.45%;
-	top:0;	
-}
-
-#ny {
-	background-image: url(../Images/ny.jpg);
-	left: 55.45%;
-	top: 50.25%;	
-}
-
-#sf {
-	background-image: url(../Images/sf.jpg);
-	left: 90.7%;
-	top: 0;		
-}
-
-#wdc {
-	background-image: url(../Images/wdc.jpg);	
-	left: 90.7%;
-	top: 50.25%;	
-}
-
-
-/*histogram*/
-.histogram {
-	width: 100%;
-	height: 100%;
-}
-
-#termsWashington_DC, #termsSan_Francisco, #termsNew_York_City, #termsLos_Angeles, #termsMiami, #termsChicago {
-	list-style: none;	
-	margin: 0;
-	padding: 0;
-	margin-left: 8px;
-	margin-right: 8px;
-	display: list-item;
-}
-
-.terms li {
-	width: 100%;
-	margin-bottom: 10px;
-}
-
-.inner {
-	margin-left: 2px;
-}
-
-.count {
-	background-color: #EEEEEE;
-	width: 28px;
-	border-radius: 3px;
-	padding: 2px;	
-	text-align: right;
-	color: #666666;
-	float: left;
-}
-
-.text2 {
-	margin: 0;
-	padding: 0;
-	text-align: center;
-	font-size: 13px;
-	color: black;
-	float: left;
-	/*text-shadow: 0px 0px 1px #363636;*/
-	margin-left: 5px;
-	padding: 4px;
-}
-
-.bar {
-	height: 27px;
-	background: #63B3FF;
-	opacity: 0.9;
-	margin-left: 7.9%;
-	margin-bottom: 2%;
-}
-
-/********************** CITIES PAGE **********************/
-/*********************************************************/
-/*********************************************************/
-/*********************************************************/
-
-.body-cities {
-	margin: 0;
-	padding: 0;
-	width: auto;
-	background: none;
-	background-image: url(../Images/bg.png);
-}
-
-#c-title {
-	text-align: center;
-	font-size: 25px;
-}
-
-#keyword {
-	height:10%;
-	width:10%;
-	max-height: 10%;
-	max-width: 10%;
-	position:absolute;
-}
-
-/* Label for related media links section*/
-.l-label {
-	display: inline-block;
-	font-size: 14px;
-	background-color: #313131;
-	color: #f5f5f5;
-	border-radius: 5px 5px 0 0;
-	padding: 0;
-	margin: 0;
-	width: 130px;
-}
-
-.l-label:hover {
-	background-color: #292929;
-}
-
-
-/******* news *****/
-#news {
-	height: 250px;
-	overflow-x: auto;
-	overflow: scroll;
-	white-space: nowrap;
-	font-size: 12px;
-	border-radius: 0 0 5px 5px;
-	border: 1px #dddddd solid;
-	background-color:white;
-
-}
-
-.newsresult {
-	display:inline-block;
-	padding-left: 20px;
-	width: auto;
-	max-height: 250px;
-	height: 250px;
-}
-
-.newsresult a{
-	color: black;
-	text-decoration: none;
-}
-
-.newsresult a:hover {
-	color: #B6DEE6;
-}
-
-.newsresult img{
-	padding-left: 5px;
-}
-
-.newsTitle {
-	font-size:14px;
-	border-radius: 15px 15px 15px 15px;
-	margin:0px;
-	word-wrap:break-word;
-	overflow: hidden;
-}
-
-.newsSource{
-	font-size:11px;
-	margin:0;
-}
-
-.newsSnippet {
-	width: 270px;
-	word-wrap: break-word;
-	white-space: pre-line;
-}
-
-/******** videos *******/
-#videos {
-	height: auto;
-	overflow-x: auto;
-	white-space: nowrap;
-	font-size: 12px;
-	border-radius: 0 0 5px 5px;
-	border: 1px #dddddd solid;
-	background-color:white;
-}
-
-.result{
-	display:inline-block;
-	padding-left: 20px;
-	width: 350px;
-}
-
-.vidTitle{
-	font-size:14px;
-	margin:0;
-	word-wrap:break-word;
-	overflow: hidden;
-}
-
-.vidDesc{
-	font-size:12px;
-	margin:0;
-}
-
-/******** tweets *******/
-
-#tweet-list {
-	height: auto;
-	overflow-x: auto;
-	overflow: scroll;
-	white-space: nowrap;
-	font-size: 12px;
-	border-radius: 0 0 5px 5px;
-	border: 1px #dddddd solid;
-	background-color:white;
-}
-
-.tweet-li{
-	display:inline-block;
-	padding-left: 20px;
-	width: auto;
-	max-height: 250px;
-}
-
-.tweetTitle{
-	font-size:14px;
-	margin:0;
-	word-wrap:break-word;
-	overflow: hidden;
-}
-
-.tweetDesc{
-	font-size:12px;
-	margin:0;
-}
-
-.twitter-tweet {
-	max-width: 100%;
-	width: 350px;
-	max-height: 250px;
-}
-
-/****** images ******/
-#images{
-	height: auto;
-	overflow-x: auto;
-	overflow: scroll;
-	white-space: nowrap;
-	font-size: 12px;
-	border-radius: 0 0 5px 5px;
-	border: 1px #dddddd solid;
-	background-color:white;
-}
-
-.imgresult {
-	height: auto;
-	display:inline-block;
-	max-height: 250px;
-	max-width: 150px;
-}
-
-
-/********************** EXPLORE PAGE *********************/
-/*********************************************************/
-/*********************************************************/
-/*********************************************************/
-
-.body-explore {
-	margin: 0;
-	padding: 0;
-	width: auto;
-	background-image: url('../Images/bg.png');
-}
-
-#body {
-	width: 94%;
-	height: auto;
-	margin-top: 2%;
-	margin-left: 3%;
-	background: white;
-	border-radius: 5px;
-	-webkit-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
-	-moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
-	box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
-	position: absolute;
-}
-
-.ref {
-	float: right;
-	margin-right: 4%;
-	font-size: 12px;
-	font-weight: bold;
-}
-
-#description {
-	margin-bottom: 3%;
-}
-
-.b-title {
-	color: black;
-	font-size: 25pt;
-	text-align: center;
-}
-
-#description p {
-	font-size: 13px;
-	font-weight: normal;
-	text-align: center;
-	margin:0;
-	padding:0;
-}
-
-
-/*content*/
-
-#rt {
-	float: right;
-	position: fixed;
-	margin-left: 60.5%;
-}
-
-#tweets {
-	list-style-type: none;
-	text-align: -webkit-match-parent!important; 
-	float: right!important;
-	height: 380px;
-	width: 405px;
-	overflow-y: scroll;
-}
+/*---------------------------- Vertical Navigation Bar ----------------------------*/
+/*=================================================================================*/
+
+	#navbar-wrapper {
+		z-index: 100;	
+		width: 130px;
+		position: fixed;
+		border-radius: 3px;
+		display: block;
+		background-color: #313131;
+		box-shadow:0 2px 5px rgba(0,0,0,0.5);
+	}
+
+	#navbar-header {
+		font-size: 11pt;
+		text-align:center;
+		margin: 12%;
+	}
+
+	#navbar-header a, #navbar-header a:visited {
+		text-decoration: none;
+		color: white;
+	}
+
+	#navbar-header a:hover {
+		color: #63B3FF;
+	}
+
+	.navbar {
+		margin:0;
+	}
+
+	.navbar ul {  
+		list-style: none;
+		display: block;
+		padding: 0;
+		margin: 0;
+		font-size:13px;
+		width: 130px;
+	}
+
+	.navbar ul:after {
+		content: "";
+		clear: both; 
+	}
+
+	.parent {
+		border-top: 1px solid #3C3C3C;
+		padding: 7px;
+	}
+
+	.child{
+		border-top: 1px solid #3C3C3C;
+		padding: 7px;
+	}
+
+	.navbar ul li:hover {
+		background-color: #292929;
+		border-right:3px solid #63B3FF;
+	}
+
+	.navbar li {
+		position: relative;
+	}
+
+	.navbar ul li:hover a {
+		color: #fff;
+	}
+		
+	.navbar ul li a { 
+		text-decoration: none;
+		color:#CCC;
+	}	
+
+	.navbar ul ul {
+		background-color: #313131;
+		display: none;
+		position: absolute; 
+		top: 0;
+		width: 100%;
+		left: 100%;
+	}
+
+	.navbar ul li:hover > ul {
+		display: block;
+	}
+
+	.navbar ul ul li { 
+		border-top: 1px solid #3C3C3C;
+	}
+
+	.navbar ul ul li a {
+		text-decoration: none;
+		color:#CCC;
+	}		
+
+
+/*-------------------------------- TWITTER SIDEBAR --------------------------------*/
+/*=================================================================================*/
+
+	/*#social-main{
+	    position: fixed;
+	    top: 150px;
+	    right: -340px;
+	    width: 340px;
+	    height: 340px;
+	    background: white;
+	    z-index: 100;
+		border-radius: 4px;
+	}
+
+	#social-hover{
+	    position: fixed;
+	    top: 150px;
+	    right: 0px;
+	    width: 50px;
+	    height: 50px;
+	    background: #11CFF5;
+	    z-index: 100;
+		background-image: url('Images/twitter.png');
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+		
+	#twitter {
+		width: 300px;
+		height: 400px;
+		overflow: scroll;
+		font-family: century gothic, sans-serif;
+		font-size: 14px;
+		text-transform: uppercase;
+		margin-left: 16%;
+	}
+
+	.tweet {
+		margin-left: 6px;
+		margin-top: 5px;
+		background: url(Images/black.png);
+		font-family: century gothic, sans-serif;
+		font-size: 14px;
+		text-transform: uppercase;
+	}
+
+	.xtra {
+		text-decoration: strong;
+		margin-left: 6px;
+		margin-right: 6px;
+		margin-bottom: 5px;
+	}*/
+
+
+/*---------------------------------- OLD HOME PAGE---------------------------------*/
+/*=================================================================================*/
+
+	/*.white-header {
+		z-index: 500;
+		background: white;
+		min-height: 45px;
+		width: 100%;
+		background-image: url(../Images/logo.png);
+		background-repeat: no-repeat;
+		background-position: right;
+		box-shadow: 0 0 5px #aaa;
+		-moz-box-shadow: 0 0 5px #aaa;
+		-webkit-box-shadow: 0 0 5px #aaa;	
+	}
+
+	.main-divider {
+		background: url(../Images/bglines2.png);
+		width: 100%;
+		height: 400px;
+		box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+		-moz-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+	}
+
+	#buzz {
+		font-size: 70px;
+		margin:0;
+		padding-top: 7%;
+		text-shadow: 1px 1px 3px #696969;
+		color: white;
+	}
+
+	.home-title, #tag-links {
+		margin:0;
+		padding-left: 8%;
+		color: white;
+	}
+
+	.tagline {
+		margin:0;
+		display: inline;
+	}
+
+	#a, #b, #c {
+		text-decoration: none;	
+		background: #226699;
+		padding: 7px;
+		border-radius: 5px;
+		color: white;
+		margin-right: 4px;
+	}
+
+	#a:hover, #b:hover, #c:hover { 
+		background: #FFFF9D;
+		color: black;
+	}
+
+	#buzzlogo {
+		float: right;
+		margin-top: -22%;
+		margin-right: 15%;
+	}
+
+	 body 
+	#home-body-wrapper {
+		padding-top: 20px;
+		background: white;
+		width: 100%;
+		height: 400px;
+	}
+
+	#disc-title {
+		text-decoration: none;
+		font-size: 25px;
+		float: left;
+		margin-left: 29%;
+		color: black;		
+	}
+
+	#exp-title {
+		text-decoration: none;
+		float: right;	
+		font-size: 25px;
+		margin-right: 38%;
+		color: black;
+	}
+
+	#disc {	
+		float: left;
+		margin-left: 24%;
+	}
+
+	#exp {
+		float: right;
+		margin-right: 26%;
+	}
+
+	footer {
+		z-index: 4;
+		background-image: url(../Images/bg.png);
+		bottom: 0;
+		height: 30px;
+		width: 100%;
+		text-align: right;
+		position: fixed;
+		font-size: 12px;
+	}
+
+	#foot {
+		padding-right: 3%;
+	}
+*/
+
+
+/*----------------------------------- ABOUT PAGE-----------------------------------*/
+/*=================================================================================*/
+
+	#about-body {
+		background-image: url(../Images/bg.png);
+	}
+
+	#a-divider {
+		background: url(../Images/bglines.png);
+		width: 100%;
+		height: 250px;
+		box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+		-moz-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+		padding: 3% 0 2% 0;
+	}
+
+	#about-buzz {
+		padding-top: 30px;
+		font-size: 60px;
+		text-align: center;
+		margin:0;
+		text-shadow: 1px 1px 3px #696969;
+	}
+
+	.about-title {
+		text-align: center;
+		margin:0;
+	}
+
+	.page-wrapper {
+		padding-top: 3%;
+		background: white;
+		width: 100%;
+		box-shadow: 0 0 5px #aaa;
+		-moz-box-shadow: 0 0 5px #aaa;
+		-webkit-box-shadow: 0 0 5px #aaa;
+	}
+
+	.title {
+		color: black;
+		font-size: 25pt;
+		text-align: left;
+	}
+
+	.text {
+		font-size: 13px;
+		margin:0;
+		padding:0;
+		font-weight: normal;
+		text-align: left;
+	}
+
+	#usage {
+		display: block;
+		overflow: auto;
+		margin: 0 auto;
+		margin-left: 1%;
+	}
+
+	#use1, #use2 {
+		width: 100%;
+		left:0;
+		display: inline-block;
+		margin-bottom: 4%;
+	}
+
+	#use1 img {
+		float: left;
+		margin-left: 250px;
+	}
+
+	#use2 img {
+		float: left;
+		margin-left: 139px;
+	}
+
+	#about {
+		width: 50%;
+		margin: 0 auto;
+		background-image:url(../Images/bg.png);
+		text-align: center;	
+		height: 275px;
+	}
+
+	#h1-title {
+		color: black;
+		font-size: 25pt;
+	}
+
+	#p-about {
+		font-size: 12px;
+		text-align: center;
+	}
+
+
+/*----------------------------------- DISCOVER PAGE--------------------------------*/
+/*=================================================================================*/
+
+	#body-discover{
+		margin: 0;
+		padding: 0;
+		width: auto;
+		background-color: white;
+		overflow-y: hidden;
+	}
+
+	/***** horiztonal content and boxes *****/
+	#horiz-content {
+		background-color: white;
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
+
+	/* introduction box */
+	#welcome {
+		background-color: black;
+		color: white;
+		height: 100%;
+		width: 20%;
+		position: absolute;
+	}
+
+	.title1 {
+		margin-top: 65%;
+		font-size: 2.7em;
+		text-align: center;
+	}
+
+	.text1 {
+		font-size: 0.8em;
+		text-align: center;
+		margin:0;
+		padding:0;
+	}
+
+
+	/* city blocks */
+	/*setup*/
+	#cities {
+		width: 100%;
+		height: 100%;
+	}
+
+	.box {
+		list-style-type: none;
+		width: 40%;
+		height: 49.75%;
+		position: absolute;
+	}
+
+	.wrapper {
+		width: 100%;
+		height: 100%;
+		position: absolute;	
+	}
+
+	.tag-disc {
+		background-color: black;
+		color: white;
+		font-weight: bold;
+		font-size: 13px;
+		text-align: left;
+		margin-left: 1%;
+		width: 73px;
+		text-transform: uppercase;
+	}
+
+	.title2 {
+		margin: 0;
+		padding: 0;
+		text-align: center;
+		font-size: 30px;
+		color: white;
+		text-shadow: 1px 1px 3px #1D1D1D;
+	}
+
+	.c-main {
+		height: 100%;
+		width: 100%;
+		margin-top: 50%;
+		-webkit-transition: margin 0.5s ease-out; 
+		-moz-transition: margin 0.5s ease-out; 
+		-o-transition: margin 0.5s ease-out; 
+	}
+
+	#l-cities li:hover .text-onhover {
+		opacity: 1;
+		transition: ease-in;	
+	}
+
+	#l-cities li:hover .c-main {
+		margin-top: 2%;
+	}
+
+	#l-cities li:hover .tag-disc {
+		background-color: #63B3FF;
+	}
+
+	.text-onhover {
+		opacity: 0;
+		color: white;
+		-webkit-transition: opacity .3s;
+		-moz-transition: opacity .3s;
+		transition: opacity .3s;
+	}
+
+	.c-link {
+		text-align: center;
+		text-decoration: none;
+	}
+
+
+	/*individual boxes*/
+	#chicago, #miami, #sf, #la, #ny, #wdc {
+		background-size: cover; 
+		background-position: 50%;
+	}
+
+	#chicago {
+		background-image: url(../Images/chicago.jpg);
+		left: 20.2%;
+		top:0;	
+	}
+
+	#miami {
+		background-image: url(../Images/miami.jpg);
+		left: 20.2%;
+		top: 50.25%;	
+	}
+
+	#la {
+		background-image: url(../Images/la.jpg);
+		left: 55.45%;
+		top:0;	
+	}
+
+	#ny {
+		background-image: url(../Images/ny.jpg);
+		left: 55.45%;
+		top: 50.25%;	
+	}
+
+	#sf {
+		background-image: url(../Images/sf.jpg);
+		left: 90.7%;
+		top: 0;		
+	}
+
+	#wdc {
+		background-image: url(../Images/wdc.jpg);	
+		left: 90.7%;
+		top: 50.25%;	
+	}
+
+
+	/*histogram*/
+	.histogram {
+		width: 100%;
+		height: 100%;
+	}
+
+	#termsWashington_DC, #termsSan_Francisco, #termsNew_York_City, #termsLos_Angeles, #termsMiami, #termsChicago {
+		list-style: none;	
+		margin: 0;
+		padding: 0;
+		margin-left: 8px;
+		margin-right: 8px;
+		display: list-item;
+	}
+
+	.terms li {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+
+	.inner {
+		margin-left: 2px;
+	}
+
+	.count {
+		background-color: #EEEEEE;
+		width: 28px;
+		border-radius: 3px;
+		padding: 2px;	
+		text-align: right;
+		color: #666666;
+		float: left;
+	}
+
+	.text2 {
+		margin: 0;
+		padding: 0;
+		text-align: center;
+		font-size: 13px;
+		color: black;
+		float: left;
+		/*text-shadow: 0px 0px 1px #363636;*/
+		margin-left: 5px;
+		padding: 4px;
+	}
+
+	.bar {
+		height: 27px;
+		background: #63B3FF;
+		opacity: 0.9;
+		margin-left: 7.9%;
+		margin-bottom: 2%;
+	}
+
+
+/*----------------------------------- CITIES PAGE----------------------------------*/
+/*=================================================================================*/
+
+	.body-cities {
+		margin: 0;
+		padding: 0;
+		width: auto;
+		background: none;
+		background-image: url(../Images/bg.png);
+	}
+
+	#c-title {
+		text-align: center;
+		font-size: 25px;
+	}
+
+	#keyword {
+		height:10%;
+		width:10%;
+		max-height: 10%;
+		max-width: 10%;
+		position:absolute;
+	}
+
+	/* Label for related media links section*/
+	.l-label {
+		display: inline-block;
+		font-size: 14px;
+		background-color: #313131;
+		color: #f5f5f5;
+		border-radius: 5px 5px 0 0;
+		padding: 0;
+		margin: 0;
+		width: 130px;
+	}
+
+	.l-label:hover {
+		background-color: #292929;
+	}
+
+
+	/******* news *****/
+	#news {
+		height: 250px;
+		overflow-x: auto;
+		overflow: scroll;
+		white-space: nowrap;
+		font-size: 12px;
+		border-radius: 0 0 5px 5px;
+		border: 1px #dddddd solid;
+		background-color:white;
+
+	}
+
+	.newsresult {
+		display:inline-block;
+		padding-left: 20px;
+		width: auto;
+		max-height: 250px;
+		height: 250px;
+	}
+
+	.newsresult a{
+		color: black;
+		text-decoration: none;
+	}
+
+	.newsresult a:hover {
+		color: #B6DEE6;
+	}
+
+	.newsresult img{
+		padding-left: 5px;
+	}
+
+	.newsTitle {
+		font-size:14px;
+		border-radius: 15px 15px 15px 15px;
+		margin:0px;
+		word-wrap:break-word;
+		overflow: hidden;
+	}
+
+	.newsSource{
+		font-size:11px;
+		margin:0;
+	}
+
+	.newsSnippet {
+		width: 270px;
+		word-wrap: break-word;
+		white-space: pre-line;
+	}
+
+	/******** videos *******/
+	#videos {
+		height: auto;
+		overflow-x: auto;
+		white-space: nowrap;
+		font-size: 12px;
+		border-radius: 0 0 5px 5px;
+		border: 1px #dddddd solid;
+		background-color:white;
+	}
+
+	.result{
+		display:inline-block;
+		padding-left: 20px;
+		width: 350px;
+	}
+
+	.vidTitle{
+		font-size:14px;
+		margin:0;
+		word-wrap:break-word;
+		overflow: hidden;
+	}
+
+	.vidDesc{
+		font-size:12px;
+		margin:0;
+	}
+
+	/******** tweets *******/
+
+	#tweet-list {
+		height: auto;
+		overflow-x: auto;
+		overflow: scroll;
+		white-space: nowrap;
+		font-size: 12px;
+		border-radius: 0 0 5px 5px;
+		border: 1px #dddddd solid;
+		background-color:white;
+	}
+
+	.tweet-li{
+		display:inline-block;
+		padding-left: 20px;
+		width: auto;
+		max-height: 250px;
+	}
+
+	.tweetTitle{
+		font-size:14px;
+		margin:0;
+		word-wrap:break-word;
+		overflow: hidden;
+	}
+
+	.tweetDesc{
+		font-size:12px;
+		margin:0;
+	}
+
+	.twitter-tweet {
+		max-width: 100%;
+		width: 350px;
+		max-height: 250px;
+	}
+
+	/****** images ******/
+	#images{
+		height: auto;
+		overflow-x: auto;
+		overflow: scroll;
+		white-space: nowrap;
+		font-size: 12px;
+		border-radius: 0 0 5px 5px;
+		border: 1px #dddddd solid;
+		background-color:white;
+	}
+
+	.imgresult {
+		height: auto;
+		display:inline-block;
+		max-height: 250px;
+		max-width: 150px;
+	}
+
+
+/*---------------------------------- EXPLORE PAGE----------------------------------*/
+/*=================================================================================*/
+
+
+	.body-explore {
+		margin: 0;
+		padding: 0;
+		width: auto;
+		background-image: url('../Images/bg.png');
+	}
+
+	#body {
+		width: 94%;
+		height: auto;
+		margin-top: 2%;
+		margin-left: 3%;
+		background: white;
+		border-radius: 5px;
+		-webkit-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
+		-moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
+		box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
+		position: absolute;
+	}
+
+	.ref {
+		float: right;
+		margin-right: 4%;
+		font-size: 12px;
+		font-weight: bold;
+	}
+
+	#description {
+		margin-bottom: 3%;
+	}
+
+	.b-title {
+		color: black;
+		font-size: 25pt;
+		text-align: center;
+	}
+
+	#description p {
+		font-size: 13px;
+		font-weight: normal;
+		text-align: center;
+		margin:0;
+		padding:0;
+	}
+
+
+	/*content*/
+
+	#rt {
+		float: right;
+		position: fixed;
+		margin-left: 60.5%;
+	}
+
+	#tweets {
+		list-style-type: none;
+		text-align: -webkit-match-parent!important; 
+		float: right!important;
+		height: 380px;
+		width: 405px;
+		overflow-y: scroll;
+	}
