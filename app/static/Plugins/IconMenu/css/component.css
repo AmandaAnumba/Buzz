@@ -57,12 +57,22 @@
 	font-size: 150%;
 }
 
-.icon-search:before {
-	/*content: "\e004";*/
+.icon-music:before {
+	content: "\f002";
+	font-size: 0.5em;
 }
 
-.icon-archive:before {
-	/*content: "\e005";*/
+.icon-discover:before {
+	content: "\f002";
+	font-size: 0.5em;
+}
+
+.icon-explore:before {
+	content: "\f0c1";
+}
+
+.icon-about:before {
+	content: "\f036";
 }
 
 /* Example for media query (depends on total height of menu) */
