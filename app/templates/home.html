@@ -1,51 +1,103 @@
 <!DOCTYPE html>
-<html>
-  	<head>
-		<title> Buzz </title>
-		<link rel="icon" type="image/ico" href="static/Images/icon.ico">
-        <link href = "static/style.css" rel="stylesheet" type="text/css"></link>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        
+        <title> Buzz </title>
+
+        <link rel="icon" type="image/ico" href="Images/icon.ico">
+        <link href="style.css" rel="stylesheet" type="text/css"></link>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> 
+        <link rel="stylesheet" href="Plugins/FontAwesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="Plugins/AnimatedHeader/css/default.css" />
+        <link rel="stylesheet" type="text/css" href="Plugins/AnimatedHeader/css/component.css" />
+        <link rel="stylesheet" type="text/css" href="Plugins/Scrolling/css/default.css" />
+        <link rel="stylesheet" type="text/css" href="Plugins/Scrolling/css/component.css" />
+
         <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-		<script src="http://code.jquery.com/jquery-migrate-1.2.min.js"></script>	
+        <script src="Plugins/AnimatedHeader/js/modernizr.custom.js"></script>
     </head>
 	
-	<body class="front-home">       
-        <!-- **MAIN BODY** -->
-        <div class="white-header"></div>
-       
-        <!-- divider that explains Buzz -->
-        <div class="main-divider">
-            <h1 class="home-title" id="buzz"> Buzz </h1>
-            <p class="home-title">the go-to site for trending </p>
-            <p class="home-title">pop-culture topics and media.</p>
-            <p class="home-title">See what's <em>buzzing</em> in your area now!</p>
-            <br>
-            <br>
-            <span id="tag-links">
-                <p class="tagline"><a id="a"  href="about.html"> Learn More </a></p>
-                <p class="tagline"><a id="b"  href="discover.html"> Discover </a></p>
-                <p class="tagline"><a id="c"  href="explore.html"> Explore </a></p>
-            </span>
-            <div id="buzzlogo">
-                <img src="static/Images/buzzlogo.png" />
+	<body>
+        <div class="container">
+            
+            <!-- HEADER -->
+            <div class="cbp-af-header">
+                <div class="cbp-af-inner">
+                    <h1>Buzz</h1>
+                    <nav>
+                        <p>the go-to site for trending pop-culture topics and media</p>
+                    </nav>
+                </div>
             </div>
-        </div>
-        
-        <!-- bottom images -->
-        <div id="home-body-wrapper">
-       		<p><span>
-                <p id="disc-title">Discover</p>
-                <p id="exp-title">Explore</p>
-            </span></p>
-            <p><span>
-                <img id="disc" src="static/Images/disc.png" />
-                <img id="exp" src="static/Images/exp.png" />
-            </span></p>	
-        </div>
-        
-        <!-- footer -->
-        <footer>
-        	<p id="foot">&copy; 2013 Zhang, Cohn, Anumba</p>
-        </footer>
+
+            <!-- SECTIONS -->
+            <div class="container">
+                <div id="cbp-fbscroller" class="cbp-fbscroller">
+                    <div class="cbp-fwdots">
+                        <span class="cbp-fwcurrent"></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <nav>
+                        <a href="#fbsection1" class="cbp-fbcurrent">Section 1</a>
+                        <a href="#fbsection2">Section 2</a>
+                        <a href="#fbsection3">Section 3</a>
+                        <a href="#fbsection4">Section 4</a>
+                    </nav>
+
+                    <!-- ABOUT -->
+                    <!-- briefly explains what Buzz is and does -->
+                    <section id="fbsection1" class="icon-twitter">
+                        <div class="info">
+                            <span>About Buzz</span>
+                            <h1>Overview</h1>
+                            <div><p>Buzz makes it easier to view what's trending on Twitter. It provides city-specific data about trending pop culture topics by dynamically harvesting keywords and displaying media links related to each keyword. Simply pick a city and discover what pop culture icons are buzzing!</p></div>
+                        </div>
+                    </section>
+
+                    <!-- MUSIC JAMS -->
+                    <section id="fbsection2">
+                        <div class="info">
+                            <h1>Music Jams</h1>
+                            <p>Discover what songs and artists are trending on Twitter</p>
+                        </div>
+                    </section>
+
+                    <!-- DISCOVER -->
+                    <section id="fbsection3">
+                        <div class="info">
+                            <h1>Discover</h1>
+                            <p>what's buzzing in a specific city by selecting a city to view the top trending pop culture icons and the related media (YouTube videos, news links, and images)</p>
+                        </div>
+                    </section>
+
+                    <!-- EXPLORE -->
+                    <section id="fbsection4">
+                        <div class="info">
+                            <h1>Explore</h1>
+                            <p>what's buzzing in all cities by navigating to the explore page to view the representation of tweets in a city out of all tweets in the database.</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <script src="Plugins/AnimatedHeader/js/classie.js"></script>
+            <script src="Plugins/AnimatedHeader/js/cbpAnimatedHeader.min.js"></script>
+            <script src="Plugins/Scrolling/js/jquery.easing.min.js"></script>
+            <script src="Plugins/Scrolling/js/waypoints.min.js"></script>
+            <script src="Plugins/Scrolling/js/jquery.debouncedresize.js"></script>
+            <script src="Plugins/Scrolling/js/cbpFixedScrollLayout.min.js"></script>
+            <script>
+                $(function() {
+                    cbpFixedScrollLayout.init();
+                });
+            </script>
 
 	</body>
 </html>
