@@ -11,16 +11,16 @@
       
       <title> Buzz </title>
 
-      <link rel="stylesheet" type="text/css" href = "../static/CSS/style.css"></link> 
-      <link rel="icon" type="image/ico" href="../Images/icon.ico">
-      <script src="../static/JS/buzz.js"></script>
+      <link rel="stylesheet" type="text/css" href = "static/CSS/style.css"></link> 
+      <link rel="icon" type="image/ico" href="Images/icon.ico">
+      <script src="static/JS/buzz.js"></script>
       <script>  citieslist = [];
                 {% for c in cities %}
                 citieslist.push({{ c|safe }});
                 {% endfor %} 
       </script>
-      <script src="../static/JS/histogram.js"></script>
-      <script src="../static/JS/jquery-horizscroll.js"></script>
+      <script src="static/JS/histogram.js"></script>
+      <script src="static/JS/jquery-horizscroll.js"></script>
       <script>
         $(function(){
           $("#body-discover").mousewheel(function(event, delta) {
@@ -39,7 +39,7 @@
             <div class="navbar"> 
               <ul>
                   <li class="parent">
-                      <img src="../static/Images/discover.png"/>
+                      <img src="static/Images/discover.png"/>
                       <a href="discover.html">Discover</a>
                           <ul>
                             <li class="child"><a href="discover_Chicago">Chicago</a></li>
@@ -52,12 +52,12 @@
                   </li>
                       
                   <li class="parent">
-                      <img src="../static/Images/explore.png"/>
+                      <img src="static/Images/explore.png"/>
                       <a href="explore.html">Explore</a>
                   </li>
                   
                   <li class="parent">
-                    <img src="../static/Images/about.png"/>
+                    <img src="static/Images/about.png"/>
                     <a href="about.html">About</a>
                   </li>
             
