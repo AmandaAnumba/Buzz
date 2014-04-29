@@ -8,9 +8,11 @@
 	margin: 0;
 	padding: 0;
 	background: #f7f7f7;
+	z-index: 999;
 }
 
 .cbp-vimenu li a {
+	font-family: FontAwesome;
 	display: block;
 	text-indent: -500em;
 	height: 5em;
@@ -58,7 +60,7 @@
 }
 
 .icon-music:before {
-	content: "\f002";
+	content: "\f001";
 	font-size: 0.5em;
 }
 
