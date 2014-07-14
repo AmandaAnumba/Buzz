@@ -16,12 +16,14 @@
     <link href="static/Plugins/Bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="static/css/style.css" rel="stylesheet" type="text/css" />  
     <link rel="stylesheet" href="static/Plugins/FontAwesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="static/Plugins/IconMenu/css/component.css" />
     
     <script src="static/Plugins/nvd3/lib/d3.v3.js"></script>
     <script src="static/Plugins/nvd3/nv.d3.js"></script>
     <script src="static/js/buzz.js"></script>
     <script src="static/Plugins/Bootstrap/js/bootstrap.min.js"></script>
     <script src="static/Plugins/nvd3/src/utils.js"></script>
+    <script src="static/Plugins/IconMenu/js/modernizr.custom.js"></script>
   </head>
 
   <style>
@@ -39,6 +41,15 @@
   <body>
     
     <!-- **NAVIGATION BAR** -->
+      <ul class="cbp-vimenu">
+          <li><a href="home.html" class="icon-logo"></a></li>
+          <li><a href="#" class="icon-music"></a></li>
+          <li><a href="discover.html" class="icon-discover"></a></li>
+          <li><a href="explore.html" class="icon-explore"></a></li>
+          <li><a href="about.html" class="icon-about"></a></li>
+      </ul>
+
+    <!-- **NAVIGATION BAR** 
       <div id="navbar-wrapper">
           <h1 id="navbar-header"><a href="home.html">Buzz</a></h1>
           <div class="navbar"> 
@@ -65,23 +76,44 @@
           
             </ul>
           </div>
-       </div>
+       </div>-->
     
-      <!-- **HEADER** -->
+      <!-- **HEADER** 
       <div class="white-header">
         <p class="ref"> {{city}} </p>
-      </div>
+      </div>-->
 
     <!-- **MAIN BODY** -->
     <div class="body-cities">
         <h1 id="c-title"> {{city}} </h1>
-        <!---   <div id="lt"> 
-          <ul id="tweets" style="list-style-type: none; text-align: -webkit-match-parent; float: right;">
-          </ul>
-        </div> -->
 
          <!-- **KEYWORDS**  --> 
         <div id="keywords"></div> 
+
+        <div class="main">
+        <ul id="og-grid" class="og-grid">
+          <li>
+            <a href="http://cargocollective.com/jaimemartinez/" data-largesrc="images/1.jpg" data-title="Azuki bean" data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
+              <img src="images/thumbs/1.jpg" alt="img01"/>
+            </a>
+          </li>
+          <li>
+            <a href="http://cargocollective.com/jaimemartinez/" data-largesrc="images/2.jpg" data-title="Veggies sunt bona vobis" data-description="Komatsuna prairie turnip wattle seed artichoke mustard horseradish taro rutabaga ricebean carrot black-eyed pea turnip greens beetroot yarrow watercress kombu.">
+              <img src="images/thumbs/2.jpg" alt="img02"/>
+            </a>
+          </li>
+          <li>
+            <a href="http://cargocollective.com/jaimemartinez/" data-largesrc="images/3.jpg" data-title="Dandelion horseradish" data-description="Cabbage bamboo shoot broccoli rabe chickpea chard sea lettuce lettuce ricebean artichoke earthnut pea aubergine okra brussels sprout avocado tomato.">
+              <img src="images/thumbs/3.jpg" alt="img03"/>
+            </a>
+          </li>
+          <li>
+            <a href="http://cargocollective.com/jaimemartinez/" data-largesrc="images/1.jpg" data-title="Azuki bean" data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
+              <img src="images/thumbs/1.jpg" alt="img01"/>
+            </a>
+          </li>
+        </ul>
+      </div>
 
         <!-- related media links section -->
         <div id="wrapper" align=center style="position: fixed; bottom: 0; width: 100%; float: center;">       
@@ -95,33 +127,11 @@
           <div id="news" hidden="true"></div>
           <div id="tweet-list" hidden="true"></div>
         </div>
-
     </div>
 
 
     <!-- JAVASCRIPT -->
     <script type="text/javascript" charset="utf-8">
-      /*$.getJSON( "static/json/compare_tweets.json", function( data ) {
-      var items = [];
-      var tweetlist = document.getElementById("tweets");
-      $.each( data, function( i, tweet ) {
-        if ( i === 40 ) {
-        return false;
-      }
-        var li = document.createElement();
-
-          li.innerHTML='<li style="text-align: -webkit-match-parent;" id="' + i + '">' +
-          '<blockquote class="twitter-tweet" height="400" width="750" min-width="500" align="right" ><a href="https://twitter.com/twitterapi/status/' + tweet.id_str + '"</a></blockquote></li>'
-          tweetlist.appendChild(li);
-        });
-      });  */
-
-      /*var media = new Array();
-      
-      media[0] = '<div id="images" hidden="true"></div>';
-      media[1] = '<div id="tweet-list" hidden="true"></div>';
-      media[2] = '<div id="news" hidden="true"></div>';
-      media[3] = '<div id="videos" hidden="true"></div>';*/
 
       $.getJSON( "static/json/{{city}}_media_values.json", function( data ) {
         var items = [];
@@ -209,10 +219,8 @@
         //tweetdiv.hidden = hidden;
         //tweetdiv.setAttribute("hidden","false");
       }
-    </script>
 
 
-    <script>
       var media = new Array();
       media[0] = '<div id="videos" hidden="true"></div>';
       media[1] = '<div id="news" hidden="true"></div>';
@@ -258,15 +266,13 @@
         if(it > 2) it = 1;
         $(this).data('it', it);
       })
-      </script>
 
-
-      <script type="text/javascript">// <![CDATA[
+      // <![CDATA[
       (function() {
       var twitterScriptTag = document.createElement('script');
       twitterScriptTag.type = 'text/javascript';
       twitterScriptTag.async = true;
-      twitterScriptTag.src = 'static/widgetcityview.js';
+      twitterScriptTag.src = 'static/js/widgetcityview.js';
       var s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(twitterScriptTag, s);
       })();

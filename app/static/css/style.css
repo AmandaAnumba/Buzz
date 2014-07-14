@@ -10,6 +10,12 @@ a {
 	color: #63B3FF;
 }
 
+.tag {
+	opacity: 0;
+	color: black;
+}
+
+
 /*---------------------------- Vertical Navigation Bar ----------------------------*/
 /*=================================================================================*/
 
@@ -383,6 +389,11 @@ a {
 		overflow-y: hidden;
 	}
 
+	#content-wrapper {
+		margin-left: 80px;
+		height: 100%;
+	}
+
 	/***** horiztonal content and boxes *****/
 	#horiz-content {
 		background-color: white;
@@ -412,7 +423,8 @@ a {
 		font-size: 0.8em;
 		text-align: center;
 		margin:0;
-		padding:0;
+		padding-left: 13px;
+		padding-right: 13px;
 	}
 
 
@@ -512,25 +524,25 @@ a {
 
 	#la {
 		background-image: url(../Images/la.jpg);
-		left: 55.45%;
+		left: 60.45%;
 		top:0;	
 	}
 
 	#ny {
 		background-image: url(../Images/ny.jpg);
-		left: 55.45%;
+		left: 60.45%;
 		top: 50.25%;	
 	}
 
 	#sf {
 		background-image: url(../Images/sf.jpg);
-		left: 90.7%;
+		left: 100.7%;
 		top: 0;		
 	}
 
 	#wdc {
 		background-image: url(../Images/wdc.jpg);	
-		left: 90.7%;
+		left: 100.7%;
 		top: 50.25%;	
 	}
 
@@ -820,20 +832,23 @@ a {
 		padding:0;
 	}
 
+	#chart {
+		margin-left: 4%;
+	}
 
 	/*content*/
 
 	#rt {
-		float: right;
 		position: fixed;
-		margin-left: 60.5%;
+		top: 30%;
+		margin-left: 55%;
 	}
 
 	#tweets {
 		list-style-type: none;
 		text-align: -webkit-match-parent!important; 
 		float: right!important;
-		height: 380px;
+		height: 450px;
 		width: 405px;
 		overflow-y: scroll;
 	}

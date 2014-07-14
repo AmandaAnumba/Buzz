@@ -13,10 +13,8 @@ import tweepy.streaming
 from pymongo import Connection
 import cPickle as pickle
 from Oauth import main as GetAPI
-import nltk
 import re
 import string
-
 
 
 
@@ -31,67 +29,6 @@ class Listener(tweepy.streaming.StreamListener):
 		self.cache = self.conn.buzz.cache
 		#self.tweets = conn.buzz.tweets
 	
-	def summonDictionary(self):
-		eng_dict_file = open("eng_dict",'r')
-		eng_dict = [w.replace('\n','').strip() for w in eng_dict_file.readlines()]
-		eng_dict.append('i')
-		eng_dict_file.close()
-		return eng_dict
-	
-	def parseTweet1(self,text):
-		hashtags,text = self.pullHashtags(text)
-		usernames,text = self.pullUsernames(text)
-		text = self.removePunctuation(text)
-		print text		
-		tree = nltk.ne_chunk( nltk.pos_tag( nltk.word_tokenize(text)))
-		entities = [i for i in tree if isinstance(i,nltk.tree.Tree)]
-		for e in entities:
-			print e
-			
-	def parseTweet(self,text):
-		text = self.removeLeadingPronouns(text)
-		hashtags,text = self.pullHashtags(text)
-		usernames,text = self.pullUsernames(text)
-		stext = self.removePunctuation(text)
-		#print self.cappedPhrases(text)
-		text = self.removeDictionaryWords(text)
-		return text.strip()
-	
-	def pullHashtags(self,text):
-		htset = set(part for part in text.split() if part.startswith('#'))
-		text = filter(lambda w: w not in htset,text.split())
-		text = ' '.join(text)
-		return htset,text.strip()
-		
-	def pullUsernames(self,text):
-		return re.findall("@(?i)[a-z0-9_]+",text),re.sub("@(?i)[a-z0-9_]+","",text).strip()
-		
-	def cappedPhrases(self,text):
-		capped = []
-		#return re.findall('([A-Z0-9"]+(?=\s[A-Z"])(?:\s[A-Z0-9"]+)+)',text)
-		#phrases = re.findall("([A-Z][']*[\w-]*(?:\s+[A-Z][']*[\w-]*)+)",text)
-		#endings like 'er in we're
-		phrases = re.findall("([a-z]{0,1}[A-Z][']*[s]*[\w-]*(?:\s+[a-z]{0,1}[A-Z][']*[s]*[\w-]*)+)",text,re.UNICODE)
-		#for p in phrases:
-		#	startidx = text.index(p)
-		return phrases
-
-	def removePunctuation(self,text):
-		return re.sub("[.!,;:?]", '', text).strip()
-
-	def removeLeadingPronouns(self,text):
-		return re.sub("(I'm)|(I[ ])|^(I[ ]am)|^(Can[']t)|(You)|^(He)|^(She)|^(They)|^(Hi)|^(Hey)|^(Sup)|^(Hello)|^(Omg)|^(Lol)|^(Omfg)","",text,re.UNICODE).strip()
-
-	def removeDictionaryWords(self,text):
-		noDictWords = []
-		for t in text.split():
-			if t.strip() in self.eng_dict:
-				continue
-			noDictWords.append(t)
-		return ' '.join(noDictWords).strip()
-
-	def extractMusicTerm(self,text):
-		pass
 		
 	def on_status(self, status):
 		"""Categorize and save tweets with coords in a state and community."""
@@ -161,7 +98,7 @@ def listen(stdout):
 	#locations = [-87.96,41.644, -87.40,42.04,-122.75,36.8,-121.75,37.8,-74,40,-73,41]	
 	#Chicago#SF#NYC
 	#LOCATIONS = [-87.96,41.644,-87.40,42.04,-122.75,36.8,-121.75,37.8,-74,40,-73,41]	
-	locs = Location_Conn()
+	#locs = Location_Conn()
 	
 	
 	
@@ -174,7 +111,7 @@ def listen(stdout):
 	consumer_key = 'qZnzpvBV2uwKiF2e4kR5mg'
 	consumer_secret = 'E7ts8X242CfRKWBYMdTdXfwa3qyIHcEf2B76NUbQs'
 	access_key = '1244598638-biVu1Hk4fiPMUTHO9HvYb09rXq7saMtNaevIt7S'
-	access_secret = '75F3W2zKO0MsET6makez1sJVJKh9LpcgRefNQXLZWDg8M'		
+	access_secret = '75F3W2zKO0MsET6makez1sJVJKh9LpcgRefNQXLZWDg8M'	
 	stream = None	
 	try:
 		#auth = tweepy.OAuthHmvandler(
@@ -188,7 +125,8 @@ def listen(stdout):
 
 			# Connect to stream
 			stdout.write('Initializing connection...\n')		  
-			stream.filter(locations=locs.coordinates, async=True)
+			stream.filter(track=("#NowPlaying","I'm listening to","#pandora","#ImListeningTo","#imlisteningto","#lastfm","#Playing"), async=True)
+			#stream.filter(track=("music"), async=True)
 			connection_dt = datetime.now()
 			
 			# Reset connection

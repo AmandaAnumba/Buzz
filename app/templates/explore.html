@@ -11,12 +11,13 @@
 
       <title> Buzz </title>
 
-      <link rel="icon" type="image/ico" href="static/images/icon.ico">
+      <link rel="icon" type="image/ico" href="static/Images/icon.ico">
       <link rel="stylesheet" type="text/css" href="static/Plugins/nvd3/nv.d3.css">
       <link rel="stylesheet" type="text/css" href = "static/css/style.css"></link>	
       <link rel="stylesheet" href="static/Plugins/FontAwesome/css/font-awesome.min.css" />
       <link rel="stylesheet" type="text/css" href="static/Plugins/IconMenu/css/component.css" />
 
+      <script src="static/js/buzz.js"></script>
       <script src="static/Plugins/nvd3/lib/d3.v3.js"></script>
       <script src="static/Plugins/nvd3/nv.d3.js"></script>
       <script src="static/Plugins/IconMenu/js/modernizr.custom.js"></script>
@@ -103,7 +104,7 @@
         if ( i === 40 ) {
         return false;
       }
-        var li = document.createElement();
+        var li = document.createElement("li");
           li.innerHTML='<li style="text-align: -webkit-match-parent;" id="' + i + '">' +
           '<blockquote class="twitter-tweet" height=auto width="300" align="right" ><a href="https://twitter.com/twitterapi/status/' + tweet.id_str + '"</a></blockquote></li>';
           tweetlist.appendChild(li);
@@ -118,7 +119,7 @@
         ul.setAttribute("style","list-style-type: none; text-align: -webkit-match-parent; float: right");
         var oldList = document.getElementById("rt");
         for (var i=0; i < count; i++) {
-          var li = document.createElement();
+          var li = document.createElement("li");
           var tid = tweetlist[i];
           li.innerHTML='<li style="text-align: -webkit-match-parent;" id="' + tid + '">' +
           '<blockquote class="twitter-tweet" height=auto width="300" align="right" ><a href="https://twitter.com/twitterapi/status/' + tid + '"</a></blockquote></li>';     
