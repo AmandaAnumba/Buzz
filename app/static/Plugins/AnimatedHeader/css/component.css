@@ -35,21 +35,31 @@
 	font-size: 4em;
 	margin: 0;
 	float: left;
+	font-weight: 700;
 }
 
 .cbp-af-header nav {
 	float: right;
+	margin-right: 6%;
 }
 
 .cbp-af-header nav p {
 	color: #aaa;
-	font-weight: 700;
-	margin: 0 0 0 20px;
+	margin: 0 0 -25px 0;
 	font-size: 1.4em;
 }
 
+.cbp-af-header nav a {
+	margin-left: 25px;
+	font-size: 9pt;
+	color: black;
+	font-weight: 700;
+	float: right;
+	text-decoration: none;
+}
+
 .cbp-af-header nav a:hover {
-	color: #333;
+	color: #46a4da;
 }
 
 /* Transitions and class for reduced height */
@@ -74,6 +84,10 @@
 .cbp-af-header-shrink nav p {
 	font-size: 1em;
 	font-weight: normal;
+}
+
+.cbp-af-header-shrink nav a {
+	display: none;
 }
 
 /* Example Media Queries */

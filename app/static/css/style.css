@@ -608,14 +608,30 @@ a {
 	.body-cities {
 		margin: 0;
 		padding: 0;
-		width: auto;
-		background: none;
-		background-image: url(../Images/bg.png);
+		/*width: 100%;*/
+		/*background: none;*/
+		/*background-image: url(../Images/bg.png);*/
 	}
 
+	.body-cities header {
+		margin: 3% 0 0 120px;
+		text-align: left;
+	}
+
+	.body-cities > header > p {
+		display: block;
+		position: relative;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.5em;
+		padding: 0;
+		margin: 0;
+	}
+	
 	#c-title {
-		text-align: center;
-		font-size: 25px;
+		font-size: 2em;
+		padding: 0;
+		margin: 0;
 	}
 
 	#keyword {
@@ -778,10 +794,14 @@ a {
 	.imgresult {
 		height: auto;
 		display:inline-block;
-		max-height: 250px;
-		max-width: 150px;
+		
 	}
 
+	.imgresult > img {
+		max-height: 200px;
+		max-width: 200px;
+		margin: 0 15px 0 15px;
+	}
 
 /*---------------------------------- EXPLORE PAGE----------------------------------*/
 /*=================================================================================*/

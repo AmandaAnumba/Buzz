@@ -1,34 +1,12 @@
-$(function() {
-	// get the query from the clicked text
-    $('#test p').click(function() {
-        var query = ($(this).text());
-		newsSearch(query);
-		videoSearch(query);
-		//imageSearch(query);
-    });
-
-    $('#music').on('mouseenter', function() {
-		$('#music p').animate({
-	        opacity: '1'
-	    },250);
-	});
-	$('#music').on('mouseleave', function() {
-		$('#music p').animate({
-	        opacity: '0'
-	    },250);
-	});
-
-	$('#discvr').on('mouseenter', function() {
-		$('#discvr p').animate({
-	        opacity: '1'
-	    },250);
-	});
-	$('#discvr').on('mouseleave', function() {
-		$('#discvr p').animate({
-	        opacity: '0'
-	    },250);
-	});
-});
+// $(function() {
+// 	// get the query from the clicked text
+//     $('#test p').click(function() {
+//         var query = ($(this).text());
+// 		newsSearch(query);
+// 		videoSearch(query);
+// 		imageSearch(query);
+//     });
+// });
 
 
 

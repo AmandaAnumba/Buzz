@@ -62,23 +62,25 @@ app = Flask(__name__)
 
 
 @buzz.route('/')
-@buzz.route('/index')
-@buzz.route('/index.html')
-@buzz.route('/home')
-@buzz.route('/home.html')
-
+# @buzz.route('/index')
+# @buzz.route('/index.html')
+# @buzz.route('/home')
+# @buzz.route('/home.html')
 @crossdomain(origin='*', headers='Content-Type')
 def index():
 	return render_template("home.html")
 
+@buzz.route('/music')
+@crossdomain(origin='*', headers='Content-Type')
+def music():
+	return render_template("music.html")
+
 @buzz.route('/about')
-@buzz.route('/about.html')
 @crossdomain(origin='*', headers='Content-Type')
 def about():
 	return render_template("about.html")
 
 @buzz.route('/discover_<cityname>')
-@buzz.route('/discover_<cityname>.html')
 @crossdomain(origin='*', headers='Content-Type')
 def cityview(cityname):
 	return render_template("cityview.html",
@@ -86,13 +88,11 @@ def cityview(cityname):
 		city = cityname)
 
 @buzz.route('/discover')
-@buzz.route('/discover.html')
 def discover():
 	return render_template("discover.html",
 		cities=map(json.dumps, cities))		
 
 @buzz.route('/explore')
-@buzz.route('/explore.html')
 @crossdomain(origin='*', headers='Content-Type')
 def explore():
 	return render_template("explore.html",

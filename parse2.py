@@ -211,12 +211,24 @@ class Parser:
 		json.dump(music, f)
 
 
+	def parse2db(self, tweet, city, genre, artist, song_name):
+		tweet['city'] = city
+		tweet['artist'] = artist
+		tweet['genre'] = genre
+		tweet['song'] = song_name
+		tid = tweet['id_str']
+		# update cache
+		self.cache.remove({'id_str' : tid})
+
+		# insert tweet into db
+		self.tweets.insert(tweet)
+
 
 	def parseTweet(self,tweet,kw=False):
 		text = tweet['text']
-		id = tweet['id_str']
+		# id = tweet['id_str']
 		city = self.tweetLocate(tweet['lat'], tweet['long'])
-		tweet['city'] = city
+		# tweet['city'] = city
 		keys = text.split()
 		# print tweet
 

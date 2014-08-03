@@ -2,26 +2,27 @@
 <html lang="en" class="no-js">
     <head>
         <!-- load first -->
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> 
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet'> 
         <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
         
-        <title> Buzz </title>
+        <title>Buzz</title>
 
         <link rel="icon" type="image/ico" href="static/images/icon.ico" />
         <link rel="stylesheet" href="static/Plugins/FontAwesome/css/font-awesome.min.css" />
-        <link rel="stylesheet" type="text/css" href="static/Plugins/AnimatedHeader/css/default.css" />
-        <link rel="stylesheet" type="text/css" href="static/Plugins/AnimatedHeader/css/component.css" />
-        <link rel="stylesheet" type="text/css" href="static/Plugins/Scrolling/css/default.css" />
-        <link rel="stylesheet" type="text/css" href="static/Plugins/Scrolling/css/component.css" />
+        <link rel="stylesheet" href="static/Plugins/AnimatedHeader/css/default.css" />
+        <link rel="stylesheet" href="static/Plugins/AnimatedHeader/css/component.css" />
+        <link rel="stylesheet" href="static/Plugins/Scrolling/css/default.css" />
+        <link rel="stylesheet" href="static/Plugins/Scrolling/css/component.css" />
         <script src="static/Plugins/AnimatedHeader/js/modernizr.custom.js"></script>
+        <link rel="stylesheet" href="static/Plugins/Bootstrap/css/bootstrap.min.css" />
+        <script src="static/Plugins/Bootstrap/js/bootstrap.min.js"></script>
     </head>
 	
 	<body>
-        <div class="container">
+        <div class="contain">
             
             <!-- HEADER -->
             <div class="cbp-af-header">
@@ -37,7 +38,7 @@
             </div>
 
             <!-- SECTIONS -->
-            <div class="container">
+            <div class="contain">
                 <div id="cbp-fbscroller" class="cbp-fbscroller">
                     <div class="cbp-fwdots">
                         <span class="cbp-fwcurrent"></span>
@@ -60,16 +61,16 @@
                         <div class="info">
                             <span>About Buzz</span>
                             <h1>Overview</h1>
-                            <div><p>Buzz makes it easier to view what's trending on Twitter. It provides city-specific data about trending pop culture topics by dynamically harvesting keywords and displaying media links related to each keyword. Simply pick a city and discover what pop culture icons are buzzing!</p></div>
+                            <div><p>Buzz makes it easier to view what pop-culture topics are trending on Twitter. It provides city-specific data about trending pop culture topics by dynamically harvesting keywords and displaying media links related to each keyword. Simply pick a city and discover what pop culture icons are buzzing!</p></div>
                         </div>
                     </section>
 
                     <!-- MUSIC JAMS -->
                     <section id="fbsection2">
                         <div class="info">
-                            <h1>Music Jams</h1>
-                            <p>Discover what songs and artists are trending on Twitter</p>
-                            <a href="discover.html">Click Here</a>
+                            <h1>Music Trends</h1>
+                            <p>Want an easier way to make sense of what songs and artists are trending on Twitter? Check out Music Trends and discover local bands or which music genres are top trending in each city.</p>
+                            <a href='{{ url_for("music") }}'><button type="button" class="btn btn-default">Click Here</button></a>
                         </div>
                     </section>
 
@@ -77,8 +78,8 @@
                     <section id="fbsection3">
                         <div class="info">
                             <h1>Discover</h1>
-                            <p>what's buzzing in a specific city by selecting a city to view the top trending pop culture icons and the related media (YouTube videos, news links, and images)</p>
-                            <a href="discover.html">Click Here</a>
+                            <p>what's buzzing in a specific city. Select a city to view the top trending pop culture icons and the related media (YouTube videos, news links, and images)</p>
+                            <a href='{{ url_for("discover") }}'><button type="button" class="btn btn-default">Click Here</button></a>
                         </div>
                     </section>
 
@@ -87,7 +88,7 @@
                         <div class="info">
                             <h1>Explore</h1>
                             <p>what's buzzing in all cities by navigating to the explore page to view the representation of tweets in a city out of all tweets in the database.</p>
-                            <a href="explore.html">Click Here</a>
+                            <a href='{{ url_for("explore") }}'><button type="button" class="btn btn-default">Click Here</button></a>
                         </div>
                     </section>
                 </div>

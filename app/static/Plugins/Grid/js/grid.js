@@ -275,7 +275,7 @@ var Grid = (function() {
 			hidePreview();
 			return false;
 		} ).children( 'a' ).on( 'click', function(e) {
-
+			console.log('here');
 			var $item = $( this ).parent();
 			// check if item already opened
 			current === $item.index() ? hidePreview() : showPreview( $item );
