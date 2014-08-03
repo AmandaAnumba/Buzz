@@ -1,0 +1,14 @@
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/threading.py", line 810, in __bootstrap_inner
+    self.run()
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/threading.py", line 763, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/tweepy/streaming.py", line 161, in _run
+    if self.listener.on_error(resp.status) is False:
+  File "listen.py", line 119, in on_error
+    raise Exception('Error (%s)' % self.convertStatusCode(code))
+Exception: Error (Not Acceptable: An invalid format was specified in the request.)
+
+Initializing connection...
+Keyboard interrupt!
