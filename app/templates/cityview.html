@@ -130,13 +130,6 @@
     </body>
 
     <!-- JAVASCRIPT -->
-    <script src="static/Plugins/Gallery/js/imagesloaded.pkgd.min.js"></script>
-    <script src="static/Plugins/Gallery/js/masonry.pkgd.min.js"></script>
-    <script src="static/Plugins/Gallery/js/classie.js"></script>
-    <script src="static/Plugins/Gallery/js/cbpGridGallery.js"></script>
-    <script>
-      new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
-    </script>
     <script type="text/javascript">
 
       $(function () {
@@ -153,7 +146,7 @@
         var items = [];
         // var container = document.getElementById("keywords");
         $('.grid').empty().append('<li class="grid-sizer"></li>');
-        var item = "";
+        // var item = "";
         var slide = "";
         $.each( data, function( i, keyword ) {
             // if ( i === 60) {
@@ -183,14 +176,16 @@
             //row.appendChild(kw);
             // ========================================================
 
-            item += '<li class="pc_key" t-id='+keyword.tweets+'><figure><figcaption><h3>'+keyword.label+'</h3></figcaption><img src="'+keyword.image+'" /></figure></li>';
+            var item = '<li class="pc_key" t-id='+keyword.tweets+'><figure><figcaption><h3>'+keyword.label+'</h3></figcaption><img src="'+keyword.image+'" /></figure></li>';
             // var item = '<li><a href="#" data-largesrc="'+keyword.image+'" data-title="'+keyword.label+'" data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot."><img src="'+keyword.image+'"></a></li>';
             // $('.og-grid').append(item);
 
             // slide += '<li><figure><figcaption><h3>'+keyword.label+'</h3></figcaption><img src="'+keyword.image+'" /></figure></li>';
+
+            $('.grid').append(item);
+
         });
         
-        $('.grid').append(item);
         // $('.slideshow > ul').append(item);
         // $('.grid > li').removeAttr( 'style' );
 
@@ -346,5 +341,21 @@
 
 
       // ]]>
+    </script>
+    <script src="static/Plugins/Gallery/js/imagesloaded.pkgd.min.js"></script>
+    <script src="static/Plugins/Gallery/js/masonry.pkgd.min.js"></script>
+    <script src="static/Plugins/Gallery/js/classie.js"></script>
+    <script src="static/Plugins/Gallery/js/cbpGridGallery.js"></script>
+    <script>
+      var container = document.querySelector('.grid');
+      var msnry;
+      // initialize Masonry after all images have loaded
+      imagesLoaded( container, function() {
+        msnry = new Masonry( container, {
+          itemSelector: '.pc_key'
+        });
+      });
+
+      // new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
     </script>
 </html>

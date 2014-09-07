@@ -1,4 +1,7 @@
+Soundgarden
+soundgarden
 Elvis Presley
+Black Sabbath
 Onerepublic
 The Animals
 The Clash
@@ -243,16 +246,21 @@ My Chemical Romance
 Sum 41
 Good Charlotte
 +44
+Keane
+Plain White T's
 New Found Glory
 Bowling for Soup
+No Doubt
 Box Car Racer
 Jimmy Eat World
 Queen
 David Bowie
 Sweet
 T. Rex
+Journey
 Alice Cooper
 Kiss
+Bastille
 Lou Reed
 Roxy Music
 Poison
@@ -266,6 +274,7 @@ The Darkness
 Brian Eno
 Gary Glitter
 Bryan Ferry
+Bryan Adams
 Marilyn Manson
 Malfunkshun
 Adam Lambert

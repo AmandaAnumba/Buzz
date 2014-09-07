@@ -19,7 +19,7 @@ a {
 /*---------------------------- Vertical Navigation Bar ----------------------------*/
 /*=================================================================================*/
 
-	#navbar-wrapper {
+	/*#navbar-wrapper {
 		z-index: 100;	
 		width: 130px;
 		position: fixed;
@@ -110,7 +110,7 @@ a {
 	.navbar ul ul li a {
 		text-decoration: none;
 		color:#CCC;
-	}		
+	}		*/
 
 
 /*-------------------------------- TWITTER SIDEBAR --------------------------------*/
@@ -390,7 +390,7 @@ a {
 	}
 
 	#content-wrapper {
-		margin-left: 80px;
+		margin-left: 70px;
 		height: 100%;
 	}
 
@@ -604,6 +604,10 @@ a {
 
 /*----------------------------------- CITIES PAGE----------------------------------*/
 /*=================================================================================*/
+	
+	a#help {
+		font-size: 13pt;
+	}
 
 	.body-cities {
 		margin: 0;
@@ -803,29 +807,9 @@ a {
 		margin: 0 15px 0 15px;
 	}
 
+
 /*---------------------------------- EXPLORE PAGE----------------------------------*/
 /*=================================================================================*/
-
-
-	.body-explore {
-		margin: 0;
-		padding: 0;
-		width: auto;
-		background-image: url('../Images/bg.png');
-	}
-
-	#body {
-		width: 94%;
-		height: auto;
-		margin-top: 2%;
-		margin-left: 3%;
-		background: white;
-		border-radius: 5px;
-		-webkit-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
-		-moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
-		box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
-		position: absolute;
-	}
 
 	.ref {
 		float: right;
@@ -853,15 +837,15 @@ a {
 	}
 
 	#chart {
-		margin-left: 4%;
+		margin-left: 7%;
 	}
 
 	/*content*/
 
 	#rt {
 		position: fixed;
-		top: 30%;
-		margin-left: 55%;
+		right:0;
+		bottom:0;
 	}
 
 	#tweets {
@@ -869,6 +853,156 @@ a {
 		text-align: -webkit-match-parent!important; 
 		float: right!important;
 		height: 450px;
-		width: 405px;
+		width: 420px;
 		overflow-y: scroll;
 	}
+
+
+/*----------------------------------- MUSIC PAGE----------------------------------*/
+/*=================================================================================*/
+
+.navbar > .container {
+	margin-left: 100px;
+}
+
+#nav_header{
+	margin: 8px 30px 0 0;
+}
+
+.navbar-default{
+	background-color: white !important;
+	border-color: #f8f8f8 !important;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+	color: #555;
+	background-color: #f8f8f8 !important;
+}
+
+.navbar {
+	margin-bottom: 0 !important;
+}
+
+#navbar-footer {
+	padding-bottom: 10px;
+}
+#music_main {
+	margin: 0 0 0 70px;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url('../Images/bg.png');
+	/*position: absolute;*/
+	/*box-shadow: inset 12px 3px 8px 0px #979797;*/
+}
+
+.tab-content {
+	/*margin: 3% 0 0 0;*/
+	height:100%;
+	width: 100%;
+}
+
+.g-hist-wrapper {
+	margin-bottom: 10px;
+	list-style: none;
+	clear: both;
+}
+
+.hist-label {
+	margin:0;
+	width: 120px;
+	/*float: left;*/
+}
+
+.hist-bar {
+	height: 50px;
+	background: rgb(174, 199, 232);
+	opacity: 0.9;
+	float: left;
+	/*margin-left: 7.9%;*/
+}
+
+#genre_histogram {
+	margin-left: 20px;
+}
+
+#unique {
+	background: white;
+}
+
+table {
+	margin: 3% 17% 0 7%;
+}
+
+.table>thead>tr>td.active, 
+.table>tbody>tr>td.active, 
+.table>tfoot>tr>td.active, 
+.table>thead>tr>th.active, 
+.table>tbody>tr>th.active, 
+.table>tfoot>tr>th.active, 
+.table>thead>tr.active>td, 
+.table>tbody>tr.active>td, 
+.table>tfoot>tr.active>td, 
+.table>thead>tr.active>th, 
+.table>tbody>tr.active>th, 
+.table>tfoot>tr.active>th {
+background-color: #f5f5f5;
+}
+
+
+.table-condensed>thead>tr>th, 
+.table-condensed>tbody>tr>th, 
+.table-condensed>tfoot>tr>th, 
+.table-condensed>thead>tr>td, 
+.table-condensed>tbody>tr>td, 
+.table-condensed>tfoot>tr>td {
+	border-top: none !important;
+	border-bottom: 1px solid #ddd !important;
+}
+
+.table-condensed>tbody>tr>td {
+	text-align: left;
+}
+
+.space {
+	padding-left: 30px !important;
+}
+
+.btn1{
+	width: 30px;
+}
+
+th {
+	text-transform: uppercase;
+}
+
+.btn-default {
+ 	border-color: #fff !important; 
+}
+
+/*#tabs, .nav_header {
+	margin-left: 75px;
+	margin-right: 10px;
+	width: inherit !important;
+}
+
+#header_links {
+	display: inline;
+}
+
+.tab-title {
+	text-align: center;
+}*/
+
+/*.nav-tabs.nav-justified>li>a {
+	border: 1px solid #ddd;
+}
+
+.nav-tabs.nav-justified>.active>a, .nav-tabs.nav-justified>.active>a:hover, .nav-tabs.nav-justified>.active>a:focus {
+	background: whitesmoke;
+}
+
+/*#world-map {
+	width:100% !important;
+	height:100% !important;
+}*/

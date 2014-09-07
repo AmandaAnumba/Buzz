@@ -1,5 +1,6 @@
-Calvin Harris Featuring Rihanna
 A-ha
+Pink Featuring Lily Rose Cooper
+Beyonce Featuring Jay Z
 Emeli Sande
 Culture Club
 The Beatles
@@ -10,6 +11,8 @@ Haim
 Shania Twain
 Bee Gees
 Cher
+Boyzone
+Sugababes
 Diana Ross
 Duran Duran
 Frank Sinatra
@@ -18,6 +21,7 @@ Madonna
 The Mamas & the Papas
 Shakira
 Lorde
+PSY
 The Monkees
 Rick Astley
 The Four Seasons
@@ -29,6 +33,7 @@ Lionel Richie
 Belinda Carlisle
 Boy George
 Carly Rae Jepsen
+Carly Rae Jepson
 Janet Jackson
 Celine Dion
 Kylie Minogue
@@ -41,6 +46,7 @@ Donna Summer
 Donna Lewis
 Chris Daughtry
 Cee Lo Green
+Cee lo Green
 P!nk
 The Beach Boys
 Avril Lavigne
@@ -49,9 +55,14 @@ George Michael
 Sonny & Cher
 Billy Joel
 LeAnn Rimes
+Leann Rimes
 Whitney Houston
 Katy Perry
 New Kids on the Block
+New Kids On The Block
+New Kids On the Block
+New Kids on The Block
+NKOTB
 Kelly Clarkson
 Diana Ross & The Supremes
 Taylor Swift
@@ -99,6 +110,8 @@ Susanna Hoffs
 Britney Spears
 Justin Bieber
 N Sync
+NSync
+Nsync
 'N Sync
 The Wanted
 Gavin DeGraw
@@ -108,8 +121,6 @@ Tristan Prettyman
 Raven-Symone
 Ryan Cabrera
 Kesha
-Nelly
-Drake
 Robin Thicke
 Jessie J
 Flo Rida
@@ -118,6 +129,10 @@ Miley Cyrus
 Nicole Scherzinger
 Jessica Simpson
 Nicki Minaj
+Ashlee Simpson
+Gnarls Barkley
+Gwen Stefani
+Eurythmics
 Usher
 Ricky Martin
 Rita Ora
@@ -137,8 +152,6 @@ Demi Lovato
 Leif Garrett
 Ashlee Simpson
 The Ronettes
-Ne-Yo
-Timbaland
 David Guetta
 Hilary Duff
 The-Dream
@@ -191,7 +204,6 @@ Anni-Frid Lyngstad
 Gwen Stefani
 TLC
 The Isley Brothers
-OneRepublic
 Pink Floyd
 Pitbull
 The Pointer Sisters
@@ -211,20 +223,18 @@ Maroon 5
 James Taylor
 Kelly Clarkson
 Enrique Iglesias
-Toni Braxton
 The Go-Go's
 Annie Lennox
-Destiny's Child
 Robin Thicke
 John Denver
 Cyndi Lauper
-Boyz II Men
 No Doubt
 Will.i.am
 Gorillaz
 Selena Gomez
 The Bangles
 The Black Eyed Peas
+Black Eyed Peas
 Ricky Martin
 The Pussycat Dolls
 Leona Lewis
@@ -237,6 +247,7 @@ Jamiroquai
 Jewel
 Fergie
 Selena Gomez & the Scene
+Selena Gomez & The Scene
 Frankie Goes to Hollywood
 Michael Buble
 Sheryl Crow
@@ -254,13 +265,12 @@ Barry Manilow
 New Edition
 Kylie Minogue
 Vanessa L. Williams
+Vanessa Williams
 Robbie Williams
 Babyface
 David Guetta
 Natalie Imbruglia
 Wilson Phillips
-Nelly
-Rihanna
 Bonnie Tyler
 Cee Lo Green
 Will Smith
@@ -277,7 +287,6 @@ Culture Club
 The Monkees
 Jason Mraz
 Hilary Duff
-Ne-Yo
 Marc Almond
 Big Bang
 Lily Allen
@@ -291,38 +300,37 @@ Ronnie Spector
 Kelis
 Miley Cyrus
 Milli Vanilli
-Nicki Minaj
 Pat Boone
 T-Pain
 Christopher
 LeAnn Rimes
 Kesha
+Ke$ha
 Jordin Sparks
 Josh Groban
 The Cheetah Girls
 Vicki Sue Robinson
-Afrojack
 Owl City
 Brenda K. Starr
 Nicole Scherzinger
 Sean Kingston
 Blu Cantrell
 3OH!3
+3OH3
 Akon
 LMFAO
-R. Kelly
 One Direction
 Rihanna
 Flo Rida
 Nicki Minaj
 Katy Perry
 Maroon 5
+Maroon5
 Pitbull
 Taylor Swift
 Adele
 Kelly Clarkson
 One Direction
-Fun.
 David Guetta
 Carly Rae Jepsen
 Chris Brown
@@ -334,8 +342,7 @@ Calvin Harris
 Bruno Mars
 Train
 Pink
-Drake
-Ne-Yo
+P!nk
 Gym Class Heroes
 Neon Trees
 Demi Lovato
@@ -347,18 +354,14 @@ Outasight
 Gotye
 Kesha
 Phillip Phillips
-Big Sean
 Jason Mraz
 Sia
-B.o.B
 Jessie J
 Rita Ora
 LMFAO
 Enrique Iglesias
 Ed Sheeran
 Neon Hitch
-The Lumineers
-Coldplay
 Hot Chelle Rae
 Havana Brown
 Linkin Park
@@ -372,7 +375,6 @@ Gavin DeGraw
 Carrie Underwood
 Sammy Adams
 K'Naan
-Lil Wayne
 Luke Bryan
 Christina Perri
 Christina Aguilera
@@ -381,19 +383,14 @@ Breathe Carolina
 Imagine Dragons
 Selena Gomez & The Scene
 Matchbox Conor Maynard
-Tyga
 Olly Murs
 Chris Wallace
 Bridgit Mendler
 Chris Rene
 Big Time Rush
 The Script
-No Doubt
-Trey Songz
 JoJo
 Colbie Caillat
-Kirko Bangz
-Swedish House Mafia
 Dev
 The Fray
 Madonna
@@ -410,12 +407,11 @@ Justin Timberlake
 Miley Cyrus
 Zedd
 Pink
-Avicii
 One Direction
 Jason Derulo
 Kesha
 Lady Gaga
-Calvin Harris
+Kylie Minogue
 Lorde
 will.i.am
 Icona Pop
@@ -424,30 +420,25 @@ Robin Thicke
 Ed Sheeran
 Britney Spears
 Demi Lovato
-Drake
 Emilie Sande
 Flo Rida
 Paramore
-Eminem
-Pharrell
 Florida Georgia Line
 Anna Kendrick
 Justin Bieber
 Kelly Clarkson
 OneRepublic
+One Republic
 Daft Punk
 Ellie Goulding
-Swedish House Mafia
+Taio Cruz
 Phillip Phillips
-The Neighbourhood
-The Lumineers
 Mumford & Sons
 Awolnation
 Chris Brown
 Of Monsters And Men
 Hunter Hayes
 Christina Aguilera
-Fun.
 Olly Murs
 Ariana Grande
 Enrique Iglesias
@@ -479,13 +470,11 @@ Mariah Carey
 Labrinth
 Cher Lloyd
 John Newman
-Nelly
 Zendaya
 Armin Van Buuren
 Mac Miller
 The Script
 Travie McCoy
-Bastille
 Miranda Lambert
 The Ready Set
 Carly Rae Jepsen

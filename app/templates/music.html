@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+	<head>
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'> 
+      <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> 
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+      <title> Buzz </title>
+      <link rel="icon" type="image/ico" href="static/Images/icon.ico" />
+      <link rel="stylesheet" href="static/css/style.css" />	
+      <link rel="stylesheet" href="static/Plugins/FontAwesome/css/font-awesome.min.css" />
+      <link rel="stylesheet" href="static/Plugins/IconMenu/css/component.css" />
+      <link rel="stylesheet" href="static/Plugins/Bootstrap/css/bootstrap.min.css" />
+      <script src="static/Plugins/IconMenu/js/modernizr.custom.js"></script>
+      <script src="static/Plugins/Bootstrap/js/bootstrap.min.js"></script>
+      
+      <!-- Jvector maps -->
+      <link rel="stylesheet" href="static/Plugins/jvectormap/jquery-jvectormap-1.2.2.css" />
+      <script src="static/Plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+      <script src="static/Plugins/jvectormap/tests/assets/jquery-jvectormap-world-mill-en.js"></script>
+      <script src="static/Plugins/jvectormap/tests/assets/jquery-jvectormap-us-merc-en.js"></script>
+
+      <!-- NVD3 -->
+      <link rel="stylesheet" href="static/Plugins/nvd3/src/nv.d3.css" />
+      <script src="static/Plugins/nvd3/lib/d3.v3.js"></script>
+      <script src="static/Plugins/nvd3/nv.d3.js"></script>
+      <script src="static/Plugins/nvd3/src/utils.js"></script>
+      <script src="static/Plugins/nvd3/src/models/pie.js"></script>
+
+      <style>
+        #genre_chart svg {
+          height: 325px;
+          width: 325px;
+          display: block;
+          margin-right: auto;
+          margin-left: auto;
+        }
+      </style>
+
+      <script type="text/javascript">
+          $(function(){
+            world_data();
+
+            var data = [], 
+                total = 0;
+            
+            $.getJSON( "static/json/music/genres.json", function( json_list ) {
+                // console.log(json_list);
+                
+                $.each( json_list, function( i, tweet ) {
+                  total += tweet.total;
+                });
+
+                $.each( json_list, function( j, t ) {
+                  var chart_info = {
+                    label: t['genre'],
+                    value: (100*(t['total']/total))
+                  };
+                  data.push(chart_info);
+                });
+
+
+                nv.addGraph(function() {
+                  chart = nv.models.pieChart()
+                      .x(function(d) { return d.label })
+                      .y(function(d) { return d.value })
+                      .showLabels(true)
+                      .labelThreshold(.05)
+                      .labelType("percent")
+                      .donut(true)
+                      .donutRatio(0.35);
+
+                  d3.select('#genre_chart svg')
+                    .datum(data)
+                    .transition().duration(350)
+                    .call(chart);
+                  nv.utils.windowResize(chart.update);
+
+                  return chart;
+                  
+                });
+
+                data.sort(compare);
+                    
+                function compare(a,b) {
+                  if (a.value < b.value)
+                     return 1;
+                  if (a.value > b.value)
+                    return -1;
+                  return 0;
+                }
+
+                for (var i = 0; i < data.length; i++) {
+                  if (data[i].label != 'unknown') {
+                    var label_hist = "<div class='g-hist-wrapper'><h2 class='hist-label'>"+ data[i].label +"</h2>";
+                    var hist = "<li><div class='hist-inner'><div class='hist-artists' id='for_"+data[i].label+"'></div><div class='hist-bar' style='width:"+Math.round(data[i].value)+"%'></div></div></li></div>";
+                    $('#genre_histogram').append(label_hist + hist);
+                  }
+                };
+
+                getTrending();
+            });
+          });
+            
+          function getTrending() {
+            var genres = ['country', 'electronic', 'hiphop', 'indie', 'jazz', 'metal', 'pop', 'rock', 'reggae', 'rnb'];
+            for (var i = 0; i < genres.length; i++) {
+              $.getJSON( "static/json/music/artists_"+genres[i]+".json", function( json ) {
+
+                if (json.length <= 5) {
+                  $.each( json, function( i, tw ) {
+                    // imageSearch(tw.data.artist, tw.data.genre, tw.data);
+                    var ids = [];
+                    for (var k = 0; k < tw.data.places.length; k++) {
+                      var check = $.inArray(tw.data.places[k][0], ids);
+
+                      if(check == -1) {
+                        ids.push(tw.data.places[k][0]);
+                      }
+                    };
+
+                    var count = "<p><small><strong>Number of Plays: </strong>"+tw.data.count+"</small></p>";
+                    var songs = "<p><small><strong>Trending song(s): </strong>"+String(tw.data.song)+"</small></p>";
+                    var places = "<p><small><div class='rel_places'><strong>Places: </strong>"+ ids +"</div></small></p>";
+                    var img = "<div class='artist_info' style='background: url("+tw.image+") no-repeat; background-size: cover; width:50px; height:50px; float:left;' data-toggle='popover'></div>";
+                    $('#for_'+tw.data.genre).append(img);
+                    $('.artist_info').popover({
+                      title : tw.data.artist, 
+                      html: true,
+                      trigger : 'hover',
+                      placement : 'right',
+                      content : count + songs + places
+                    });
+                  });
+                }
+                   
+                if (json.length > 5) {
+                  for (var j = 0; j < 5; j++) {
+                    // imageSearch(json[j].data.artist, json[j].data.genre, json[j].data);
+                    var ids = [];
+
+                    for (var k = 0; k < json[j].data.places.length; k++) {
+                      var check = $.inArray(json[j].data.places[k][0], ids);
+
+                      if(check == -1) {
+                        ids.push(json[j].data.places[k][0]);
+                      }
+                    };
+
+
+                    var count = "<p><small><strong>Number of Plays: </strong>"+json[j].data.count+"</small></p>";
+                    var songs = "<p><small><strong>Trending song(s): </strong>"+String(json[j].data.song)+"</small></p>";
+                    var places = "<p><small><div class='rel_places'><strong>Places: </strong>"+ ids +"</div></small></p>";
+                    var img = "<div class='artist_info' style='background: url("+json[j].image+") no-repeat; background-size: cover; width:50px; height:50px; float:left;' data-toggle='popover'></small></div>";
+                    $('#for_'+json[j].data.genre).append(img);
+                    $('.artist_info').popover({
+                      title : json[j].data.artist, 
+                      html: true,
+                      trigger : 'hover',
+                      placement : 'right',
+                      content : count + songs + places
+                    });
+                  };
+                }
+              });
+            }
+          }
+
+          function us_data() {
+            $.getJSON( "static/json/music/all_us_data.json", function( data ) {
+              var locations = [];
+
+              $.each( data, function( i, tweet ) {
+                var latlong = tweet.coordinates,
+                  place = tweet.state + ", " + tweet.country;
+                
+                if (place == "") {
+                  place = tweet.state;
+                }
+
+                else if (place == "United States") {
+                  place = tweet.city + ", " + tweet.state;
+                }
+
+                locations.push({latLng: latlong, name: place});
+              });
+
+              $('#us-map').vectorMap({
+                map: 'us_merc_en',
+                scaleColors: ['#C8EEFF', '#0071A4'],
+                normalizeFunction: 'polynomial',
+                hoverOpacity: 0.7,
+                hoverColor: false,
+                markerStyle: {
+                  initial: {
+                    fill: '#F8E23B',
+                    stroke: '#383f47'
+                  }
+                },
+                backgroundColor: 'rgba(122, 178, 241, 0.5)',
+                markers: locations,
+                onMarkerLabelShow: function(event, label, index){
+                  label.html(
+                    '<b>'+data[index].city + ", " + data[index].state + ", " + data[index].country+'</b><br/>'+
+                    'Genre: '+data[index].genre+'</br>'+
+                    'Playing '+data[index].song+' by ' + data[index].artist +'</br>'
+                  );
+                },
+              });
+            });
+          }
+
+          function world_data() {
+            $.getJSON( "static/json/music/allTweets.json", function( data ) {
+              var locations = [];
+
+              $.each( data, function( i, tweet ) {
+                var latlong = tweet.coordinates,
+                  place = tweet.state + ", " + tweet.country;
+                
+                if (place == "") {
+                  place = tweet.state;
+                }
+
+                else if (place == "United States") {
+                  place = tweet.city + ", " + tweet.state;
+                }
+
+                locations.push({latLng: latlong, name: place});
+              });
+
+              $('#world-map').vectorMap({
+                map: 'world_mill_en',
+                scaleColors: ['#C8EEFF', '#0071A4'],
+                normalizeFunction: 'polynomial',
+                hoverOpacity: 0.7,
+                hoverColor: false,
+                markerStyle: {
+                  initial: {
+                    fill: '#F8E23B',
+                    stroke: '#383f47'
+                  }
+                },
+                backgroundColor: 'rgba(122, 178, 241, 0.5)',
+                markers: locations,
+                onMarkerLabelShow: function(event, label, index){
+                  label.html(
+                    '<b>'+data[index].city + ", " + data[index].state + ", " + data[index].country+'</b><br/>'+
+                    'Genre: '+data[index].genre+'</br>'+
+                    'Playing '+data[index].song+' by ' + data[index].artist +'</br>'
+                  );
+                },
+              });
+            });
+          }
+
+          function unknown_data() {
+            $.getJSON( "static/json/music/artist_unknown.json", function( data ) {
+              $.each( data, function( i, tweet ) {
+                  var ids = [];
+                  for (var k = 0; k < tweet.data.places.length; k++) {
+                    if(typeof ids[tweet.data.places[k][0]] == 'undefined') {
+                      ids.push(tweet.data.places[k][0]);
+                    }
+                    else {
+                      continue;
+                    }
+                  };
+
+                  var query = (tweet.data.song +' by '+ tweet.data.artist).replace(/%20/g, "+");
+
+                  var btn = '<td class="btn1"><a class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Google search for '+ tweet.data.song +' by '+ tweet.data.artist +'" target=”_blank” href="http://www.google.com/search?q='+query+'"><span class="glyphicon glyphicon-search"></span></a></td>';
+
+                  var html = '<tr><td class="active space">'+tweet.data.artist+'</td><td class="space">'+tweet.data.song+'</td><td>'+ids+'</td>'+btn+'</tr>';
+                  $('.table').append(html);
+              });
+            });
+          }
+      </script>
+	</head>
+	
+	<body>  
+    
+      <!-- NAVIGATION BAR -->
+      <ul class="cbp-vimenu">
+          <li title="Home"><a href='{{ url_for("index") }}' class="icon-logo"></a></li>
+          <li title="Music Trends"><a href='{{ url_for("music") }}' class="icon-music"></a></li>
+          <li title="Discover"><a href='{{ url_for("discover") }}' class="icon-discover"></a></li>
+          <li title="Explore"><a href='{{ url_for("explore") }}' class="icon-explore"></a></li>
+          <li title="About"><a href='{{ url_for("about") }}' class="icon-about"></a></li>
+      </ul>
+
+      <!-- NAVBAR HEDAER -->
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+
+          <div class="navbar-header">
+            <h2 id="nav_header">Music Trends</h2>
+          </div>
+
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li id="tab_map" class="active"><a href="#map">Data Visualization</a></li>
+              <li id="tab_genre"><a href="#genre">By Genre</a></li>
+              <!-- <li id="tab_artist"><a href="#artist">By Artist</a></li> -->
+              <li id="tab_unique"><a href="#unique">Unique Data</a></li>
+            </ul>
+          </div>
+
+          <div id="navbar-footer">
+            <div id="for_map">
+              <small>
+                <strong>Data Visualization</strong> maps all parsed data from geo-located tweets.
+                <div id="map_choice">
+                  <label class="radio-inline">
+                    <input type="radio" name="mapChoice" id="choice1" value="World" checked> View World Map
+                  </label>
+
+                  <label class="radio-inline">
+                    <input type="radio" name="mapChoice" id="choice2" value="US"> View Map of US
+                  </label>
+                </div>
+              </small>
+            </div>
+
+            <div id="for_genre">
+              <small>Check out which View the most popular genre and the top trending artists and songs in each genre</small>
+            </div>
+
+            <!-- <div id="for_artist">
+              <p>for artist</p>
+            </div> -->
+
+            <div id="for_unique">
+              <small>View all uncategorized artists and songs to learn more about the regions where they were trending</small>
+            </div>
+
+          </div>
+        </div>
+      </nav>
+
+      <!-- MAIN CONTENT -->
+      <main id="music_main">        
+        <section class="tab-content">
+
+          <!-- data vis -->
+          <div class="tab-pane fade in active" id="map">
+            <div id="world-map" style="width: 1200px; height: 650px;"></div>
+            <div id="us-map" style="width: 1200px; height: 650px;"></div>
+          </div>
+
+          <!-- by genre -->
+          <div class="tab-pane fade" id="genre">
+            <div id="genre_chart">
+              <svg></svg>
+            </div> 
+
+            <div id="genre_histogram"></div>
+          </div>
+
+          <!-- <div class="tab-pane fade" id="artist">
+            Content by artist goes here
+          </div> -->
+
+          <!-- unique data -->
+          <div class="tab-pane fade" id="unique">
+            <div id="unique_data">
+              <table class="table table-condensed">
+                <tr>
+                    <th>Artists</th>
+                    <th>Trending song(s)</th>
+                    <th>Places</th>
+                </tr>   
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Javascript functions -->
+      <script type="text/javascript">
+        $(function(){
+          $('#for_genre, #for_artist, #for_unique').hide();
+
+          $("input[name=mapChoice]:radio").change(function () {
+            var val = $(this).val();
+
+            if (val == 'World') {
+              $('#world-map').show();
+              $('#us-map').hide();
+              world_data();
+            }
+
+            if (val == 'US'){
+              $('#us-map').show();
+              $('#world-map').hide();
+              us_data();
+            }
+          });
+
+        });
+
+
+        $('#tab_unique').click(function() {
+          unknown_data();
+          $('.btn1').tooltip();
+        });
+
+        $('#us-map').hide();
+
+        $('.navbar-nav a').click(function (e) {
+          e.preventDefault();
+          $(this).tab('show');
+          check();
+        });
+
+        function check() {
+          if ($('#tab_map').hasClass('active')) {
+            $('#navbar-footer').children().each(function(){
+              $(this).hide();
+            });
+            $('#for_map').show();
+          }
+
+          if ($('#tab_genre').hasClass('active')) {
+            $('#navbar-footer').children().each(function(){
+              $(this).hide();
+            });
+            $('#for_genre').show();
+          }
+
+          // if ($('#tab_artist').hasClass('active')) {
+          //   $('#navbar-footer').children().each(function(){
+          //     $(this).hide();
+          //   });
+          //   $('#for_artist').show();
+          // }
+
+          if ($('#tab_unique').hasClass('active')) {
+            $('#navbar-footer').children().each(function(){
+              $(this).hide();
+            });
+            $('#for_unique').show();
+          }
+        }
+
+      </script>
+
+      
+    </body>
+</html>

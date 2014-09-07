@@ -1,0 +1,55 @@
+Modeled from Shazam App
+
+- Buzz chart - most popular songs in the us
+- top trending songs and where and the related tweets
+- top trending artists
+- little known artists
+
+first page is a map representation of all tweets in database with a location, 
+	artist, song, and genre
+
+the categories for what to view are: 
+	- by genre 
+			list the genres and the top 10 countries that have 
+			artists and songs trending in those areas
+			(ex: Indie - Australia, US, ....)
+
+			when you click on an area on the graph, a break down will be displayed; in that genre, the top playing artists, and the songs within that genre by that artist5
+	- by artist
+			same as by genre
+	- map of everything
+			pinpoint the tweets onto a map that best represents the data;
+			which genres are more prevalent? so by genre,
+			then when a location is clicked, the related tweets should display
+
+
+how to arrange the database:
+
+
+----------------------------------------------------------------------------------
+all data - data visualization
+
+{ "_id" : { "$oid" : "528eb5db48c87cd2d6e23c50" }, "count" : 1, "city" : "San Francisco", "text" : "pete rock", "created_at" : { "$date" : 1383026910000 }, "updated_at" : "\"2013-11-21T19:39:39.408375\"", "tweet_ids" : [ "395069614813495296" ], "type" : "c" }
+
+{
+	id: "#",
+	
+
+
+}
+
+
+
+{
+	genre: [{
+		country1: [
+			artist 1: [song names],
+			artist 2: [song names],
+			artist 3: [song names],
+
+		]
+
+	]}
+
+
+}

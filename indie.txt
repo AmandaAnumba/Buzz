@@ -1,5 +1,8 @@
 AlunaGeorge
 Beck
+The Neighbourhood
+The Lumineers
+Florence And The Machine
 The xx
 Bastille
 MGMT
@@ -8,6 +11,7 @@ The Killers
 Arcade Fire
 Passion Pit
 Lykke Li
+Foster the People
 The Shins
 London Grammar
 Two Door Cinema Club
@@ -24,6 +28,7 @@ Peter Bjorn and John
 Matt and Kim
 Lily Allen
 Fun
+Fun.
 Architecture in Helsinki
 Of Montreal
 Feist
@@ -107,6 +112,7 @@ Thao Nguyen and The Get Down Stay Down
 Grizzly Bear
 Clap Your Hands Say Yeah
 Grouplove
+GroupLove
 Beach House
 Bat for Lashes
 Surfer Blood
@@ -143,6 +149,9 @@ The Hold Steady
 Stereo Total
 Black Lips
 Empire of the Sun
+Empire Of The Sun
+Empire of The Sun
+Empire Of the Sun
 Dr. Dog
 Animal Collective
 Ted Leo and the Pharmacists
@@ -179,6 +188,9 @@ Franz Ferdinand
 The Fiery Furnaces
 The Gossip
 OK Go
+OK GO!
+OK GO
+Vance Joy
 Belle & Sebastian
 Rogue Wave
 The OhSees

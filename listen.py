@@ -109,6 +109,7 @@ class Listener(tweepy.streaming.StreamListener):
 			'lat' :  status.coordinates['coordinates'][1],
 			'user_id_str' : status.user.id_str,
 			'user_name' : status.user.name,
+			'location' : status.user.location,
 			'user_screen_name' : status.user.screen_name,
 			'user_profile_image_url' : status.user.profile_image_url
 		}

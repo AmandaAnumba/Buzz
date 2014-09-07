@@ -17,10 +17,8 @@ Art of Noise
 A. R. Rahman
 Angelspit
 Chris Vrenna
-Andre 3000
 Front 242
 Alien Sex Fiend
-Ace of Base
 2 Unlimited
 Giorgio Moroder
 CAN
@@ -29,7 +27,6 @@ Asian Dub Foundation
 Ash Ra Tempel
 Aural Vampire
 Attrition
-Ashlee Simpson
 Atari Teenage Riot
 Asura
 Autolux
@@ -51,7 +48,6 @@ Amon Tobin
 Anything Box
 Apartment 26
 Apollo 440
-Jamiroquai
 Akshai Sarin
 Agatha Christie
 Adam Forkner
@@ -90,7 +86,6 @@ Claudio Sanchez
 Cry For Life
 Cut Copy
 Colourbox
-Alicia Keys
 Animal Collective
 Andrew William Harvey Taylor
 Anarchy Club
@@ -126,7 +121,6 @@ Critters Buggin
 C-drik Fermont
 Culture Beat
 Girl Talk
-Gnarls Barkley
 Chicks on Speed
 Justin Timberlake
 Juno Reactor
@@ -142,7 +136,6 @@ Howard Devoto
 Hexstatic
 Hans-Joachim Roedelius
 Hande Yener
-Gwen Stefani
 Goran Trajkovski
 Karl Bartos
 Craig Wuest
@@ -242,9 +235,9 @@ Mad and Spectral
 Malka Spigel
 Black Dice
 Cascada
+Cascade
 Black Strobe
 Bullets in a Burning Box
-Britney Spears
 Biddu
 Belanova
 Cetu Javu
@@ -263,7 +256,6 @@ Moby
 Ultravox
 The Cars
 Fatboy Slim
-Eurythmics
 Devo
 LCD Soundsystem
 M83
@@ -273,7 +265,6 @@ KMFDM
 MGMT
 Talk Talk
 Gary Numan
-Foster the People
 Visage
 Yes
 Hot Chip
@@ -282,7 +273,6 @@ New Young Pony Club
 The Moody Blues
 Justice
 Alpinestars
-Owl City
 Empire of the Sun
 CSS
 Tokio Hotel
@@ -307,7 +297,6 @@ Passion Pit
 Emerson, Lake & Palmer
 Rapture
 The 2 Bears
-3OH!3
 Deadmau5
 Daft Punk
 Avicii
@@ -317,6 +306,9 @@ Zedd
 Knife Party
 Peer Van Mladen
 Calvin Harris
+Calvin Harris Featuring Florence Welch
+Calvin Harris Featuring Rihanna
+Calvin Harris Featuring Ellie Goulding
 Tiesto
 Madeon
 Armin van Buuren
@@ -332,6 +324,7 @@ Kraftwerk
 Porter Robinson
 The Chemical Brothers
 Afrojack
+Afrojack Featuring Eva Simons
 Eric Prydz
 Justice
 The Prodigy
@@ -396,7 +389,6 @@ Luke Haines
 Josh Wink
 John Digweed
 Holy Fuck
-Kylie Minogue
 Laurent Garnier
 Deborah Cox
 Lux Voltaire
@@ -861,7 +853,6 @@ Sham Rock
 Shim Eun Jin
 Play
 Amanda Lear
-Madonna
 Basshunter
 Orbital
 Fatboy Slim
@@ -1010,7 +1001,6 @@ Abz Love
 J.X.
 The Virgins
 Fe-m
-Milli Vanilli
 Naked Highway
 Jack D. Elliot
 Enur
@@ -1040,7 +1030,6 @@ Anita Doth
 Jonathan Arons
 Chris Frangou
 Rab Townsend
-Taio Cruz
 Natalie Bassingthwaighte
 Walter Meego
 The PRIME8s
