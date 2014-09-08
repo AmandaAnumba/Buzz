@@ -641,7 +641,118 @@ def sortArtists():
 		f2.close()
 
 	
+def parseSongs():
+	clean = open('app/static/json/music/allTweets.json', 'r')
+	clean_list = json.load(clean,encoding="utf-8")
+	clean.close()
+
+
+	with open('app/static/json/music/songs.json', 'w') as f2:
+		
+		allsongs = {}
+
+		for line in clean_list:
+			genre = line['genre']
+			id = line['id']
+			artist = line['artist']
+			song = line['song']
+			latlong = line['coordinates']
+			city = line['city']
+			state = line['state']
+			country = line['country']
+
+			if city and state and country:
+				loc = city + ', ' + state + ', ' + country
+
+			if not city:
+				if state and country:
+					loc = state + ', ' + country
+
+			if not state:
+				if city and country:
+					loc = city + ', ' + country
+
+			if not country:
+				if city and state:
+					loc = city + ', ' + state
+			
+			data = {
+				'artist' : artist, 
+				'genre' : genre,
+				'count' : 1,
+				'places' : [loc, ],
+				'coordinates' : [latlong, ],
+				'ids' : [id, ]
+			}
+
+			if genre != 'unknown' and song not in allsongs.keys():
+				allsongs[song] = data
+
+			if genre != 'unknown' and song in allsongs.keys():
+				allsongs[song]['count'] += 1
+
+				if loc not in allsongs[song]['places']:
+					allsongs[song]['places'].append(loc)
+
+				if latlong not in allsongs[song]['coordinates']:
+					allsongs[song]['coordinates'].append(latlong)
+
+				allsongs[song]['ids'].append(id)
+
+		print "finished"
+
+		# print rock['trending'].keys()
+		f2.write('[')
+		json.dump(allsongs, f2)
+		f2.write(']')
+		f2.close()
+
+
+def parseSongs2():
+	f = open('app/static/json/music/songs.json', 'r')
+	f_list = json.load(f,encoding="utf-8")
+	f.close()
+
+	with open('app/static/json/music/allsongs.json', 'w') as f2:
+		f2.write('[')
+
+		for line in f_list:
+
+			for key in line:
+
+				if line[key]['count'] > 2:
+					data = { 
+						'song' : key,
+						'data' : line[key]
+					}
+
+					json.dump(data, f2)
+					f2.write(',\n')
+				else:
+					pass
+				
+		
+		f2.write(']')
+		f2.close()
+		
+
+
+def sortSongs():
+	f = open('app/static/json/music/allsongs.json', 'r')
+	f_list = json.load(f,encoding="utf-8")
+	f.close()
+
+	mylist = sorted(f_list, key=lambda k: (-k['data']['count']))
+
+	f2 = open('app/static/json/music/charts.json', 'w')
+	f2.write('[')
+	for i in range(0, len(mylist)):
+		json.dump(mylist[i], f2)
+		f2.write(',\n')
+
+	f2.write(']')
+	f2.close()
 
 
 if __name__ == "__main__":
-	sortArtists()
+	sortSongs()

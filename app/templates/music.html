@@ -277,6 +277,29 @@
               });
             });
           }
+
+          function charts() {
+            $.getJSON( "static/json/music/charts.json", function( data ) {
+              $.each( data, function( i, tweet ) {
+                  var ids = [];
+                  for (var k = 0; k < tweet.data.places.length; k++) {
+                    if(typeof ids[tweet.data.places[k][0]] == 'undefined') {
+                      ids.push(tweet.data.places[k][0]);
+                    }
+                    else {
+                      continue;
+                    }
+                  };
+
+                  var query = (tweet.data.song +' by '+ tweet.data.artist).replace(/%20/g, "+");
+
+                  var btn = '<td class="btn1"><a class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Google search for '+ tweet.data.song +' by '+ tweet.data.artist +'" target=”_blank” href="http://www.google.com/search?q='+query+'"><span class="glyphicon glyphicon-search"></span></a></td>';
+
+                  var html = '<tr><td class="active space">'+tweet.data.artist+'</td><td class="space">'+tweet.data.song+'</td><td>'+ids+'</td>'+btn+'</tr>';
+                  $('.table').append(html);
+              });
+            });
+          }
       </script>
 	</head>
 	
@@ -303,7 +326,7 @@
             <ul class="nav navbar-nav">
               <li id="tab_map" class="active"><a href="#map">Data Visualization</a></li>
               <li id="tab_genre"><a href="#genre">By Genre</a></li>
-              <!-- <li id="tab_artist"><a href="#artist">By Artist</a></li> -->
+              <li id="tab_charts"><a href="#charts">Top 40</a></li>
               <li id="tab_unique"><a href="#unique">Unique Data</a></li>
             </ul>
           </div>
@@ -328,9 +351,9 @@
               <small>Check out which genre is the most popular and view the top trending artists and songs in each genre</small>
             </div>
 
-            <!-- <div id="for_artist">
-              <p>for artist</p>
-            </div> -->
+            <div id="for_charts">
+              <small>View the top 40 trending songs in the world</small>
+            </div>
 
             <div id="for_unique">
               <small>View all uncategorized artists and songs to learn more about the regions where they were trending</small>
@@ -359,9 +382,10 @@
             <div id="genre_histogram"></div>
           </div>
 
-          <!-- <div class="tab-pane fade" id="artist">
-            Content by artist goes here
-          </div> -->
+          <!-- by songs/charts -->
+          <div class="tab-pane fade" id="charts">
+            Content by songs goes here
+          </div>
 
           <!-- unique data -->
           <div class="tab-pane fade" id="unique">
@@ -381,7 +405,7 @@
       <!-- Javascript functions -->
       <script type="text/javascript">
         $(function(){
-          $('#for_genre, #for_artist, #for_unique').hide();
+          $('#for_genre, #for_charts, #for_unique').hide();
 
           $("input[name=mapChoice]:radio").change(function () {
             var val = $(this).val();
@@ -407,6 +431,10 @@
           $('.btn1').tooltip();
         });
 
+        $('#tab_charts').click(function() {
+          charts();
+        });
+
         $('#us-map').hide();
 
         $('.navbar-nav a').click(function (e) {
@@ -430,12 +458,12 @@
             $('#for_genre').show();
           }
 
-          // if ($('#tab_artist').hasClass('active')) {
-          //   $('#navbar-footer').children().each(function(){
-          //     $(this).hide();
-          //   });
-          //   $('#for_artist').show();
-          // }
+          if ($('#tab_charts').hasClass('active')) {
+            $('#navbar-footer').children().each(function(){
+              $(this).hide();
+            });
+            $('#for_charts').show();
+          }
 
           if ($('#tab_unique').hasClass('active')) {
             $('#navbar-footer').children().each(function(){
