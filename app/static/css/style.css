@@ -980,6 +980,50 @@ th {
  	border-color: #fff !important; 
 }
 
+/*charts*/
+#song_charts {
+	padding-top: 50px;
+	margin: 0 22% 0 14%;
+}
+
+.chart_count {
+	float: left;
+	position: absolute;
+	left: 23%;
+	margin-top: -1.5%;
+	font-size: 2em;
+	line-height: 39px;
+	height: 42.5px;
+	padding: 0 12px 3px 12px;
+	color: white;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.25);
+	border: 1px solid #f1f1f1;
+	border-radius: 60px;
+	background-color: black;
+}
+
+.chart_content {
+	margin-left: 19%;
+	border-bottom: 1px solid rgb(224, 224, 224); 
+}
+
+.chart_content h3, 
+.chart_content p {
+	margin: 0 !important;
+}
+
+.chart_list {
+	margin-bottom: 9%;
+}
+
+.chart_image {
+	margin-left: 9%;
+	margin-right: 3%;
+}
+
+.youtube:hover {
+	text-decoration: none !important;
+}
 /*#tabs, .nav_header {
 	margin-left: 75px;
 	margin-right: 10px;

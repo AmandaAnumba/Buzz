@@ -267,36 +267,39 @@
                       continue;
                     }
                   };
-
-                  var query = (tweet.data.song +' by '+ tweet.data.artist).replace(/%20/g, "+");
-
-                  var btn = '<td class="btn1"><a class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Google search for '+ tweet.data.song +' by '+ tweet.data.artist +'" target=”_blank” href="http://www.google.com/search?q='+query+'"><span class="glyphicon glyphicon-search"></span></a></td>';
-
-                  var html = '<tr><td class="active space">'+tweet.data.artist+'</td><td class="space">'+tweet.data.song+'</td><td>'+ids+'</td>'+btn+'</tr>';
-                  $('.table').append(html);
-              });
-            });
-          }
-
-          function charts() {
-            $.getJSON( "static/json/music/charts.json", function( data ) {
-              $.each( data, function( i, tweet ) {
-                  var ids = [];
-                  for (var k = 0; k < tweet.data.places.length; k++) {
-                    if(typeof ids[tweet.data.places[k][0]] == 'undefined') {
-                      ids.push(tweet.data.places[k][0]);
-                    }
-                    else {
-                      continue;
-                    }
+                  var list = "";
+                  for (var m = 0; m < ids.length; m++) {
+                    var e = "<li>"+ids[m]+"</li>";
+                    list += e;
                   };
 
                   var query = (tweet.data.song +' by '+ tweet.data.artist).replace(/%20/g, "+");
 
                   var btn = '<td class="btn1"><a class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Google search for '+ tweet.data.song +' by '+ tweet.data.artist +'" target=”_blank” href="http://www.google.com/search?q='+query+'"><span class="glyphicon glyphicon-search"></span></a></td>';
 
-                  var html = '<tr><td class="active space">'+tweet.data.artist+'</td><td class="space">'+tweet.data.song+'</td><td>'+ids+'</td>'+btn+'</tr>';
+                  var html = '<tr><td class="active space">'+tweet.data.artist+'</td><td class="space">'+tweet.data.song+'</td><td><ul style="margin:0; width:300px;">'+list+'</ul></td>'+btn+'</tr>';
                   $('.table').append(html);
+                  $('.btn').tooltip();
+              });
+            });
+          }
+
+          function charts() {
+            $.getJSON( "static/json/music/charts.json", function( tw ) {
+              $.each( tw, function( i, tweet ) {
+                  if (i >= 40 ) {
+                    return false;
+                  }
+
+                  else {
+                    var one = "<div class='chart_list'><div class='chart_count'>"+ (i+1) +"</div>";
+                    var image = "<div class='chart_image' style='background: url("+tweet.image+") no-repeat; background-size: cover; width:97px; height:97px; float:left;'></div>";
+                    var query = (tweet.song +' by '+ tweet.data.artist).replace(/%20/g, "+");
+                    var btn = "<a class='youtube' target='_blank' href='http://www.youtube.com/results?search_query="+query+"'<span><i class='fa fa-youtube-play'></i></span> Watch on YouTube";
+                    var two = "<div class='chart_content'><h3 class='song_header'>"+ tweet.song +"</h3><p class='song_artist'><small><strong>By </strong>"+ tweet.data.artist +"</small></p><p class='song_count'><small><strong>Number of plays: </strong>"+ tweet.data.count +"</small></p><div class='song_share'><small>"+btn+"</small></div></div></div>";
+                    $('#song_charts').append(one+image+two);
+                  }
+                  
               });
             });
           }
@@ -378,13 +381,12 @@
             <div id="genre_chart">
               <svg></svg>
             </div> 
-
             <div id="genre_histogram"></div>
           </div>
 
           <!-- by songs/charts -->
           <div class="tab-pane fade" id="charts">
-            Content by songs goes here
+            <div id="song_charts"></div>
           </div>
 
           <!-- unique data -->

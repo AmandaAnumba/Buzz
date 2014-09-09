@@ -719,11 +719,14 @@ def parseSongs2():
 		for line in f_list:
 
 			for key in line:
+				query = key + " " + line[key]['artist']
+				image = getImage(query)
 
 				if line[key]['count'] > 2:
 					data = { 
 						'song' : key,
-						'data' : line[key]
+						'data' : line[key],
+						'image' : image
 					}
 
 					json.dump(data, f2)
@@ -734,7 +737,6 @@ def parseSongs2():
 		
 		f2.write(']')
 		f2.close()
-		
 
 
 def sortSongs():
