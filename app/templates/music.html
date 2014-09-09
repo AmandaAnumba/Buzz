@@ -415,12 +415,14 @@
             if (val == 'World') {
               $('#world-map').show();
               $('#us-map').hide();
+              $('#world-map').empty();
               world_data();
             }
 
             if (val == 'US'){
               $('#us-map').show();
               $('#world-map').hide();
+              $('#us-map').empty();
               us_data();
             }
           });
