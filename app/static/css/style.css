@@ -778,8 +778,9 @@ a {
 	}
 
 	.twitter-tweet {
-		max-width: 100%;
-		width: 350px;
+		max-width: 99%;
+		min-width: 350px !important;
+		width: 350px !important;
 		max-height: 250px;
 	}
 

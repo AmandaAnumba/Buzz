@@ -44,6 +44,8 @@
               height = $(window).height();
             document.getElementById('world-map').style.height = height;
             document.getElementById('world-map').style.width = width;
+            document.getElementById('us-map').style.height = height;
+            document.getElementById('us-map').style.width = width;
 
             world_data();
 
@@ -82,9 +84,13 @@
                     .call(chart);
                   nv.utils.windowResize(chart.update);
 
-                  return chart;
-                  
+                  return chart;    
                 });
+
+                d3.selectAll('.nv-slice').on('click', function(){ 
+                  console.log('hello');
+                });
+
 
                 data.sort(compare);
                     
@@ -378,12 +384,19 @@
           <!-- data vis -->
           <div class="tab-pane fade in active" id="map">
             <div id="world-map"></div>
-            <div id="us-map" style="width: 1200px; height: 650px;"></div>
+            <div id="us-map"></div>
           </div>
 
           <!-- by genre -->
           <div class="tab-pane fade" id="genre">
             <div id="genre_chart">
+              <div id="description">
+                <h2 class="b-title">Comparing Genres</h2>
+                <p>In the legend, click on the genre you would like to see more information about. </p>
+                <p>Double clicking on a genre will reveal only that genre.</p>
+                <p>Click on multiple genres to compare them.</p>
+              </div>
+
               <svg></svg>
             </div> 
             <div id="genre_histogram"></div>
@@ -434,7 +447,6 @@
           });
 
         });
-
 
         $('#tab_unique').click(function() {
           unknown_data();
