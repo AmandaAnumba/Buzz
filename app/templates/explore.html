@@ -59,7 +59,11 @@
 
     <!-- Javascript functions -->
     <script type="text/javascript" charset="utf-8">
-
+      $(function(){
+        var height = $(window).height();
+        document.getElementById('tweets').style.height = height - 50 + 'px !important';
+        document.getElementById('tweets').style.width = '420px';
+      });
 
       $.getJSON( "static/json/compare_tweets.json", function( data ) {
         var items = [];

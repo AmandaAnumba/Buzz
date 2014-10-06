@@ -84,13 +84,12 @@
                     .call(chart);
                   nv.utils.windowResize(chart.update);
 
+                  d3.selectAll('.nv-series').on('click', function(){ 
+                    // console.log(this.getElementsByClassName("nv-legend-text")[0].textContent);
+                  });
+
                   return chart;    
                 });
-
-                d3.selectAll('.nv-slice').on('click', function(){ 
-                  console.log('hello');
-                });
-
 
                 data.sort(compare);
                     
@@ -321,11 +320,11 @@
     
       <!-- NAVIGATION BAR -->
       <ul class="cbp-vimenu">
-          <li title="Home"><a href='{{ url_for("index") }}' class="icon-logo"></a></li>
-          <li title="Music Trends"><a href='{{ url_for("music") }}' class="icon-music"></a></li>
-          <li title="Discover"><a href='{{ url_for("discover") }}' class="icon-discover"></a></li>
-          <li title="Explore"><a href='{{ url_for("explore") }}' class="icon-explore"></a></li>
-          <li title="About"><a href='{{ url_for("about") }}' class="icon-about"></a></li>
+          <li data-toggle="tooltip" data-placement="right" title="Home"><a href='{{ url_for("index") }}' class="icon-logo"></a></li>
+          <li data-toggle="tooltip" data-placement="right" title="Music Trends"><a href='{{ url_for("music") }}' class="icon-music"></a></li>
+          <li data-toggle="tooltip" data-placement="right" title="Discover"><a href='{{ url_for("discover") }}' class="icon-discover"></a></li>
+          <li data-toggle="tooltip" data-placement="right" title="Explore"><a href='{{ url_for("explore") }}' class="icon-explore"></a></li>
+          <li data-toggle="tooltip" data-placement="right" title="About"><a href='{{ url_for("about") }}' class="icon-about"></a></li>
       </ul>
 
       <!-- NAVBAR HEDAER -->
@@ -391,10 +390,10 @@
           <div class="tab-pane fade" id="genre">
             <div id="genre_chart">
               <div id="description">
-                <h2 class="b-title">Comparing Genres</h2>
+                <h2 class="b-title" style="margin: 0;">Comparing Genres</h2>
                 <p>In the legend, click on the genre you would like to see more information about. </p>
-                <p>Double clicking on a genre will reveal only that genre.</p>
-                <p>Click on multiple genres to compare them.</p>
+                <p>Double clicking on a genre will reveal only that genre. Click on multiple genres </p>
+                <p>to compare them.</p>
               </div>
 
               <svg></svg>
@@ -426,7 +425,9 @@
       <script type="text/javascript">
         $(function(){
 
+          $('.cbp-vimenu > li').tooltip();
           $('#for_genre, #for_charts, #for_unique').hide();
+
 
           $("input[name=mapChoice]:radio").change(function () {
             var val = $(this).val();

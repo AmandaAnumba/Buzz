@@ -853,8 +853,6 @@ a {
 		list-style-type: none;
 		text-align: -webkit-match-parent!important; 
 		float: right!important;
-		height: 450px;
-		width: 420px;
 		overflow-y: scroll;
 	}
 
