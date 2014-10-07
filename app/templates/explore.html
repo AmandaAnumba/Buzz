@@ -28,14 +28,40 @@
 	
 	<body> 
     
-      <!-- NAVIGATION BAR -->
-      <ul class="cbp-vimenu">
-          <li title="Home"><a href='{{ url_for("index") }}' class="icon-logo"></a></li>
-          <li title="Music Trends"><a href='{{ url_for("music") }}' class="icon-music"></a></li>
-          <li title="Discover"><a href='{{ url_for("discover") }}' class="icon-discover"></a></li>
-          <li title="Explore"><a href='{{ url_for("explore") }}' class="icon-explore"></a></li>
-          <li title="About"><a href='{{ url_for("about") }}' class="icon-about"></a></li>
-      </ul>
+    <!-- NAVIGATION BAR -->
+    <ul class="cbp-vimenu">
+        <li class="icon_menu"><a data-toggle="#tt_home" href='{{ url_for("index") }}' class="icon-logo"></a></li>
+        <li class="icon_menu"><a data-toggle="#tt_music" href='{{ url_for("music") }}' class="icon-music"></a></li>
+        <li class="icon_menu"><a data-toggle="#tt_discover" href='{{ url_for("discover") }}' class="icon-discover"></a></li>
+        <li class="icon_menu"><a data-toggle="#tt_explore" href='{{ url_for("explore") }}' class="icon-explore"></a></li>
+        <li class="icon_menu"><a data-toggle="#tt_about" href='{{ url_for("about") }}' class="icon-about"></a></li>
+    </ul>
+
+    <!-- TOOLTIPS -->
+    <div class="tooltip fade right in" role="tooltip" id="tt_home" style="top: 21.5px; left:70px; display: block;">
+      <div class="tooltip-arrow"></div>
+      <div class="tooltip-inner">Home</div>
+    </div>
+
+    <div class="tooltip fade right in" role="tooltip" id="tt_music" style="top: 93px; left:70px; display: block;">
+      <div class="tooltip-arrow"></div>
+      <div class="tooltip-inner">Music Trends</div>
+    </div>
+
+    <div class="tooltip fade right in" role="tooltip" id="tt_discover" style="top: 165px; left:70px; display: block;">
+      <div class="tooltip-arrow"></div>
+      <div class="tooltip-inner">Discover</div>
+    </div>
+
+    <div class="tooltip fade right in" role="tooltip" id="tt_explore" style="top: 235px; left:70px; display: block;">
+      <div class="tooltip-arrow"></div>
+      <div class="tooltip-inner">Explore</div>
+    </div>
+
+    <div class="tooltip fade right in" role="tooltip" id="tt_about" style="top: 305px; left:70px; display: block;">
+      <div class="tooltip-arrow"></div>
+      <div class="tooltip-inner">About</div>
+    </div>
 
     <!-- MAIN BODY -->
     <main>
@@ -61,8 +87,22 @@
     <script type="text/javascript" charset="utf-8">
       $(function(){
         var height = $(window).height();
-        document.getElementById('tweets').style.height = height - 50 + 'px !important';
+        document.getElementById('tweets').style.height = height - 50 + 'px';
         document.getElementById('tweets').style.width = '420px';
+
+        $('.tooltip').hide();
+
+        $('.icon_menu > a').mouseenter(function(){ 
+          var toggle = $(this).attr('data-toggle');
+          // console.log(toggle);
+          $('.tooltip').hide();
+          $(toggle).show();
+        });
+
+        $('.icon_menu > a').mouseleave(function(){ 
+          $('.tooltip').hide();
+        });
+
       });
 
       $.getJSON( "static/json/compare_tweets.json", function( data ) {

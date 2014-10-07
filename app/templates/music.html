@@ -47,6 +47,8 @@
             document.getElementById('us-map').style.height = height;
             document.getElementById('us-map').style.width = width;
 
+            $('.icon_menu').tooltip();
+
             world_data();
 
             var data = [], 
@@ -84,10 +86,6 @@
                     .call(chart);
                   nv.utils.windowResize(chart.update);
 
-                  d3.selectAll('.nv-series').on('click', function(){ 
-                    // console.log(this.getElementsByClassName("nv-legend-text")[0].textContent);
-                  });
-
                   return chart;    
                 });
 
@@ -103,8 +101,8 @@
 
                 for (var i = 0; i < data.length; i++) {
                   if (data[i].label != 'unknown') {
-                    var label_hist = "<div class='g-hist-wrapper'><h2 class='hist-label'>"+ data[i].label +"</h2>";
-                    var hist = "<li><div class='hist-inner'><div class='hist-artists' id='for_"+data[i].label+"'></div><div class='hist-bar' style='width:"+Math.round(data[i].value)+"%'></div></div></li></div>";
+                    var label_hist = "<div id='for_"+data[i].label+"' class='g-hist-wrapper'><h2 class='hist-label'>"+ data[i].label +"</h2>";
+                    var hist = "<li><div class='hist-inner'><div class='hist-artists'></div><div class='hist-bar' style='width:"+Math.round(data[i].value)+"%'></div></div></li></div>";
                     $('#genre_histogram').append(label_hist + hist);
                   }
                 };
@@ -112,7 +110,53 @@
                 getTrending();
             });
           });
-            
+          
+          setTimeout(function() {
+            launch();
+          }, 4000);
+
+          // setTimeout(function() {
+          //   var legend = document.getElementsByClassName("nv-series");
+
+          //   var launch = function(target) {
+          //     $('#for_'+target).show();
+          //   };
+
+          //   var doubled = function(target) {
+          //     $('.g-hist-wrapper').hide();
+          //     $('#for_'+target).show();
+          //   };
+
+          //   for (var i = 0; i < legend.length; i++){
+          //     var genre = legend[i].getElementsByTagName('text')[0].innerHTML;
+          //     legend[i].addEventListener('click', launch(genre), false);
+          //     legend[i].addEventListener('dblclick', doubled(genre), false);
+          //   }
+          // }, 4000);
+          
+
+          function launch(){ // wait until the DOM is ready, then do:
+            $('.nv-series').one('click', function() {
+              $('g-hist-wrapper').hide();
+              var target = $(this).children('text').text();
+              // console.log(target);
+              $('#for_'+target).show();
+            });
+
+            $('.nv-series').click(function() {
+              var target = $(this).children('text').text();
+              $('#for_'+target).show();
+              
+            });
+
+            $('.nv-series').dblclick(function() {
+              $('.g-hist-wrapper').hide();
+              var target = $(this).children('text').text();
+              $('#for_'+target).show();
+            });
+          }
+          
+
           function getTrending() {
             var genres = ['country', 'electronic', 'hiphop', 'indie', 'jazz', 'metal', 'pop', 'rock', 'reggae', 'rnb'];
             for (var i = 0; i < genres.length; i++) {
@@ -313,6 +357,7 @@
               });
             });
           }
+
       </script>
 	</head>
 	
@@ -320,12 +365,38 @@
     
       <!-- NAVIGATION BAR -->
       <ul class="cbp-vimenu">
-          <li data-toggle="tooltip" data-placement="right" title="Home"><a href='{{ url_for("index") }}' class="icon-logo"></a></li>
-          <li data-toggle="tooltip" data-placement="right" title="Music Trends"><a href='{{ url_for("music") }}' class="icon-music"></a></li>
-          <li data-toggle="tooltip" data-placement="right" title="Discover"><a href='{{ url_for("discover") }}' class="icon-discover"></a></li>
-          <li data-toggle="tooltip" data-placement="right" title="Explore"><a href='{{ url_for("explore") }}' class="icon-explore"></a></li>
-          <li data-toggle="tooltip" data-placement="right" title="About"><a href='{{ url_for("about") }}' class="icon-about"></a></li>
+          <li class="icon_menu"><a data-toggle="#tt_home" href='{{ url_for("index") }}' class="icon-logo"></a></li>
+          <li class="icon_menu"><a data-toggle="#tt_music" href='{{ url_for("music") }}' class="icon-music"></a></li>
+          <li class="icon_menu"><a data-toggle="#tt_discover" href='{{ url_for("discover") }}' class="icon-discover"></a></li>
+          <li class="icon_menu"><a data-toggle="#tt_explore" href='{{ url_for("explore") }}' class="icon-explore"></a></li>
+          <li class="icon_menu"><a data-toggle="#tt_about" href='{{ url_for("about") }}' class="icon-about"></a></li>
       </ul>
+
+      <!-- TOOLTIPS -->
+      <div class="tooltip fade right in" role="tooltip" id="tt_home" style="top: 21.5px; left:70px; display: block;">
+        <div class="tooltip-arrow"></div>
+        <div class="tooltip-inner">Home</div>
+      </div>
+
+      <div class="tooltip fade right in" role="tooltip" id="tt_music" style="top: 93px; left:70px; display: block;">
+        <div class="tooltip-arrow"></div>
+        <div class="tooltip-inner">Music Trends</div>
+      </div>
+
+      <div class="tooltip fade right in" role="tooltip" id="tt_discover" style="top: 165px; left:70px; display: block;">
+        <div class="tooltip-arrow"></div>
+        <div class="tooltip-inner">Discover</div>
+      </div>
+
+      <div class="tooltip fade right in" role="tooltip" id="tt_explore" style="top: 235px; left:70px; display: block;">
+        <div class="tooltip-arrow"></div>
+        <div class="tooltip-inner">Explore</div>
+      </div>
+
+      <div class="tooltip fade right in" role="tooltip" id="tt_about" style="top: 305px; left:70px; display: block;">
+        <div class="tooltip-arrow"></div>
+        <div class="tooltip-inner">About</div>
+      </div>
 
       <!-- NAVBAR HEDAER -->
       <nav class="navbar navbar-default" role="navigation">
@@ -424,10 +495,19 @@
       <!-- Javascript functions -->
       <script type="text/javascript">
         $(function(){
-
-          $('.cbp-vimenu > li').tooltip();
           $('#for_genre, #for_charts, #for_unique').hide();
+          $('.tooltip').hide();
 
+          $('.icon_menu > a').mouseenter(function(){ 
+            var toggle = $(this).attr('data-toggle');
+            // console.log(toggle);
+            $('.tooltip').hide();
+            $(toggle).show();
+          });
+
+          $('.icon_menu > a').mouseleave(function(){ 
+            $('.tooltip').hide();
+          });
 
           $("input[name=mapChoice]:radio").change(function () {
             var val = $(this).val();
@@ -497,14 +577,5 @@
         }
 
       </script>
-
-      <style type="text/css">
-        body {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-        }
-      </style>
-      
     </body>
 </html>
