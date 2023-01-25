@@ -3,7 +3,7 @@ Modeled from Shazam App
 - Buzz chart - most popular songs in the us
 - top trending songs and where and the related tweets
 - top trending artists
-- little known artists
+- (removed this line)
 
 first page is a map representation of all tweets in database with a location, 
 	artist, song, and genre
